@@ -4,6 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Contact — Octus Estate</title>
+<meta name="description" content="Get in touch with Mia Smith at Octus Estate. Schedule a free 20-minute fit call, send a message, or call directly. Every inquiry is answered personally."/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Instrument+Sans:wght@400;500;600&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -11,7 +12,7 @@
 <link rel="icon" type="image/png" href="assets/octus-mark.png">
 <style>
   .page-hero { padding: 80px 0 50px; }
-  .page-hero h1 { max-width: 14ch; }
+  .page-hero h1 { max-width: 16ch; }
   .page-hero .lead { max-width: 50ch; margin-top: 18px; }
 
   .contact-grid {
@@ -34,9 +35,14 @@
     color: var(--navy);
     line-height: 1.2;
   }
-  .info-item .val a { border-bottom: 1px solid transparent; transition: border .15s; }
+  .info-item .val a {
+    color: var(--navy);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border .15s;
+  }
   .info-item .val a:hover { border-color: var(--gold); }
-  .info-item .note { font-size: 14px; color: var(--fg-soft); margin-top: 6px; }
+  .info-item .note { font-size: 14px; color: var(--fg-soft); margin-top: 6px; line-height: 1.55; }
 
   .contact-form {
     background: var(--bg-elev);
@@ -45,7 +51,7 @@
     padding: 40px;
   }
   .contact-form h2 { font-size: 28px; margin-bottom: 6px; }
-  .contact-form > p { margin-bottom: 28px; font-size: 14px; }
+  .contact-form > p { margin-bottom: 28px; font-size: 14px; color: var(--fg-soft); line-height: 1.55; }
   .field { margin-bottom: 18px; display: flex; flex-direction: column; gap: 6px; }
   .field label {
     font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
@@ -68,45 +74,18 @@
   .field textarea { min-height: 110px; resize: vertical; }
   .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
-  .offices-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 22px;
-  }
   .office-card {
     background: var(--bg-elev);
     border: 1px solid var(--rule);
     border-radius: 14px;
-    padding: 32px;
-    display: flex; flex-direction: column; gap: 12px;
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
-  .office-map {
-    aspect-ratio: 16/10;
-    border-radius: 10px;
-    background:
-      linear-gradient(135deg, var(--sage-soft) 0%, var(--sage) 100%);
-    position: relative;
-    margin-bottom: 8px;
-    border: 1px solid var(--rule);
-  }
-  .office-map::after {
-    content: ""; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    width: 14px; height: 14px; border-radius: 50%;
-    background: var(--gold);
-    box-shadow: 0 0 0 8px rgba(197,159,74,0.25), 0 0 0 16px rgba(197,159,74,0.12);
-  }
-  .office-city {
-    font-family: var(--serif);
-    font-size: 24px;
-    color: var(--navy);
-    font-weight: 500;
-  }
-  .office-addr { font-size: 14px; color: var(--fg-soft); line-height: 1.5; }
-  .office-hrs { font-size: 12px; color: var(--gold-deep); font-family: var(--mono); letter-spacing: 0.04em; }
 
   @media (max-width: 980px) {
     .contact-grid { grid-template-columns: 1fr; gap: 50px; }
-    .offices-grid { grid-template-columns: 1fr; }
     .field-row { grid-template-columns: 1fr; }
   }
 </style>
@@ -118,8 +97,8 @@
 <section class="page-hero">
   <div class="container">
     <span class="eyebrow">Get in touch</span>
-    <h1 style="margin-top:16px;">Hello. <em style="color:var(--gold-deep);font-style:italic;">We're glad you're here.</em></h1>
-    <p class="lead">For scheduling, the fastest path is the Schedule Now button — it opens our live calendar. For anything else, the channels below.</p>
+    <h1 style="margin-top:16px;">Hello. <em style="color:var(--gold-deep);font-style:italic;">You'll hear back from Mia.</em></h1>
+    <p class="lead">Every message, every call, every question — answered personally. The fastest path to a conversation is the Schedule Now button. For everything else, the channels below.</p>
   </div>
 </section>
 
@@ -128,37 +107,31 @@
     <div class="contact-grid">
 
       <div class="contact-info">
+
         <div class="info-item">
           <h4>By phone</h4>
           <div class="val"><a href="tel:+18335331123">(833) 533-1123</a></div>
-          <div class="note">Monday–Friday, 9am–5pm Eastern Time. If we're with a client, leave a voicemail and we'll return your call the same business day.</div>
+          <div class="note">Monday–Friday, 9am–5pm Eastern. If Mia is with a client, leave a voicemail and she'll return your call the same business day.</div>
         </div>
 
         <div class="info-item">
           <h4>By email</h4>
-          <div class="val"><a href="/cdn-cgi/l/email-protection#91f9f4fdfdfed1fef2e5e4e2f7f8fff0fff2f8f0fdbff2fefc"><span class="__cf_email__" data-cfemail="2048454c4c4f604f4354555346494e414e4349414c0e434f4d">[email&#160;protected]</span></a></div>
-          <div class="note">For general questions. Existing clients should email their advisor directly.</div>
+          <div class="val"><a href="mailto:mia@octusfinancial.com">mia&#64;octusfinancial.com</a></div>
+          <div class="note">Questions about your plan, the process, or whether Octus is the right fit — this goes directly to Mia. You'll get a real reply, not a canned response.</div>
         </div>
 
         <div class="info-item">
           <h4>For new clients</h4>
           <div class="val"><a href="https://calendly.com/octusfinancial/introduction" target="_blank" rel="noopener">Schedule a 20-min fit call →</a></div>
-          <div class="note">No payment, no obligation. We'll match you with the right advisor.</div>
+          <div class="note">No payment, no obligation. Three questions, an honest recommendation, and a clear next step — whether that's Octus or not.</div>
         </div>
 
         <div class="info-item">
-          <h4>For press &amp; partnerships</h4>
-          <div class="val"><a href="/cdn-cgi/l/email-protection#275755425454674844535254414e494649444e464b0944484a"><span class="__cf_email__" data-cfemail="e69694839595a68985929395808f888788858f878ac885898b">[email&#160;protected]</span></a></div>
+          <h4>Referrals &amp; partnerships</h4>
+          <div class="val"><a href="mailto:estate@octusfinancial.com">estate&#64;octusfinancial.com</a></div>
+          <div class="note">Attorneys, CPAs, financial advisors, and other professionals — we'd love to connect. Reach out and Mia will follow up directly.</div>
         </div>
 
-        <div class="info-item">
-          <h4>Mailing address</h4>
-          <div class="val" style="font-size:18px;line-height:1.5;">
-            Octus Estate<br/>
-            Central Florida Office<br/>
-            <span style="font-size:14px;color:var(--fg-soft);">Address provided upon scheduling</span>
-          </div>
-        </div>
       </div>
 
       <form class="contact-form" id="octus-contact-form" novalidate>
@@ -168,11 +141,11 @@
         <div class="field-row">
           <div class="field">
             <label for="cf-first">First name</label>
-            <input id="cf-first" name="q2_textbox0" type="text" required placeholder="Linda" autocomplete="given-name">
+            <input id="cf-first" name="q2_textbox0" type="text" required placeholder="First name" autocomplete="given-name">
           </div>
           <div class="field">
             <label for="cf-last">Last name</label>
-            <input id="cf-last" name="q3_textbox1" type="text" required placeholder="Park" autocomplete="family-name">
+            <input id="cf-last" name="q3_textbox1" type="text" required placeholder="Last name" autocomplete="family-name">
           </div>
         </div>
 
@@ -183,7 +156,7 @@
 
         <div class="field">
           <label for="cf-phone">Phone (optional)</label>
-          <input id="cf-phone" name="q5_phone3" type="tel" placeholder="(303) 555-0100" autocomplete="tel">
+          <input id="cf-phone" name="q5_phone3" type="tel" placeholder="(000) 000-0000" autocomplete="tel">
         </div>
 
         <div class="field">
@@ -198,7 +171,7 @@
             <option>I'm an existing client</option>
             <option>I have a question about pricing</option>
             <option>I have a question about a specific product</option>
-            <option>Press / partnership inquiry</option>
+            <option>Referral or partnership inquiry</option>
             <option>Something else</option>
           </select>
         </div>
@@ -216,7 +189,7 @@
         </button>
 
         <p style="font-size:12px;color:var(--fg-soft);margin-top:14px;margin-bottom:0;line-height:1.5;">
-          Submitting this form does not create an attorney-client or advisor-client relationship. Please do not include confidential information until we've confirmed engagement. Information you submit is handled under our <a href="legal.html#privacy" style="color:var(--navy);text-decoration:underline;text-decoration-color:var(--gold);">Privacy Policy</a>.
+          Submitting this form does not create an attorney-client or advisor-client relationship. Please do not include confidential information until we've confirmed engagement. Information you submit is handled under our <a href="/legal.html#privacy" style="color:var(--navy);text-decoration:underline;text-decoration-color:var(--gold);">Privacy Policy</a>.
         </p>
       </form>
 
@@ -234,27 +207,27 @@
     </div>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;">
-      <div class="office-card" style="padding:36px;">
+      <div class="office-card">
         <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 12px;background:#fbf6e9;border-radius:999px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:16px;">
           <span style="width:6px;height:6px;border-radius:50%;background:var(--gold);"></span>
           Our office
         </div>
-        <div class="office-city" style="font-size:30px;">Central Florida</div>
-        <div class="office-addr" style="margin-top:10px;">Our home base. Available for any of the three meetings, by appointment.</div>
-        <div class="office-hrs" style="margin-top:14px;">Mon–Fri · 9am–5pm ET</div>
+        <div style="font-family:var(--serif);font-size:30px;color:var(--navy);font-weight:500;">Central Florida</div>
+        <div style="margin-top:10px;font-size:14px;color:var(--fg-soft);line-height:1.5;">Our home base. Available for any of the three meetings, by appointment.</div>
+        <div style="margin-top:14px;font-size:12px;color:var(--gold-deep);font-family:var(--mono);letter-spacing:0.04em;">Mon–Fri · 9am–5pm ET</div>
         <div style="margin-top:14px;font-size:13px;color:var(--fg-soft);line-height:1.5;">
           Specific office address is shared after your fit call, when we confirm meeting times.
         </div>
       </div>
 
-      <div class="office-card" style="padding:36px;">
+      <div class="office-card">
         <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 12px;background:rgba(15,49,78,0.06);border-radius:999px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy);font-weight:600;margin-bottom:16px;">
           <span style="width:6px;height:6px;border-radius:50%;background:var(--navy);"></span>
           Outside Central Florida
         </div>
-        <div class="office-city" style="font-size:30px;">Anywhere, virtually.</div>
-        <div class="office-addr" style="margin-top:10px;">All three meetings conducted virtually — over secure video on your smartphone or computer. Same process, same advisor, no travel required.</div>
-        <div class="office-hrs" style="margin-top:14px;">Scheduled around your availability</div>
+        <div style="font-family:var(--serif);font-size:30px;color:var(--navy);font-weight:500;">Anywhere, virtually.</div>
+        <div style="margin-top:10px;font-size:14px;color:var(--fg-soft);line-height:1.5;">All three meetings conducted virtually — over secure video on your smartphone or computer. Same process, same advisor, no travel required.</div>
+        <div style="margin-top:14px;font-size:12px;color:var(--gold-deep);font-family:var(--mono);letter-spacing:0.04em;">Scheduled around your availability</div>
         <div style="margin-top:14px;font-size:13px;color:var(--fg-soft);line-height:1.5;">
           The signing meeting requires a notary, which we coordinate either way.
         </div>
@@ -264,7 +237,8 @@
 </section>
 
 <div id="site-footer"></div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="partials.js"></script>
+<script src="partials.js"></script>
+
 <script type="application/ld+json" data-schema="contact">
 {
   "@context": "https://schema.org",
@@ -276,7 +250,7 @@
     "@id": "https://octusestate.com/#organization",
     "name": "Octus Estate",
     "telephone": "+1-833-533-1123",
-    "email": "hello@octusestate.com",
+    "email": "mia@octusfinancial.com",
     "contactPoint": [
       {
         "@type": "ContactPoint",
@@ -287,13 +261,13 @@
       },
       {
         "@type": "ContactPoint",
-        "email": "support@octusestate.com",
+        "email": "mia@octusfinancial.com",
         "contactType": "client support",
         "areaServed": "US"
       },
       {
         "@type": "ContactPoint",
-        "email": "info@octusestate.com",
+        "email": "estate@octusfinancial.com",
         "contactType": "sales",
         "areaServed": "US"
       }
@@ -303,13 +277,6 @@
 </script>
 
 <script>
-  /* =========================================================
-     Contact form → JotForm AJAX submission
-     Form ID: 261806616882061
-     Fields are name-mapped to JotForm question keys on the inputs.
-     Uses an invisible iframe submission to dodge CORS — JotForm
-     returns no useful body to a fetch() from another origin.
-     ========================================================= */
   (function () {
     const form = document.getElementById('octus-contact-form');
     if (!form) return;
@@ -338,8 +305,8 @@
           '<div style="width:56px;height:56px;border-radius:50%;background:#fbf6e9;display:inline-flex;align-items:center;justify-content:center;margin-bottom:18px;">' +
             '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#a8862e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' +
           '</div>' +
-          '<div style="font-family:var(--serif);font-size:32px;color:var(--navy);font-weight:500;">Thanks — we got it.</div>' +
-          '<div style="margin-top:12px;color:var(--fg-soft);max-width:38ch;margin-left:auto;margin-right:auto;line-height:1.6;">An advisor will reply within one business day. If your matter is urgent, please call (833) 533-1123.</div>' +
+          '<div style="font-family:var(--serif);font-size:32px;color:var(--navy);font-weight:500;">Thanks — Mia will be in touch.</div>' +
+          '<div style="margin-top:12px;color:var(--fg-soft);max-width:38ch;margin-left:auto;margin-right:auto;line-height:1.6;">You\'ll hear back within one business day. If your matter is urgent, please call (833) 533-1123.</div>' +
         '</div>';
     }
 
@@ -347,10 +314,8 @@
       e.preventDefault();
       clearError();
 
-      // Basic HTML5 validation
       if (!form.checkValidity()) {
         showError('Please fill in the required fields and try again.');
-        // Trigger native UI hints
         form.reportValidity();
         return;
       }
@@ -358,11 +323,8 @@
       submitBtn.disabled = true;
       label.textContent = 'Sending…';
 
-      // Build the form data from the live form
       const fd = new FormData(form);
 
-      // Submit via a hidden iframe so the JotForm response (which goes to
-      // a different origin) doesn't navigate this page or trip CORS.
       const iframeName = 'cf-target-' + Date.now();
       const iframe = document.createElement('iframe');
       iframe.name = iframeName;
@@ -386,8 +348,6 @@
 
       document.body.appendChild(tempForm);
 
-      // Safety timeout — if the iframe never reports back in 12s,
-      // assume it worked but log a warning.
       let resolved = false;
       const timer = setTimeout(function () {
         if (resolved) return;
@@ -398,8 +358,6 @@
 
       function cleanup() {
         try { tempForm.remove(); } catch (e) {}
-        // Leave iframe in DOM briefly so any in-flight requests finish;
-        // remove after a beat.
         setTimeout(function () { try { iframe.remove(); } catch (e) {} }, 1000);
       }
 
