@@ -7,7 +7,7 @@ const OCTUS_NAV = [
   { href: "/trust-vs-will.html", label: "Trust vs Will" },
   { href: "/about.html", label: "About" },
   { href: "/faq.html", label: "FAQ" },
-  { href: "/blog.html", label: "Resources" },
+  { href: "/resources.html", label: "Resources" },
   { href: "/contact.html", label: "Contact" },
 ];
 
@@ -34,7 +34,7 @@ const ESSAY_SLUGS = [
 
 function renderHeader(currentPath) {
   // If we're on an essay page, highlight "Resources" in the nav
-  const navPath = ESSAY_SLUGS.includes(currentPath) ? "blog.html" : currentPath;
+  const navPath = ESSAY_SLUGS.includes(currentPath) ? "resources.html" : currentPath;
 
   const links = OCTUS_NAV.map(n => {
     const cur = n.href === navPath ? ' class="current"' : "";
@@ -89,7 +89,7 @@ function renderFooter() {
             <li><a href="/how-it-works.html">How it works</a></li>
             <li><a href="/trust-vs-will.html">Trust vs Will</a></li>
             <li><a href="/faq.html">FAQ</a></li>
-            <li><a href="/blog.html">Resources</a></li>
+            <li><a href="/resources.html">Resources</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -100,7 +100,7 @@ function renderFooter() {
             <li><a href="/essay-probate.html">What probate actually costs</a></li>
             <li><a href="/essay-lady-bird-deed.html">Lady Bird deeds in Florida</a></li>
             <li><a href="/essay-blended-families.html">Blended family planning</a></li>
-            <li><a href="/blog.html" style="color:var(--gold);margin-top:4px;display:inline-block;">All essays →</a></li>
+            <li><a href="/resources.html" style="color:var(--gold);margin-top:4px;display:inline-block;">All essays →</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -239,13 +239,13 @@ function injectGlobalSchema() {
 
   // Article list schema — helps AI engines and search understand the essay library
   const path = (location.pathname.split("/").pop() || "");
-  if (path === "blog.html" || path === "") {
+  if (path === "resources.html" || path === "") {
     const articleList = {
       "@context": "https://schema.org",
       "@type": "ItemList",
       "name": "Estate Planning Essays — Octus Estate",
       "description": "Short essays on estate planning written by Mia Smith, FRC, NSSA, FPWM.",
-      "url": "https://octusestate.com/blog.html",
+      "url": "https://octusestate.com/resources.html",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "The Unfunded Trust Epidemic", "url": "https://octusestate.com/essay-unfunded-trust.html" },
         { "@type": "ListItem", "position": 2, "name": "Revocable vs Irrevocable Trusts", "url": "https://octusestate.com/essay-revocable-vs-irrevocable.html" },

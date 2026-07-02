@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Resources — Octus Estate</title>
+<meta name="description" content="Short essays on the parts of estate planning most people get wrong. Trusts, wills, powers of attorney, probate, and more — written in plain English."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Instrument+Sans:wght@400;500;600&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"/>
+<link rel="icon" type="image/png" href="assets/octus-mark.png">
+<style>
+  .page-hero { padding: 80px 0 40px; }
+  .page-hero h1 { max-width: 18ch; }
+  .page-hero .lead { max-width: 56ch; margin-top: 18px; }
+
+  .topic-pills { display: flex; gap: 10px; flex-wrap: wrap; margin: 36px 0 24px; }
+  .topic-pill {
+    padding: 8px 16px;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    font-size: 13px;
+    color: var(--fg);
+    background: var(--bg-elev);
+    cursor: pointer;
+    transition: all .15s;
+    user-select: none;
+  }
+  .topic-pill:hover { border-color: var(--gold); color: var(--gold-deep); }
+  .topic-pill.active { background: var(--navy); color: #f7f1df; border-color: var(--navy); }
+
+  /* ── featured ── */
+  .featured-post {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 0;
+    background: var(--bg-elev);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 60px;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow .2s;
+  }
+  .featured-post:hover { box-shadow: 0 8px 32px rgba(15,49,78,.13); }
+  .featured-img {
+    aspect-ratio: 4/3;
+    background: linear-gradient(155deg, var(--navy-soft), var(--navy));
+    position: relative;
+    display: flex; align-items: flex-end; padding: 32px;
+    color: #f7f1df;
+  }
+  .featured-img::before {
+    content: ""; position: absolute; top: 24px; right: 24px;
+    width: 60px; height: 60px; border-radius: 50%;
+    background: var(--gold);
+    background-image: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.4) 30%, transparent 31%);
+  }
+  .featured-img .tag { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .featured-img h2 { color: #f7f1df; font-size: 36px; line-height: 1.1; max-width: 14ch; }
+  .featured-content { padding: 48px 44px; display: flex; flex-direction: column; justify-content: center; }
+  .featured-content .meta { font-size: 12px; color: var(--fg-soft); margin-bottom: 18px; font-family: var(--mono); letter-spacing: 0.06em; }
+  .featured-content p { font-size: 16.5px; line-height: 1.6; margin-bottom: 28px; }
+
+  /* ── post grid ── */
+  .post-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 30px 26px; }
+
+  .post {
+    display: flex; flex-direction: column;
+    text-decoration: none; color: inherit;
+  }
+  .post[hidden] { display: none; }
+
+  .post-thumb {
+    aspect-ratio: 16/11;
+    border-radius: 10px;
+    background: var(--sage-soft);
+    margin-bottom: 18px;
+    position: relative;
+    overflow: hidden;
+    transition: transform .25s;
+  }
+  .post:hover .post-thumb { transform: translateY(-2px); }
+  .post-thumb.t1 { background: linear-gradient(160deg, var(--sage-soft), var(--sage)); }
+  .post-thumb.t2 { background: linear-gradient(160deg, #f1ede3, var(--gold-soft)); }
+  .post-thumb.t3 { background: linear-gradient(160deg, var(--navy-soft), var(--navy)); }
+  .post-thumb.t4 { background: linear-gradient(160deg, #e8e8e8, #c5c5c5); }
+  .post-thumb.t5 { background: linear-gradient(160deg, var(--gold-soft), var(--gold)); }
+  .post-thumb.t6 { background: linear-gradient(160deg, var(--sage), var(--navy-soft)); }
+
+  .post-tag {
+    position: absolute; top: 14px; left: 14px;
+    background: rgba(255,255,255,0.9);
+    color: var(--navy);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .post-meta { font-size: 11px; color: var(--fg-soft); font-family: var(--mono); letter-spacing: 0.06em; margin-bottom: 8px; }
+  .post h3 { font-size: 22px; line-height: 1.25; margin-bottom: 8px; transition: color .15s; }
+  .post:hover h3 { color: var(--gold-deep); }
+  .post p { font-size: 14.5px; margin-bottom: 0; color: var(--fg-soft); }
+
+  /* ── load more ── */
+  #load-more-btn { display: inline-block; }
+  #load-more-btn[hidden] { display: none; }
+
+  @media (max-width:980px) {
+    .featured-post { grid-template-columns: 1fr; }
+    .post-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Field notes &amp; resources</span>
+    <h1 style="margin-top:16px;">Estate planning, <em style="color:var(--gold-deep);font-style:italic;">explained slowly.</em></h1>
+    <p class="lead">Short essays from our advisors on the parts of estate planning most people get wrong. No SEO listicles. No "10 things you didn't know."</p>
+
+    <div class="topic-pills">
+      <span class="topic-pill active" data-filter="all">All topics</span>
+      <span class="topic-pill" data-filter="trusts">Revocable trusts</span>
+      <span class="topic-pill" data-filter="wills">Wills</span>
+      <span class="topic-pill" data-filter="poas">POAs</span>
+      <span class="topic-pill" data-filter="funding">Funding</span>
+      <span class="topic-pill" data-filter="tax">Tax &amp; multi-state</span>
+      <span class="topic-pill" data-filter="life-events">Life events</span>
+      <span class="topic-pill" data-filter="new-parents">For new parents</span>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:20px;">
+  <div class="container">
+
+    <!-- Featured essay -->
+    <a class="featured-post" href="essay-unfunded-trust.html" data-category="funding">
+      <div class="featured-img">
+        <div>
+          <div class="tag">Featured · Funding</div>
+          <h2>The unfunded trust epidemic — and how to spot one.</h2>
+        </div>
+      </div>
+      <div class="featured-content">
+        <div class="meta">By Mia Smith · 7 min read · June 2026</div>
+        <h3 style="font-size:26px;">Roughly 60% of trusts drafted in the U.S. each year are never properly funded.</h3>
+        <p>It's the dirty secret of estate planning. A beautiful document isn't worth the paper it's printed on if the house, the brokerage account, and the savings are still titled in your individual name. Here's what funding actually means, and a 15-minute self-audit you can do this weekend.</p>
+        <span class="btn btn-ghost" style="width:fit-content;">Read the essay
+          <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </span>
+      </div>
+    </a>
+
+    <!-- Post grid — first 9 visible, rest load-more -->
+    <div class="post-grid" id="post-grid">
+
+      <!-- 1 -->
+      <a class="post" href="essay-diy-trust.html" data-category="trusts">
+        <div class="post-thumb t1"><span class="post-tag">Trusts</span></div>
+        <div class="post-meta">By Mia Smith · 7 min · May 2026</div>
+        <h3>Why a "DIY trust" almost never survives first contact with reality</h3>
+        <p>The four edge cases online platforms don't handle — and what happens when you hit one.</p>
+      </a>
+
+      <!-- 2 -->
+      <a class="post" href="essay-guardian-designation.html" data-category="new-parents">
+        <div class="post-thumb t2"><span class="post-tag">For new parents</span></div>
+        <div class="post-meta">By Mia Smith · 6 min · May 2026</div>
+        <h3>Naming a guardian for your children is the hardest 20 minutes</h3>
+        <p>A framework for the conversation, including the question most couples avoid.</p>
+      </a>
+
+      <!-- 3 -->
+      <a class="post" href="essay-healthcare-proxy.html" data-category="poas">
+        <div class="post-thumb t3"><span class="post-tag">POAs</span></div>
+        <div class="post-meta">By Mia Smith · 6 min · April 2026</div>
+        <h3>The healthcare proxy nobody reads — until they need it</h3>
+        <p>What "springing" vs "immediate" actually means, and which one your family should pick.</p>
+      </a>
+
+      <!-- 4 -->
+      <a class="post" href="essay-spouse-dies.html" data-category="life-events">
+        <div class="post-thumb t4"><span class="post-tag">Life events</span></div>
+        <div class="post-meta">By Mia Smith · 8 min · April 2026</div>
+        <h3>What to do in the first 30 days after a spouse dies</h3>
+        <p>A practical checklist, written by the person who walks our clients' families through it.</p>
+      </a>
+
+      <!-- 5 -->
+      <a class="post" href="essay-estate-tax-sunset.html" data-category="tax">
+        <div class="post-thumb t5"><span class="post-tag">Tax</span></div>
+        <div class="post-meta">By Mia Smith · 6 min · March 2026</div>
+        <h3>The 2026 estate tax sunset, in plain English</h3>
+        <p>Why the lifetime exemption is set to drop, who it affects, and what (if anything) to do about it.</p>
+      </a>
+
+      <!-- 6 -->
+      <a class="post" href="essay-cabin-another-state.html" data-category="tax">
+        <div class="post-thumb t6"><span class="post-tag">Multi-state</span></div>
+        <div class="post-meta">By Mia Smith · 6 min · March 2026</div>
+        <h3>If you own a cabin in another state, read this first</h3>
+        <p>Ancillary probate is real, expensive, and entirely avoidable. The two-paragraph fix.</p>
+      </a>
+
+      <!-- 7 -->
+      <a class="post" href="essay-holographic-will.html" data-category="wills">
+        <div class="post-thumb t2"><span class="post-tag">Wills</span></div>
+        <div class="post-meta">By Mia Smith · 5 min · Feb 2026</div>
+        <h3>Why a holographic will is a worse idea than you think</h3>
+        <p>Handwritten wills are valid in many states — and almost always create more problems than they solve.</p>
+      </a>
+
+      <!-- 8 -->
+      <a class="post" href="essay-retitle-brokerage.html" data-category="funding">
+        <div class="post-thumb t1"><span class="post-tag">Funding</span></div>
+        <div class="post-meta">By Mia Smith · 5 min · Feb 2026</div>
+        <h3>How to re-title a brokerage account, step by step</h3>
+        <p>The phrase to say when you call your broker, and what to do if they push back.</p>
+      </a>
+
+      <!-- 9 -->
+      <a class="post" href="essay-revocable-vs-irrevocable.html" data-category="trusts">
+        <div class="post-thumb t3"><span class="post-tag">Trusts</span></div>
+        <div class="post-meta">By Mia Smith · 6 min · Jan 2026</div>
+        <h3>Revocable vs irrevocable — and why most families want the revocable one</h3>
+        <p>The control-flexibility-tax tradeoff, illustrated with two real-ish examples.</p>
+      </a>
+
+      <!-- 10 — hidden until "load more" -->
+      <a class="post" href="essay-what-a-trust-does.html" data-category="trusts" data-extra="true" hidden>
+        <div class="post-thumb t1"><span class="post-tag">Trusts</span></div>
+        <div class="post-meta">By Mia Smith · 6 min · Jan 2026</div>
+        <h3>What a revocable trust actually does — and what it doesn't</h3>
+        <p>The plain version: five things it does, four things it doesn't. Worth knowing before you sign anything.</p>
+      </a>
+
+      <!-- 11 -->
+      <a class="post" href="essay-probate.html" data-category="wills" data-extra="true" hidden>
+        <div class="post-thumb t2"><span class="post-tag">Wills</span></div>
+        <div class="post-meta">By Mia Smith · 6 min · Dec 2025</div>
+        <h3>Probate: what it is, how long it takes, and why most families want to avoid it</h3>
+        <p>In Florida, probate can take a year and cost 3–5% of your estate. Here's exactly what that means.</p>
+      </a>
+
+      <!-- 12 -->
+      <a class="post" href="essay-intestate-florida.html" data-category="wills" data-extra="true" hidden>
+        <div class="post-thumb t4"><span class="post-tag">Wills</span></div>
+        <div class="post-meta">By Mia Smith · 6 min · Dec 2025</div>
+        <h3>What happens if you die without a will in Florida</h3>
+        <p>Florida's intestate succession rules are logical in a general sense. They do not know your family.</p>
+      </a>
+
+      <!-- 13 -->
+      <a class="post" href="essay-powers-of-attorney.html" data-category="poas" data-extra="true" hidden>
+        <div class="post-thumb t3"><span class="post-tag">POAs</span></div>
+        <div class="post-meta">By Mia Smith · 7 min · Nov 2025</div>
+        <h3>Powers of attorney explained — financial, medical, and why you need both</h3>
+        <p>Two documents. Two different roles. And the one thing people consistently get wrong when naming someone.</p>
+      </a>
+
+      <!-- 14 -->
+      <a class="post" href="essay-when-to-update.html" data-category="life-events" data-extra="true" hidden>
+        <div class="post-thumb t5"><span class="post-tag">Life events</span></div>
+        <div class="post-meta">By Mia Smith · 6 min · Nov 2025</div>
+        <h3>When to update your estate plan</h3>
+        <p>Estate plans don't expire. But they do go stale. Here are the events that should trigger a review immediately.</p>
+      </a>
+
+      <!-- 15 -->
+      <a class="post" href="essay-blended-families.html" data-category="life-events" data-extra="true" hidden>
+        <div class="post-thumb t6"><span class="post-tag">Life events</span></div>
+        <div class="post-meta">By Mia Smith · 7 min · Oct 2025</div>
+        <h3>Estate planning for blended families</h3>
+        <p>The default plan fails blended families quietly and completely. Here's what actually protects everyone.</p>
+      </a>
+
+      <!-- 16 -->
+      <a class="post" href="essay-lady-bird-deed.html" data-category="funding" data-extra="true" hidden>
+        <div class="post-thumb t2"><span class="post-tag">Funding</span></div>
+        <div class="post-meta">By Mia Smith · 7 min · Oct 2025</div>
+        <h3>The difference between a regular deed and a Lady Bird deed</h3>
+        <p>Most Florida homeowners have never heard of a Lady Bird deed. For some, it's the right tool. For others, it isn't.</p>
+      </a>
+
+      <!-- 17 -->
+      <a class="post" href="essay-cabin-another-state.html" data-category="tax" data-extra="true" hidden>
+        <div class="post-thumb t1"><span class="post-tag">Multi-state</span></div>
+        <div class="post-meta">By Mia Smith · 6 min · Sep 2025</div>
+        <h3>Things that vary by state in your estate plan</h3>
+        <p>POAs, spousal rights, homestead protections, deed formats — estate law is state law. What to check if you've moved.</p>
+      </a>
+
+    </div><!-- /post-grid -->
+
+    <div style="margin-top:50px;text-align:center;">
+      <button class="btn btn-secondary" id="load-more-btn">Load more essays</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="band">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+      <div>
+        <span class="eyebrow">Field notes, monthly</span>
+        <h2 style="margin-top:18px;">One essay, the first Tuesday of every month.</h2>
+        <p class="lead">No promotional emails. No "you have unread updates." One thoughtful piece by an Octus advisor, written for clients we like.</p>
+      </div>
+      <form style="display:flex;gap:10px;padding:8px;background:var(--bg-elev);border:1px solid var(--rule);border-radius:12px;" onsubmit="event.preventDefault();this.querySelector('input').value='';this.querySelector('button').textContent='Subscribed ✓';">
+        <input type="email" placeholder="you@email.com" required style="flex:1;border:0;background:transparent;padding:14px 16px;font:inherit;color:var(--fg);outline:none;font-size:15px;">
+        <button class="btn btn-primary" type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="partials.js"></script>
+<script>
+  // ── category filter ──────────────────────────────────────────────────────────
+  const pills = document.querySelectorAll('.topic-pill');
+  const posts = document.querySelectorAll('.post');
+  const featured = document.querySelector('.featured-post');
+  const loadMoreBtn = document.getElementById('load-more-btn');
+
+  let currentFilter = 'all';
+
+  function applyFilter(filter) {
+    currentFilter = filter;
+
+    // featured post
+    if (filter === 'all' || filter === 'funding') {
+      featured.removeAttribute('hidden');
+    } else {
+      featured.setAttribute('hidden', '');
+    }
+
+    // cards — show/hide based on category, respecting extra/hidden state
+    posts.forEach(post => {
+      const cat = post.dataset.category;
+      const isExtra = post.dataset.extra === 'true';
+      const matchesFilter = filter === 'all' || cat === filter;
+
+      if (!matchesFilter) {
+        post.setAttribute('hidden', '');
+      } else if (isExtra && filter === 'all') {
+        // extras stay hidden until load more (only in "all" view)
+        post.setAttribute('hidden', '');
+      } else {
+        post.removeAttribute('hidden');
+      }
+    });
+
+    // load more button — only show in "all" view if extras exist
+    const hiddenExtras = [...posts].filter(p =>
+      p.dataset.extra === 'true' && p.hasAttribute('hidden') && filter === 'all'
+    );
+    if (hiddenExtras.length > 0 && filter === 'all') {
+      loadMoreBtn.removeAttribute('hidden');
+    } else {
+      loadMoreBtn.setAttribute('hidden', '');
+    }
+  }
+
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      applyFilter(pill.dataset.filter);
+    });
+  });
+
+  // ── load more ────────────────────────────────────────────────────────────────
+  loadMoreBtn.addEventListener('click', () => {
+    posts.forEach(post => {
+      if (post.dataset.extra === 'true') {
+        post.removeAttribute('hidden');
+      }
+    });
+    loadMoreBtn.setAttribute('hidden', '');
+  });
+
+  // init
+  applyFilter('all');
+</script>
+</body>
+</html>
