@@ -11,11 +11,36 @@ const OCTUS_NAV = [
   { href: "contact.html", label: "Contact" },
 ];
 
+// Essay pages — treated as "Resources" for nav highlighting purposes
+const ESSAY_SLUGS = [
+  "essay-revocable-vs-irrevocable.html",
+  "essay-what-a-trust-does.html",
+  "essay-diy-trust.html",
+  "essay-unfunded-trust.html",
+  "essay-retitle-brokerage.html",
+  "essay-holographic-will.html",
+  "essay-probate.html",
+  "essay-intestate-florida.html",
+  "essay-healthcare-proxy.html",
+  "essay-powers-of-attorney.html",
+  "essay-guardian-designation.html",
+  "essay-spouse-dies.html",
+  "essay-when-to-update.html",
+  "essay-blended-families.html",
+  "essay-estate-tax-sunset.html",
+  "essay-cabin-another-state.html",
+  "essay-lady-bird-deed.html",
+];
+
 function renderHeader(currentPath) {
+  // If we're on an essay page, highlight "Resources" in the nav
+  const navPath = ESSAY_SLUGS.includes(currentPath) ? "blog.html" : currentPath;
+
   const links = OCTUS_NAV.map(n => {
-    const cur = n.href === currentPath ? ' class="current"' : "";
+    const cur = n.href === navPath ? ' class="current"' : "";
     return `<a href="${n.href}"${cur}>${n.label}</a>`;
   }).join("");
+
   return `
   <header class="site-header">
     <div class="site-header-inner">
@@ -68,6 +93,17 @@ function renderFooter() {
           </ul>
         </div>
         <div class="footer-col">
+          <h5>Essays</h5>
+          <ul>
+            <li><a href="essay-unfunded-trust.html">The unfunded trust epidemic</a></li>
+            <li><a href="essay-revocable-vs-irrevocable.html">Revocable vs irrevocable</a></li>
+            <li><a href="essay-probate.html">What probate actually costs</a></li>
+            <li><a href="essay-lady-bird-deed.html">Lady Bird deeds in Florida</a></li>
+            <li><a href="essay-blended-families.html">Blended family planning</a></li>
+            <li><a href="blog.html" style="color:var(--gold);margin-top:4px;display:inline-block;">All essays →</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
           <h5>Firm</h5>
           <ul>
             <li><a href="about.html">About Octus</a></li>
@@ -109,7 +145,6 @@ function mountHeaderFooter() {
    Schema.org JSON-LD — Organization (every page)
    ========================================================= */
 function injectGlobalSchema() {
-  // Skip if a page-specific schema already declares the Organization
   if (document.querySelector('script[type="application/ld+json"][data-schema="org"]')) return;
 
   const org = {
@@ -139,8 +174,17 @@ function injectGlobalSchema() {
       "Pour-Over Will",
       "Financial Power of Attorney",
       "Medical Power of Attorney",
+      "Healthcare Proxy",
       "Estate Planning",
-      "Trust Funding"
+      "Trust Funding",
+      "Probate Avoidance",
+      "Lady Bird Deed",
+      "Enhanced Life Estate Deed",
+      "Ancillary Probate",
+      "QTIP Trust",
+      "Blended Family Estate Planning",
+      "Florida Homestead Law",
+      "Estate Tax Planning"
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -177,7 +221,7 @@ function injectGlobalSchema() {
   s.textContent = JSON.stringify(org);
   document.head.appendChild(s);
 
-  // WebSite schema (separate node, helps search results)
+  // WebSite schema
   const site = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -192,6 +236,42 @@ function injectGlobalSchema() {
   s2.setAttribute("data-schema", "website");
   s2.textContent = JSON.stringify(site);
   document.head.appendChild(s2);
+
+  // Article list schema — helps AI engines and search understand the essay library
+  const path = (location.pathname.split("/").pop() || "");
+  if (path === "blog.html" || path === "") {
+    const articleList = {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Estate Planning Essays — Octus Estate",
+      "description": "Short essays on estate planning written by Mia Smith, FRC, NSSA, FPWM.",
+      "url": "https://octusestate.com/blog.html",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "The Unfunded Trust Epidemic", "url": "https://octusestate.com/essay-unfunded-trust.html" },
+        { "@type": "ListItem", "position": 2, "name": "Revocable vs Irrevocable Trusts", "url": "https://octusestate.com/essay-revocable-vs-irrevocable.html" },
+        { "@type": "ListItem", "position": 3, "name": "What a Revocable Trust Actually Does", "url": "https://octusestate.com/essay-what-a-trust-does.html" },
+        { "@type": "ListItem", "position": 4, "name": "Why a DIY Trust Almost Never Survives", "url": "https://octusestate.com/essay-diy-trust.html" },
+        { "@type": "ListItem", "position": 5, "name": "How to Re-Title a Brokerage Account", "url": "https://octusestate.com/essay-retitle-brokerage.html" },
+        { "@type": "ListItem", "position": 6, "name": "Why a Holographic Will Is a Worse Idea Than You Think", "url": "https://octusestate.com/essay-holographic-will.html" },
+        { "@type": "ListItem", "position": 7, "name": "What Probate Is and How Long It Takes", "url": "https://octusestate.com/essay-probate.html" },
+        { "@type": "ListItem", "position": 8, "name": "What Happens If You Die Without a Will in Florida", "url": "https://octusestate.com/essay-intestate-florida.html" },
+        { "@type": "ListItem", "position": 9, "name": "The Healthcare Proxy Nobody Reads", "url": "https://octusestate.com/essay-healthcare-proxy.html" },
+        { "@type": "ListItem", "position": 10, "name": "Powers of Attorney Explained", "url": "https://octusestate.com/essay-powers-of-attorney.html" },
+        { "@type": "ListItem", "position": 11, "name": "Naming a Guardian for Your Children", "url": "https://octusestate.com/essay-guardian-designation.html" },
+        { "@type": "ListItem", "position": 12, "name": "What to Do in the First 30 Days After a Spouse Dies", "url": "https://octusestate.com/essay-spouse-dies.html" },
+        { "@type": "ListItem", "position": 13, "name": "When to Update Your Estate Plan", "url": "https://octusestate.com/essay-when-to-update.html" },
+        { "@type": "ListItem", "position": 14, "name": "Estate Planning for Blended Families", "url": "https://octusestate.com/essay-blended-families.html" },
+        { "@type": "ListItem", "position": 15, "name": "The 2026 Estate Tax Sunset", "url": "https://octusestate.com/essay-estate-tax-sunset.html" },
+        { "@type": "ListItem", "position": 16, "name": "If You Own a Cabin in Another State", "url": "https://octusestate.com/essay-cabin-another-state.html" },
+        { "@type": "ListItem", "position": 17, "name": "Regular Deed vs Lady Bird Deed in Florida", "url": "https://octusestate.com/essay-lady-bird-deed.html" }
+      ]
+    };
+    const s3 = document.createElement("script");
+    s3.type = "application/ld+json";
+    s3.setAttribute("data-schema", "articlelist");
+    s3.textContent = JSON.stringify(articleList);
+    document.head.appendChild(s3);
+  }
 }
 
 /* =========================================================
@@ -336,7 +416,6 @@ function initTweaks() {
   const state = loadTweaks();
   applyTweaks(state);
 
-  // Edit mode protocol: listen first, then announce
   window.addEventListener("message", (e) => {
     if (!e.data || typeof e.data !== "object") return;
     if (e.data.type === "__activate_edit_mode") {
