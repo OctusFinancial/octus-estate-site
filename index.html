@@ -10,8 +10,94 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Instrument+Sans:wght@400;500;600&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css"/>
 <link rel="icon" type="image/png" href="assets/octus-mark.png">
+<style>
+/* ── video lightbox ── */
+.video-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(10, 20, 30, 0.92);
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.video-lightbox.open { display: flex; }
+.video-lightbox-inner {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16/9;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+}
+.video-lightbox-inner iframe {
+  width: 100%; height: 100%;
+  border: 0;
+  display: block;
+}
+.video-lightbox-close {
+  position: absolute;
+  top: -48px; right: 0;
+  background: none; border: 0;
+  color: #f7f1df;
+  font-size: 32px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 8px;
+  opacity: 0.8;
+  transition: opacity .15s;
+}
+.video-lightbox-close:hover { opacity: 1; }
+
+/* ── video grid ── */
+.vid-card {
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  padding: 22px;
+}
+.vid-card:hover .play-btn { transform: scale(1.1); }
+.play-btn {
+  position: absolute;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .2s;
+  flex-shrink: 0;
+}
+.vid-card .vid-meta {
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.vid-card h3, .vid-card h4 {
+  font-family: var(--serif);
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* ── see all videos link ── */
+.vid-see-all {
+  text-align: center;
+  margin-top: 28px;
+}
+</style>
 </head>
 <body>
+
+<!-- ── Lightbox ── -->
+<div class="video-lightbox" id="videoLightbox">
+  <div class="video-lightbox-inner">
+    <button class="video-lightbox-close" id="lightboxClose" aria-label="Close video">×</button>
+    <iframe id="lightboxIframe" src="" title="Octus Estate video" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  </div>
+</div>
 
 <div id="site-header"></div>
 
@@ -27,7 +113,7 @@
           <a class="btn btn-primary btn-large" href="https://calendly.com/octusfinancial/introduction" target="_blank" rel="noopener">Schedule your first meeting
             <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
-          <a class="btn btn-secondary btn-large" href="how-it-works.html">See how it works</a>
+          <a class="btn btn-secondary btn-large" href="/how-it-works.html">See how it works</a>
         </div>
         <div class="hero-meta">
           <div class="hero-meta-item">
@@ -116,7 +202,7 @@
     </div>
 
     <div style="margin-top:48px;text-align:center;">
-      <a class="btn btn-ghost" href="how-it-works.html">Read the full process
+      <a class="btn btn-ghost" href="/how-it-works.html">Read the full process
         <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -143,7 +229,6 @@
           <span class="price-tag">Included · Full plan</span>
         </div>
       </div>
-
       <div class="product-card">
         <div class="product-icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>
@@ -154,7 +239,6 @@
           <span class="price-tag">Included · Full plan</span>
         </div>
       </div>
-
       <div class="product-card">
         <div class="product-icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="18" cy="17" r="2"/></svg>
@@ -165,7 +249,6 @@
           <span class="price-tag">Included · Full plan</span>
         </div>
       </div>
-
       <div class="product-card">
         <div class="product-icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="3"/><path d="M5 21c0-4 3-7 7-7s7 3 7 7"/></svg>
@@ -202,9 +285,8 @@
           <li class="price-feature">Single 60-min meeting</li>
           <li class="price-feature muted">Trust & last will not included</li>
         </ul>
-        <a class="btn btn-secondary" href="pricing.html">Choose Essentials</a>
+        <a class="btn btn-secondary" href="/pricing.html">Choose Essentials</a>
       </div>
-
       <div class="price-card featured">
         <div class="price-badge">Most chosen</div>
         <div class="price-name">Complete Plan</div>
@@ -218,9 +300,8 @@
           <li class="price-feature">Trust funding assistance</li>
           <li class="price-feature">All three guided meetings</li>
         </ul>
-        <a class="btn btn-primary" href="pricing.html">Choose Complete</a>
+        <a class="btn btn-primary" href="/pricing.html">Choose Complete</a>
       </div>
-
       <div class="price-card">
         <div class="price-name">Will-Based</div>
         <h3>Will & POAs</h3>
@@ -233,7 +314,7 @@
           <li class="price-feature">Two guided meetings</li>
           <li class="price-feature muted">Revocable trust not included</li>
         </ul>
-        <a class="btn btn-secondary" href="pricing.html">Choose Will-Based</a>
+        <a class="btn btn-secondary" href="/pricing.html">Choose Will-Based</a>
       </div>
     </div>
 
@@ -243,67 +324,159 @@
   </div>
 </section>
 
-<!-- ============ EDUCATIONAL VIDEO PLACEHOLDER ============ -->
+<!-- ============ VIDEO SECTION ============ -->
 <section>
   <div class="container">
     <div class="section-head center">
       <span class="eyebrow">Watch first</span>
       <h2>Estate planning, in plain English.</h2>
-      <p class="lead">Five short films from our advisors — covering what a revocable trust really does, who actually needs one, and why funding matters more than drafting.</p>
+      <p class="lead">Short films from Mia Smith — covering what a revocable trust really does, who actually needs one, and why funding matters more than drafting.</p>
     </div>
 
+    <!-- Main grid: featured large + 2 columns of 2 -->
     <div style="display:grid;grid-template-columns:1.6fr 1fr 1fr;grid-template-rows:auto auto;gap:14px;">
-      <div style="grid-row:span 2;aspect-ratio:16/10;background:linear-gradient(155deg,#0f314e,#1a4366);border-radius:14px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:32px;color:#f7f1df;cursor:pointer;">
-        <div style="position:absolute;top:24px;right:24px;width:64px;height:64px;border-radius:50%;background:rgba(247,241,223,0.92);display:flex;align-items:center;justify-content:center;">
+
+      <!-- Featured: Estate Planning Demystified -->
+      <div class="vid-card"
+           style="grid-row:span 2;aspect-ratio:16/10;background:linear-gradient(155deg,#0f314e,#1a4366);"
+           data-video-id="wUae3AJf0Fo"
+           data-video-title="Estate Planning Demystified">
+        <div class="play-btn" style="top:24px;right:24px;position:absolute;width:64px;height:64px;background:rgba(247,241,223,0.92);">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="#0f314e"><path d="M8 5v14l11-7z"/></svg>
         </div>
         <div>
-          <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#c59f4a;margin-bottom:8px;">Featured · 6 min</div>
-          <h3 style="color:#f7f1df;font-size:32px;margin-bottom:6px;">What a revocable trust actually does</h3>
-          <p style="color:#b9c7d4;margin:0;">A no-jargon explainer with founder Mia Smith.</p>
+          <div class="vid-meta" style="color:#c59f4a;">Featured · 8 min</div>
+          <h3 style="color:#f7f1df;font-size:32px;">Estate planning demystified</h3>
+          <p style="color:#b9c7d4;margin:8px 0 0;font-size:15px;">What it is, what it costs, and where to start — with founder Mia Smith.</p>
         </div>
       </div>
 
-      <div style="aspect-ratio:5/4;background:var(--sage);border-radius:14px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:22px;cursor:pointer;">
-        <div style="position:absolute;top:18px;right:18px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.92);display:flex;align-items:center;justify-content:center;">
+      <!-- Will vs Trust -->
+      <div class="vid-card"
+           style="aspect-ratio:5/4;background:var(--sage);"
+           data-video-id="pWgoD0-274w"
+           data-video-title="Will vs Trust">
+        <div class="play-btn" style="top:18px;right:18px;position:absolute;width:44px;height:44px;background:rgba(255,255,255,0.92);">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="#0f314e"><path d="M8 5v14l11-7z"/></svg>
         </div>
         <div>
-          <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);margin-bottom:6px;">3 min</div>
-          <h4 style="color:var(--navy);font-size:18px;font-family:var(--serif);font-weight:500;">Will vs Trust</h4>
+          <div class="vid-meta" style="color:var(--navy);">6 min</div>
+          <h4 style="color:var(--navy);font-size:18px;">Will vs Trust</h4>
         </div>
       </div>
 
-      <div style="aspect-ratio:5/4;background:#f1ede3;border:1px solid var(--rule);border-radius:14px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:22px;cursor:pointer;">
-        <div style="position:absolute;top:18px;right:18px;width:44px;height:44px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;">
+      <!-- What a Revocable Trust Actually Does -->
+      <div class="vid-card"
+           style="aspect-ratio:5/4;background:#f1ede3;border:1px solid var(--rule);"
+           data-video-id="xYJTQMJ2-OA"
+           data-video-title="What a Revocable Trust Actually Does">
+        <div class="play-btn" style="top:18px;right:18px;position:absolute;width:44px;height:44px;background:var(--navy);">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="#f7f1df"><path d="M8 5v14l11-7z"/></svg>
         </div>
         <div>
-          <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:6px;">4 min</div>
-          <h4 style="color:var(--navy);font-size:18px;font-family:var(--serif);font-weight:500;">Funding a trust</h4>
+          <div class="vid-meta" style="color:var(--gold-deep);">6 min</div>
+          <h4 style="color:var(--navy);font-size:18px;">What a revocable trust actually does</h4>
         </div>
       </div>
 
-      <div style="aspect-ratio:5/4;background:#e8e8e8;border-radius:14px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:22px;cursor:pointer;">
-        <div style="position:absolute;top:18px;right:18px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.92);display:flex;align-items:center;justify-content:center;">
+      <!-- How to Fund Your Trust -->
+      <div class="vid-card"
+           style="aspect-ratio:5/4;background:#e8e8e8;"
+           data-video-id="KJ7eoHHJkbg"
+           data-video-title="How to Fund Your Trust">
+        <div class="play-btn" style="top:18px;right:18px;position:absolute;width:44px;height:44px;background:rgba(255,255,255,0.92);">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="#0f314e"><path d="M8 5v14l11-7z"/></svg>
         </div>
         <div>
-          <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);margin-bottom:6px;">5 min</div>
-          <h4 style="color:var(--navy);font-size:18px;font-family:var(--serif);font-weight:500;">POAs explained</h4>
+          <div class="vid-meta" style="color:#555;">5 min</div>
+          <h4 style="color:var(--navy);font-size:18px;">How to fund your trust</h4>
         </div>
       </div>
 
-      <div style="aspect-ratio:5/4;background:linear-gradient(135deg,#c59f4a,#d9bf85);border-radius:14px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:22px;cursor:pointer;">
-        <div style="position:absolute;top:18px;right:18px;width:44px;height:44px;border-radius:50%;background:rgba(15,49,78,0.92);display:flex;align-items:center;justify-content:center;">
+      <!-- POAs Explained -->
+      <div class="vid-card"
+           style="aspect-ratio:5/4;background:linear-gradient(135deg,#c59f4a,#d9bf85);"
+           data-video-id="kwhMp0vEvn4"
+           data-video-title="POAs Explained">
+        <div class="play-btn" style="top:18px;right:18px;position:absolute;width:44px;height:44px;background:rgba(15,49,78,0.92);">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="#f7f1df"><path d="M8 5v14l11-7z"/></svg>
         </div>
         <div>
-          <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#5a3f0f;margin-bottom:6px;">7 min</div>
-          <h4 style="color:#3a2a08;font-size:18px;font-family:var(--serif);font-weight:500;">When to update</h4>
+          <div class="vid-meta" style="color:#5a3f0f;">5 min</div>
+          <h4 style="color:#3a2a08;font-size:18px;">POAs explained</h4>
         </div>
       </div>
+
     </div>
+
+    <!-- Second row: remaining 4 videos -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px;">
+
+      <!-- Lifecycle of an Estate Plan -->
+      <div class="vid-card"
+           style="aspect-ratio:5/4;background:linear-gradient(155deg,var(--navy-soft),var(--navy));"
+           data-video-id="UNEPa9tfGk4"
+           data-video-title="The Lifecycle of an Estate Plan">
+        <div class="play-btn" style="top:14px;right:14px;position:absolute;width:38px;height:38px;background:rgba(247,241,223,0.9);">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#0f314e"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div>
+          <div class="vid-meta" style="color:var(--gold);font-size:9px;">7 min</div>
+          <h4 style="color:#f7f1df;font-size:15px;">Lifecycle of an estate plan</h4>
+        </div>
+      </div>
+
+      <!-- Trust Funding 101 -->
+      <div class="vid-card"
+           style="aspect-ratio:5/4;background:linear-gradient(155deg,var(--sage-soft),var(--sage));"
+           data-video-id="G9XLoTJlxxw"
+           data-video-title="Trust Funding 101">
+        <div class="play-btn" style="top:14px;right:14px;position:absolute;width:38px;height:38px;background:rgba(255,255,255,0.92);">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#0f314e"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div>
+          <div class="vid-meta" style="color:var(--navy);font-size:9px;">5 min</div>
+          <h4 style="color:var(--navy);font-size:15px;">Trust funding 101</h4>
+        </div>
+      </div>
+
+      <!-- When to Update -->
+      <div class="vid-card"
+           style="aspect-ratio:5/4;background:linear-gradient(155deg,#e8e0d4,#d4c9b8);"
+           data-video-id="yizKEY6jrp4"
+           data-video-title="When to Update Your Estate Plan">
+        <div class="play-btn" style="top:14px;right:14px;position:absolute;width:38px;height:38px;background:var(--navy);">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#f7f1df"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div>
+          <div class="vid-meta" style="color:#5a4a3a;font-size:9px;">7 min</div>
+          <h4 style="color:var(--navy);font-size:15px;">When to update your plan</h4>
+        </div>
+      </div>
+
+      <!-- Securing Your Legacy -->
+      <div class="vid-card"
+           style="aspect-ratio:5/4;background:linear-gradient(155deg,#1a3a5c,#0f314e);"
+           data-video-id="WjN9fesMwIE"
+           data-video-title="Securing Your Legacy">
+        <div class="play-btn" style="top:14px;right:14px;position:absolute;width:38px;height:38px;background:rgba(197,159,74,0.9);">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#0f314e"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div>
+          <div class="vid-meta" style="color:var(--gold);font-size:9px;">6 min</div>
+          <h4 style="color:#f7f1df;font-size:15px;">Securing your legacy</h4>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="vid-see-all">
+      <a class="btn btn-ghost" href="https://www.youtube.com/@OctusEstate" target="_blank" rel="noopener">
+        Watch all videos on YouTube
+        <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
   </div>
 </section>
 
@@ -316,37 +489,31 @@
     </div>
 
     <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--rule);margin-top:20px;">
-
       <div style="padding:40px 50px 40px 0;border-bottom:1px solid var(--rule);border-right:1px solid var(--rule);">
         <div style="font-family:var(--serif);font-style:italic;font-size:44px;color:var(--gold);line-height:1;margin-bottom:18px;">i.</div>
         <h3 style="font-size:24px;margin-bottom:10px;">You'll talk to the founder.</h3>
         <p style="margin:0;">Not a call center. Not a junior associate. When you call, you reach Mia directly. Every meeting, every annual review, every question after — same person.</p>
       </div>
-
       <div style="padding:40px 0 40px 50px;border-bottom:1px solid var(--rule);">
         <div style="font-family:var(--serif);font-style:italic;font-size:44px;color:var(--gold);line-height:1;margin-bottom:18px;">ii.</div>
         <h3 style="font-size:24px;margin-bottom:10px;">Flat fee, quoted upfront.</h3>
         <p style="margin:0;">No hourly billing. No "phone calls are extra." You'll know the total cost in meeting one — in writing, before any work begins.</p>
       </div>
-
       <div style="padding:40px 50px 40px 0;border-bottom:1px solid var(--rule);border-right:1px solid var(--rule);">
         <div style="font-family:var(--serif);font-style:italic;font-size:44px;color:var(--gold);line-height:1;margin-bottom:18px;">iii.</div>
         <h3 style="font-size:24px;margin-bottom:10px;">The funding meeting is the point.</h3>
         <p style="margin:0;">A signed trust without funded assets is just paperwork. Meeting three is when we sit together and actually re-title the accounts, file the deeds, and update the beneficiaries.</p>
       </div>
-
       <div style="padding:40px 0 40px 50px;border-bottom:1px solid var(--rule);">
         <div style="font-family:var(--serif);font-style:italic;font-size:44px;color:var(--gold);line-height:1;margin-bottom:18px;">iv.</div>
         <h3 style="font-size:24px;margin-bottom:10px;">Attorney-reviewed in your state.</h3>
         <p style="margin:0;">Every document is reviewed and signed off by an attorney licensed in your state of residence — through the Estately + Counsel attorney network.</p>
       </div>
-
       <div style="padding:40px 50px 40px 0;border-right:1px solid var(--rule);">
         <div style="font-family:var(--serif);font-style:italic;font-size:44px;color:var(--gold);line-height:1;margin-bottom:18px;">v.</div>
         <h3 style="font-size:24px;margin-bottom:10px;">Discreet by design.</h3>
         <p style="margin:0;">Your estate is your business, not our marketing. We don't publish client names, photographs, or identifying details on this site — even with permission.</p>
       </div>
-
       <div style="padding:40px 0 40px 50px;display:flex;flex-direction:column;justify-content:center;">
         <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--fg-soft);margin-bottom:12px;">Want to see if we're the right fit?</div>
         <a class="btn btn-primary" href="https://calendly.com/octusfinancial/introduction" target="_blank" rel="noopener" style="align-self:flex-start;">Schedule a 20-min fit call
@@ -354,7 +521,6 @@
         </a>
         <div style="font-size:12px;color:var(--fg-soft);margin-top:14px;">No payment, no obligation.</div>
       </div>
-
     </div>
   </div>
 </section>
@@ -407,7 +573,7 @@
     </div>
 
     <div style="margin-top:40px;text-align:center;">
-      <a class="btn btn-ghost" href="faq.html">See all questions
+      <a class="btn btn-ghost" href="/faq.html">See all questions
         <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -437,7 +603,41 @@
 </section>
 
 <div id="site-footer"></div>
-
 <script src="partials.js"></script>
+<script>
+  // ── Video lightbox ────────────────────────────────────────────────────────
+  const lightbox = document.getElementById('videoLightbox');
+  const iframe   = document.getElementById('lightboxIframe');
+  const closeBtn = document.getElementById('lightboxClose');
+
+  function openVideo(videoId, title) {
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+    iframe.title = title;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeVideo() {
+    lightbox.classList.remove('open');
+    iframe.src = '';
+    document.body.style.overflow = '';
+  }
+
+  // Wire up all video cards
+  document.querySelectorAll('.vid-card[data-video-id]').forEach(card => {
+    card.addEventListener('click', () => {
+      openVideo(card.dataset.videoId, card.dataset.videoTitle);
+    });
+  });
+
+  // Close on button, backdrop click, or Escape key
+  closeBtn.addEventListener('click', closeVideo);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeVideo();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeVideo();
+  });
+</script>
 </body>
 </html>
