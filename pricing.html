@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Pricing — Octus Estate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Instrument+Sans:wght@400;500;600&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"/>
+<link rel="icon" type="image/png" href="assets/octus-mark.png">
+<style>
+  .page-hero { padding: 80px 0 40px; text-align: center; }
+  .page-hero h1 { max-width: 18ch; margin-left:auto; margin-right:auto; }
+  .page-hero .lead { max-width: 60ch; margin: 18px auto 0; }
+
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-elev);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-top: 56px;
+  }
+  .compare-table th, .compare-table td {
+    padding: 18px 22px;
+    text-align: left;
+    font-size: 14.5px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .compare-table thead th {
+    background: var(--bg);
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    color: var(--navy);
+    text-transform: uppercase;
+  }
+  .compare-table thead th.featured-col {
+    background: var(--navy); color: #f7f1df;
+    position: relative;
+  }
+  .compare-table thead th.featured-col::before {
+    content: "Most chosen";
+    position: absolute;
+    top: -10px; left: 50%; transform: translateX(-50%);
+    background: var(--gold); color: var(--navy-deep);
+    padding: 3px 12px; border-radius: 999px;
+    font-size: 10px; letter-spacing: 0.14em;
+  }
+  .compare-table tbody tr:last-child td { border-bottom: 0; }
+  .compare-table .row-cat {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--navy);
+    font-weight: 500;
+    width: 34%;
+  }
+  .compare-table .check {
+    color: var(--gold-deep);
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .compare-table .dash {
+    color: var(--grey-300);
+  }
+  .compare-table td.featured-col {
+    background: color-mix(in oklab, var(--navy) 4%, var(--bg-elev));
+  }
+
+  .price-head {
+    font-family: var(--serif);
+    font-size: 36px;
+    color: var(--navy);
+    font-weight: 500;
+    line-height: 1;
+  }
+  .price-head sup { font-size: 16px; color: var(--fg-soft); vertical-align: top; margin-right: 1px; }
+  .price-head-sub { font-size: 12px; color: var(--fg-soft); margin-top: 4px; }
+
+  .featured-col .price-head { color: #f7f1df; }
+  .featured-col .price-head-sub { color: #b9c7d4; }
+</style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Flat-fee pricing</span>
+    <h1 style="margin-top:16px;">One price. <em style="color:var(--gold-deep);font-style:italic;">Everything in writing.</em></h1>
+    <p class="lead">No hourly billing. No surprise invoices. Pick the bundle that fits your life today — change your mind in meeting one and we'll re-quote on the spot.</p>
+  </div>
+</section>
+
+<section style="padding-top:56px;">
+  <div class="container">
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-name">Essentials</div>
+        <h3>Powers of Attorney</h3>
+        <div class="price-amount"><sup>$</sup>625</div>
+        <div class="price-suffix">For either or both POAs · one meeting</div>
+        <ul class="price-features">
+          <li class="price-feature">Durable financial power of attorney</li>
+          <li class="price-feature">Healthcare proxy & HIPAA release</li>
+          <li class="price-feature">Living will / advance directive</li>
+          <li class="price-feature">Single 60-min meeting</li>
+          <li class="price-feature">Attorney review in your state</li>
+          <li class="price-feature muted">Trust & last will not included</li>
+        </ul>
+        <a class="btn btn-secondary" href="https://calendly.com/octusfinancial/introduction" target="_blank" rel="noopener">Choose Essentials</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-badge">Most chosen</div>
+        <div class="price-name">Complete Plan</div>
+        <h3>Full Estate Plan</h3>
+        <div class="price-amount"><sup>$</sup>2,500</div>
+        <div class="price-suffix">Everything Octus drafts, funded with you</div>
+        <ul class="price-features">
+          <li class="price-feature">Revocable living trust</li>
+          <li class="price-feature">Last will + pour-over will</li>
+          <li class="price-feature">Financial &amp; medical POAs</li>
+          <li class="price-feature">Trust funding assistance</li>
+          <li class="price-feature">All three guided meetings</li>
+          <li class="price-feature">Complimentary annual review</li>
+        </ul>
+        <a class="btn btn-primary" href="https://calendly.com/octusfinancial/introduction" target="_blank" rel="noopener">Choose Complete</a>
+      </div>
+
+      <div class="price-card">
+        <div class="price-name">Will-Based</div>
+        <h3>Will &amp; POAs</h3>
+        <div class="price-amount"><sup>$</sup>1,250</div>
+        <div class="price-suffix">For families who don't yet need a trust</div>
+        <ul class="price-features">
+          <li class="price-feature">Last will &amp; testament</li>
+          <li class="price-feature">Financial &amp; medical POAs</li>
+          <li class="price-feature">Living will / advance directive</li>
+          <li class="price-feature">Two guided meetings</li>
+          <li class="price-feature">Attorney review in your state</li>
+          <li class="price-feature muted">Revocable trust not included</li>
+        </ul>
+        <a class="btn btn-secondary" href="https://calendly.com/octusfinancial/introduction" target="_blank" rel="noopener">Choose Will-Based</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Compare table -->
+<section>
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Side by side</span>
+      <h2>What's in each bundle.</h2>
+    </div>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>&nbsp;</th>
+          <th>Essentials<br/><span class="price-head"><sup>$</sup>625</span><div class="price-head-sub">POAs only</div></th>
+          <th class="featured-col">Complete Plan<br/><span class="price-head"><sup>$</sup>2,500</span><div class="price-head-sub">Full estate plan</div></th>
+          <th>Will-Based<br/><span class="price-head"><sup>$</sup>1,250</span><div class="price-head-sub">Will + POAs</div></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="row-cat">Revocable living trust</td>
+          <td><span class="dash">—</span></td>
+          <td class="featured-col check">✓</td>
+          <td><span class="dash">—</span></td>
+        </tr>
+        <tr>
+          <td class="row-cat">Pour-over will</td>
+          <td><span class="dash">—</span></td>
+          <td class="featured-col check">✓</td>
+          <td><span class="dash">—</span></td>
+        </tr>
+        <tr>
+          <td class="row-cat">Last will &amp; testament</td>
+          <td><span class="dash">—</span></td>
+          <td class="featured-col check">✓</td>
+          <td class="check">✓</td>
+        </tr>
+        <tr>
+          <td class="row-cat">Financial POA</td>
+          <td class="check">✓</td>
+          <td class="featured-col check">✓</td>
+          <td class="check">✓</td>
+        </tr>
+        <tr>
+          <td class="row-cat">Medical POA &amp; HIPAA</td>
+          <td class="check">✓</td>
+          <td class="featured-col check">✓</td>
+          <td class="check">✓</td>
+        </tr>
+        <tr>
+          <td class="row-cat">Living will / advance directive</td>
+          <td class="check">✓</td>
+          <td class="featured-col check">✓</td>
+          <td class="check">✓</td>
+        </tr>
+        <tr>
+          <td class="row-cat">Guided meetings</td>
+          <td>1</td>
+          <td class="featured-col"><strong style="color:var(--gold);">3</strong></td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td class="row-cat">Trust funding assistance</td>
+          <td><span class="dash">—</span></td>
+          <td class="featured-col check">✓</td>
+          <td><span class="dash">—</span></td>
+        </tr>
+        <tr>
+          <td class="row-cat">Attorney review in your state</td>
+          <td class="check">✓</td>
+          <td class="featured-col check">✓</td>
+          <td class="check">✓</td>
+        </tr>
+        <tr>
+          <td class="row-cat">Complimentary annual review</td>
+          <td><span class="dash">—</span></td>
+          <td class="featured-col check">✓</td>
+          <td class="check">✓</td>
+        </tr>
+        <tr>
+          <td class="row-cat">Notary coordination</td>
+          <td class="check">✓</td>
+          <td class="featured-col check">✓</td>
+          <td class="check">✓</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="text-align:center;margin-top:24px;font-size:13px;color:var(--fg-soft);">
+      Prices are flat-fee, paid in a single payment at the end of meeting two. The only outside cost is county recording fees if you choose to title real estate into your trust — paid by you, directly to your county, between meetings 2 and 3.
+    </p>
+  </div>
+</section>
+
+<!-- À la carte -->
+<section class="band">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Add-ons &amp; what's not included</span>
+      <h2>The handful of items that sit outside the flat fee.</h2>
+      <p class="lead">We're up front about every dollar. Here's what may be charged in addition — and what we charge for one-off services for existing clients.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;">
+      <div class="card">
+        <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.12em;color:var(--gold-deep);text-transform:uppercase;margin-bottom:8px;">Real estate into trust</div>
+        <h3 style="font-size:22px;margin-bottom:8px;">County recording fees</h3>
+        <div style="font-family:var(--serif);font-size:30px;color:var(--navy);font-weight:500;margin:8px 0;">Varies</div>
+        <p style="font-size:14px;margin-bottom:0;">If you choose to title your home into the trust, the county charges a recording fee — paid by you, directly to the county, between meetings 2 and 3. We provide step-by-step guidance.</p>
+      </div>
+      <div class="card">
+        <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.12em;color:var(--gold-deep);text-transform:uppercase;margin-bottom:8px;">Optional · Amazon</div>
+        <h3 style="font-size:22px;margin-bottom:8px;">Fireproof safe (optional)</h3>
+        <div style="font-family:var(--serif);font-size:30px;color:var(--navy);font-weight:500;margin:8px 0;">Recommended</div>
+        <p style="font-size:14px;margin-bottom:8px;">Every client receives a binder with all documents at signing. If you'd like to store the originals in a fireproof safe, we link a model we recommend on Amazon.</p>
+        <p style="font-size:11.5px;color:var(--fg-soft);margin-bottom:0;line-height:1.5;">As an Amazon Associate we may earn from qualifying purchases. <a href="legal.html#affiliate" style="color:var(--gold-deep);">Disclosure</a>.</p>
+      </div>
+      <div class="card">
+        <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.12em;color:var(--gold-deep);text-transform:uppercase;margin-bottom:8px;">Existing clients</div>
+        <h3 style="font-size:22px;margin-bottom:8px;">Amendments going forward</h3>
+        <div style="font-family:var(--serif);font-size:30px;color:var(--navy);font-weight:500;margin:8px 0;">No cost</div>
+        <p style="font-size:14px;margin-bottom:0;">Beneficiary updates, trustee swaps, address changes — included for the life of your plan. Major restructures are quoted in writing before any work begins.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <div class="cta-inner">
+      <div>
+        <span class="eyebrow" style="color:var(--gold);">Not sure which?</span>
+        <h2 style="margin-top:18px;">A 20-minute call settles it.</h2>
+        <p>We'll ask three questions and tell you which bundle fits. No pressure, no obligation, no payment until meeting one.</p>
+      </div>
+      <div>
+        <a class="btn btn-primary btn-large" href="https://calendly.com/octusfinancial/introduction" target="_blank" rel="noopener" style="justify-content:center;width:100%;">Schedule a fit call
+          <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="partials.js"></script>
+<script type="application/ld+json" data-schema="services">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Estate Planning",
+  "provider": { "@id": "https://octusestate.com/#organization" },
+  "areaServed": { "@type": "Country", "name": "United States" },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Octus Estate Estate Planning Bundles",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Essentials — Powers of Attorney",
+        "description": "Financial power of attorney, medical power of attorney, and living will / advance directive. One 60-minute meeting. Attorney review in your state.",
+        "price": "625.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://octusestate.com/pricing.html"
+      },
+      {
+        "@type": "Offer",
+        "name": "Trust & Will Plan",
+        "description": "Revocable living trust, pour-over will, and powers of attorney. Two guided meetings plus signing. Attorney review in your state. Trust funding guidance.",
+        "price": "1800.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://octusestate.com/pricing.html"
+      },
+      {
+        "@type": "Offer",
+        "name": "Complete Plan",
+        "description": "Full estate plan: revocable trust, last will, pour-over will, financial and medical POAs. Three guided meetings. Complimentary annual review.",
+        "price": "2500.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://octusestate.com/pricing.html"
+      }
+    ]
+  }
+}
+</script>
+</body>
+</html>

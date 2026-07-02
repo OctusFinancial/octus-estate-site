@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Contact — Octus Estate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Instrument+Sans:wght@400;500;600&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"/>
+<link rel="icon" type="image/png" href="assets/octus-mark.png">
+<style>
+  .page-hero { padding: 80px 0 50px; }
+  .page-hero h1 { max-width: 14ch; }
+  .page-hero .lead { max-width: 50ch; margin-top: 18px; }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .contact-info { display: flex; flex-direction: column; gap: 36px; }
+  .info-item h4 {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin: 0 0 10px;
+  }
+  .info-item .val {
+    font-family: var(--serif);
+    font-size: 24px;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+  .info-item .val a { border-bottom: 1px solid transparent; transition: border .15s; }
+  .info-item .val a:hover { border-color: var(--gold); }
+  .info-item .note { font-size: 14px; color: var(--fg-soft); margin-top: 6px; }
+
+  .contact-form {
+    background: var(--bg-elev);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 40px;
+  }
+  .contact-form h2 { font-size: 28px; margin-bottom: 6px; }
+  .contact-form > p { margin-bottom: 28px; font-size: 14px; }
+  .field { margin-bottom: 18px; display: flex; flex-direction: column; gap: 6px; }
+  .field label {
+    font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--navy); font-weight: 500;
+  }
+  .field input, .field select, .field textarea {
+    padding: 12px 14px;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    font: inherit;
+    background: var(--bg);
+    color: var(--fg);
+    transition: border-color .15s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+    background: #fff;
+  }
+  .field textarea { min-height: 110px; resize: vertical; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  .offices-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 22px;
+  }
+  .office-card {
+    background: var(--bg-elev);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 32px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .office-map {
+    aspect-ratio: 16/10;
+    border-radius: 10px;
+    background:
+      linear-gradient(135deg, var(--sage-soft) 0%, var(--sage) 100%);
+    position: relative;
+    margin-bottom: 8px;
+    border: 1px solid var(--rule);
+  }
+  .office-map::after {
+    content: ""; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 0 8px rgba(197,159,74,0.25), 0 0 0 16px rgba(197,159,74,0.12);
+  }
+  .office-city {
+    font-family: var(--serif);
+    font-size: 24px;
+    color: var(--navy);
+    font-weight: 500;
+  }
+  .office-addr { font-size: 14px; color: var(--fg-soft); line-height: 1.5; }
+  .office-hrs { font-size: 12px; color: var(--gold-deep); font-family: var(--mono); letter-spacing: 0.04em; }
+
+  @media (max-width: 980px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 50px; }
+    .offices-grid { grid-template-columns: 1fr; }
+    .field-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Get in touch</span>
+    <h1 style="margin-top:16px;">Hello. <em style="color:var(--gold-deep);font-style:italic;">We're glad you're here.</em></h1>
+    <p class="lead">For scheduling, the fastest path is the Schedule Now button — it opens our live calendar. For anything else, the channels below.</p>
+  </div>
+</section>
+
+<section style="padding-top:20px;">
+  <div class="container">
+    <div class="contact-grid">
+
+      <div class="contact-info">
+        <div class="info-item">
+          <h4>By phone</h4>
+          <div class="val"><a href="tel:+18335331123">(833) 533-1123</a></div>
+          <div class="note">Monday–Friday, 9am–5pm Eastern Time. If we're with a client, leave a voicemail and we'll return your call the same business day.</div>
+        </div>
+
+        <div class="info-item">
+          <h4>By email</h4>
+          <div class="val"><a href="/cdn-cgi/l/email-protection#91f9f4fdfdfed1fef2e5e4e2f7f8fff0fff2f8f0fdbff2fefc"><span class="__cf_email__" data-cfemail="2048454c4c4f604f4354555346494e414e4349414c0e434f4d">[email&#160;protected]</span></a></div>
+          <div class="note">For general questions. Existing clients should email their advisor directly.</div>
+        </div>
+
+        <div class="info-item">
+          <h4>For new clients</h4>
+          <div class="val"><a href="https://calendly.com/octusfinancial/introduction" target="_blank" rel="noopener">Schedule a 20-min fit call →</a></div>
+          <div class="note">No payment, no obligation. We'll match you with the right advisor.</div>
+        </div>
+
+        <div class="info-item">
+          <h4>For press &amp; partnerships</h4>
+          <div class="val"><a href="/cdn-cgi/l/email-protection#275755425454674844535254414e494649444e464b0944484a"><span class="__cf_email__" data-cfemail="e69694839595a68985929395808f888788858f878ac885898b">[email&#160;protected]</span></a></div>
+        </div>
+
+        <div class="info-item">
+          <h4>Mailing address</h4>
+          <div class="val" style="font-size:18px;line-height:1.5;">
+            Octus Estate<br/>
+            Central Florida Office<br/>
+            <span style="font-size:14px;color:var(--fg-soft);">Address provided upon scheduling</span>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form" id="octus-contact-form" novalidate>
+        <h2>Send us a message</h2>
+        <p>We respond to every message within one business day. If your matter is time-sensitive, please call.</p>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="cf-first">First name</label>
+            <input id="cf-first" name="q2_textbox0" type="text" required placeholder="Linda" autocomplete="given-name">
+          </div>
+          <div class="field">
+            <label for="cf-last">Last name</label>
+            <input id="cf-last" name="q3_textbox1" type="text" required placeholder="Park" autocomplete="family-name">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="cf-email">Email</label>
+          <input id="cf-email" name="q4_email2" type="email" required placeholder="you@email.com" autocomplete="email">
+        </div>
+
+        <div class="field">
+          <label for="cf-phone">Phone (optional)</label>
+          <input id="cf-phone" name="q5_phone3" type="tel" placeholder="(303) 555-0100" autocomplete="tel">
+        </div>
+
+        <div class="field">
+          <label for="cf-state">State of residence</label>
+          <input id="cf-state" name="q6_textbox4" type="text" placeholder="Florida" autocomplete="address-level1">
+        </div>
+
+        <div class="field">
+          <label for="cf-topic">What's this about?</label>
+          <select id="cf-topic" name="q7_dropdown5">
+            <option>I'm interested in working with Octus</option>
+            <option>I'm an existing client</option>
+            <option>I have a question about pricing</option>
+            <option>I have a question about a specific product</option>
+            <option>Press / partnership inquiry</option>
+            <option>Something else</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="q8_textarea6" required placeholder="A sentence or two is plenty."></textarea>
+        </div>
+
+        <div id="cf-error" role="alert" style="display:none;background:#fbe9e9;border-left:3px solid #c25151;color:#7a2424;padding:12px 16px;border-radius:0 6px 6px 0;margin-bottom:14px;font-size:14px;line-height:1.5;"></div>
+
+        <button class="btn btn-primary btn-large" type="submit" id="cf-submit" style="width:100%;justify-content:center;">
+          <span class="cf-submit-label">Send message</span>
+          <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+
+        <p style="font-size:12px;color:var(--fg-soft);margin-top:14px;margin-bottom:0;line-height:1.5;">
+          Submitting this form does not create an attorney-client or advisor-client relationship. Please do not include confidential information until we've confirmed engagement. Information you submit is handled under our <a href="legal.html#privacy" style="color:var(--navy);text-decoration:underline;text-decoration-color:var(--gold);">Privacy Policy</a>.
+        </p>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- Where we meet -->
+<section class="band">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Where we meet</span>
+      <h2>One office. Personal meetings statewide and beyond.</h2>
+      <p class="lead">All three meetings can be done over secure video — that's how most of our clients prefer to work. If you'd rather meet in person, here's how that works.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;">
+      <div class="office-card" style="padding:36px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 12px;background:#fbf6e9;border-radius:999px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:16px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--gold);"></span>
+          Our office
+        </div>
+        <div class="office-city" style="font-size:30px;">Central Florida</div>
+        <div class="office-addr" style="margin-top:10px;">Our home base. Available for any of the three meetings, by appointment.</div>
+        <div class="office-hrs" style="margin-top:14px;">Mon–Fri · 9am–5pm ET</div>
+        <div style="margin-top:14px;font-size:13px;color:var(--fg-soft);line-height:1.5;">
+          Specific office address is shared after your fit call, when we confirm meeting times.
+        </div>
+      </div>
+
+      <div class="office-card" style="padding:36px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 12px;background:rgba(15,49,78,0.06);border-radius:999px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy);font-weight:600;margin-bottom:16px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--navy);"></span>
+          Outside Central Florida
+        </div>
+        <div class="office-city" style="font-size:30px;">Anywhere, virtually.</div>
+        <div class="office-addr" style="margin-top:10px;">All three meetings conducted virtually — over secure video on your smartphone or computer. Same process, same advisor, no travel required.</div>
+        <div class="office-hrs" style="margin-top:14px;">Scheduled around your availability</div>
+        <div style="margin-top:14px;font-size:13px;color:var(--fg-soft);line-height:1.5;">
+          The signing meeting requires a notary, which we coordinate either way.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="partials.js"></script>
+<script type="application/ld+json" data-schema="contact">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact Octus Estate",
+  "url": "https://octusestate.com/contact.html",
+  "mainEntity": {
+    "@type": "Organization",
+    "@id": "https://octusestate.com/#organization",
+    "name": "Octus Estate",
+    "telephone": "+1-833-533-1123",
+    "email": "hello@octusestate.com",
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+1-833-533-1123",
+        "contactType": "customer service",
+        "areaServed": "US",
+        "availableLanguage": "English"
+      },
+      {
+        "@type": "ContactPoint",
+        "email": "support@octusestate.com",
+        "contactType": "client support",
+        "areaServed": "US"
+      },
+      {
+        "@type": "ContactPoint",
+        "email": "info@octusestate.com",
+        "contactType": "sales",
+        "areaServed": "US"
+      }
+    ]
+  }
+}
+</script>
+
+<script>
+  /* =========================================================
+     Contact form → JotForm AJAX submission
+     Form ID: 261806616882061
+     Fields are name-mapped to JotForm question keys on the inputs.
+     Uses an invisible iframe submission to dodge CORS — JotForm
+     returns no useful body to a fetch() from another origin.
+     ========================================================= */
+  (function () {
+    const form = document.getElementById('octus-contact-form');
+    if (!form) return;
+
+    const submitBtn = document.getElementById('cf-submit');
+    const errorBox  = document.getElementById('cf-error');
+    const label     = submitBtn.querySelector('.cf-submit-label');
+    const FORM_ID   = '261806616882061';
+    const ACTION    = 'https://submit.jotform.com/submit/' + FORM_ID + '/';
+
+    function showError(msg) {
+      errorBox.textContent = msg;
+      errorBox.style.display = 'block';
+      submitBtn.disabled = false;
+      label.textContent = 'Send message';
+    }
+
+    function clearError() {
+      errorBox.style.display = 'none';
+      errorBox.textContent = '';
+    }
+
+    function showSuccess() {
+      form.innerHTML =
+        '<div style="padding:48px 20px;text-align:center;">' +
+          '<div style="width:56px;height:56px;border-radius:50%;background:#fbf6e9;display:inline-flex;align-items:center;justify-content:center;margin-bottom:18px;">' +
+            '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#a8862e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' +
+          '</div>' +
+          '<div style="font-family:var(--serif);font-size:32px;color:var(--navy);font-weight:500;">Thanks — we got it.</div>' +
+          '<div style="margin-top:12px;color:var(--fg-soft);max-width:38ch;margin-left:auto;margin-right:auto;line-height:1.6;">An advisor will reply within one business day. If your matter is urgent, please call (833) 533-1123.</div>' +
+        '</div>';
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      clearError();
+
+      // Basic HTML5 validation
+      if (!form.checkValidity()) {
+        showError('Please fill in the required fields and try again.');
+        // Trigger native UI hints
+        form.reportValidity();
+        return;
+      }
+
+      submitBtn.disabled = true;
+      label.textContent = 'Sending…';
+
+      // Build the form data from the live form
+      const fd = new FormData(form);
+
+      // Submit via a hidden iframe so the JotForm response (which goes to
+      // a different origin) doesn't navigate this page or trip CORS.
+      const iframeName = 'cf-target-' + Date.now();
+      const iframe = document.createElement('iframe');
+      iframe.name = iframeName;
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+
+      const tempForm = document.createElement('form');
+      tempForm.method = 'POST';
+      tempForm.action = ACTION;
+      tempForm.target = iframeName;
+      tempForm.enctype = 'application/x-www-form-urlencoded';
+      tempForm.style.display = 'none';
+
+      fd.forEach(function (value, key) {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = key;
+        input.value = value;
+        tempForm.appendChild(input);
+      });
+
+      document.body.appendChild(tempForm);
+
+      // Safety timeout — if the iframe never reports back in 12s,
+      // assume it worked but log a warning.
+      let resolved = false;
+      const timer = setTimeout(function () {
+        if (resolved) return;
+        resolved = true;
+        cleanup();
+        showSuccess();
+      }, 12000);
+
+      function cleanup() {
+        try { tempForm.remove(); } catch (e) {}
+        // Leave iframe in DOM briefly so any in-flight requests finish;
+        // remove after a beat.
+        setTimeout(function () { try { iframe.remove(); } catch (e) {} }, 1000);
+      }
+
+      iframe.addEventListener('load', function () {
+        if (resolved) return;
+        resolved = true;
+        clearTimeout(timer);
+        cleanup();
+        showSuccess();
+      });
+
+      tempForm.submit();
+    });
+  })();
+</script>
+</body>
+</html>

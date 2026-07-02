@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FAQ — Octus Estate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Instrument+Sans:wght@400;500;600&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"/>
+<link rel="icon" type="image/png" href="assets/octus-mark.png">
+<style>
+  .page-hero { padding: 80px 0 40px; text-align: center; }
+  .page-hero h1 { max-width: 18ch; margin: 16px auto 0; }
+  .page-hero .lead { max-width: 56ch; margin: 18px auto 0; }
+
+  .faq-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 80px;
+    align-items: flex-start;
+  }
+  .faq-toc { position: sticky; top: 96px; }
+  .faq-toc h5 {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold-deep); margin: 0 0 14px;
+  }
+  .faq-toc ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .faq-toc a {
+    font-size: 14px; color: var(--fg);
+    padding: 6px 0;
+    border-left: 2px solid transparent;
+    padding-left: 12px;
+    transition: all .15s;
+  }
+  .faq-toc a:hover { color: var(--gold-deep); border-color: var(--gold); }
+
+  .faq-group { margin-bottom: 64px; }
+  .faq-group h2 {
+    font-size: 32px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 8px;
+  }
+
+  @media (max-width: 980px) {
+    .faq-layout { grid-template-columns: 1fr; gap: 40px; }
+    .faq-toc { position: static; }
+  }
+</style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Frequently asked</span>
+    <h1>Questions worth <em style="color:var(--gold-deep);font-style:italic;">asking out loud.</em></h1>
+    <p class="lead">If you don't see your question, our team will answer it on a fit call — usually in five minutes.</p>
+  </div>
+</section>
+
+<section style="padding-top:20px;">
+  <div class="container">
+    <div class="faq-layout">
+      <aside class="faq-toc">
+        <h5>On this page</h5>
+        <ul>
+          <li><a href="#general">General</a></li>
+          <li><a href="#process">The process</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#legal">Legal &amp; states</a></li>
+          <li><a href="#after">After signing</a></li>
+        </ul>
+      </aside>
+
+      <div>
+        <div class="faq-group" id="general">
+          <h2>General</h2>
+          <div class="faq-list" style="max-width:none;">
+            <details class="faq-item" open>
+              <summary>Do I actually need a revocable trust, or is a will enough?
+                <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+              </summary>
+              <div class="faq-answer">A will alone passes through probate — a public, court-supervised process that often takes 6–18 months. A revocable trust avoids probate, keeps your affairs private, and lets a successor trustee step in if you become incapacitated. We don't recommend a trust for every client; sometimes a will + POAs is the right call. Meeting one is where we figure that out together.</div>
+            </details>
+            <details class="faq-item">
+              <summary>What's the difference between a financial POA and a medical POA?
+                <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+              </summary>
+              <div class="faq-answer">A financial POA names someone to act on your behalf for financial matters — paying bills, managing accounts, filing taxes — if you can't. A medical POA (also called a healthcare proxy) names someone to make medical decisions for you. Both are essential, and both are included in every Octus bundle.</div>
+            </details>
+            <details class="faq-item">
+              <summary>Are you a law firm or a financial advisor?
+                <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+              </summary>
+              <div class="faq-answer">Octus Estate is a financial advisory firm — not a law firm. We deliver estate-planning documents using the Estately platform, and where attorney involvement is required, legal services are provided by attorneys licensed in your state through Estately + Counsel (operated by Advanced Services Law Group). Your Octus advisor guides you through the process; a licensed attorney handles the legal work. See our full <a href="legal.html#disclosures">disclosures</a> for details.</div>
+            </details>
+            <details class="faq-item">
+              <summary>How long does the whole process take?
+                <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+              </summary>
+              <div class="faq-answer">From first meeting to signing, typically 3–5 weeks for a Complete Plan. The pace is set by you; we've completed plans in 10 days for clients facing a deadline.</div>
+            </details>
+          </div>
+        </div>
+
+        <div class="faq-group" id="process">
+          <h2>The process</h2>
+          <div class="faq-list" style="max-width:none;">
+            <details class="faq-item">
+              <summary>Can we meet in person, or only virtually?
+                <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+              </summary>
+              <div class="faq-answer">All three meetings can be done over secure video. For clients in Central Florida, we meet at our office. For clients outside Central Florida, we conduct meetings virtually — on your smartphone or computer. The signing meeting requires a notary, which we coordinate either way.</div>
+            </details>
+            <details class="faq-item">
+              <summary>Will I work with the same advisor each meeting?
+                <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+              </summary>
+              <div class="faq-answer">Yes. You're assigned one advisor at intake and they stay with you through all three meetings, annual reviews, and any future amendments.</div>
+            </details>
+            <details class="faq-item">
+              <summary>What do I need to bring to the first meeting?
+                <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+              </summary>
+              <div class="faq-answer">Ideally, your beneficiaries' personal information — full legal names, dates of birth, and contact details. If you'd like to be extra prepared: a rough list of your accounts and real estate, plus copies of any existing wills or trusts. After our fit call, if you'd like to move forward, we'll email an intake form — the information you fill in there is what we work from in the first meeting.</div>
+            </details>
+            <details class="faq-item">
+              <summary>Can both spouses do their plans together?
+                <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+              </summary>
+              <div class="faq-answer">Absolutely. Most of our clients are married couples doing joint or mirror plans. There's no additional cost for a second spouse on the same plan — the flat fee covers both.</div>
+            </details>
+          </div>
+        </div>
+
+        <div class="faq-group" id="pricing">
+          <h2>Pricing</h2>
+          <div class="faq-list" style="max-width:none;">
+            <details class="faq-item">
+              <summary>Is the $2,500 really all-in?
+                <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+              </summary>
+              <div class="faq-answer">The flat fee covers all three meetings, attorney review in your state, document preparation, processing, filing administration, notary coordination, trust funding guidance, and a printed binder with all of your documents at signing. The only outside cost is <strong>county recording fees</strong> if you choose to title your home into the trust — you file this with your county directly between meetings 2 and 3, and we provide step-by-step guidance. A fireproof safe is optional and not something we sell; if you'd like one, we link a model on Amazon that we recommend.</div>
+            </details>
+            <details class="faq-item">
+              <summary>When is payment due?
+                <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+              </summary>
+              <div class="faq-answer">A single payment is collected at the end of meeting two. It covers document preparation, processing, filing administration, attorney review, notary coordination, and your binder. Meeting one (the fit call and intake) carries no charge — if either side decides we're not the right fit, you walk away with no obligation.</div>
+            </details>
+            <details class="faq-item">
+              <summary>What if I want to add a trust later?
+                <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+              </summary>
+              <div class="faq-answer">Existing clients can upgrade to a Complete Plan for the difference between bundles. We'll credit what you've already paid against the new total.</div>
+            </details>
+            <details class="faq-item">
+              <summary>Do you offer payment plans?
+                <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+              </summary>
+              <div class="faq-answer">No. Our work is paid in full in one payment at meeting two. We've found that if the flat fee feels like a stretch, the assets being planned for usually don't warrant a trust in the first place — and a simpler last will may be the better fit. We'd rather have that honest conversation up front than stretch payments over months. Estate planning isn't covered by insurance.</div>
+            </details>
+          </div>
+        </div>
+
+        <div class="faq-group" id="legal">
+          <h2>Legal &amp; states</h2>
+          <div class="faq-list" style="max-width:none;">
+            <details class="faq-item">
+              <summary>Do you serve every state?
+                <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+              </summary>
+              <div class="faq-answer">Yes — all 50 states plus DC. Documents are reviewed by an attorney licensed in your state of residence.</div>
+            </details>
+            <details class="faq-item">
+              <summary>What if I move to another state?
+                <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+              </summary>
+              <div class="faq-answer">Your trust travels with you. POAs and wills sometimes need state-specific amendments — we offer a one-time relocation review at a reduced rate ($450) for existing clients. The trust itself does not need to be redrafted.</div>
+            </details>
+            <details class="faq-item">
+              <summary>Is my information secure?
+                <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+              </summary>
+              <div class="faq-answer">Yes. We use bank-grade encryption (AES-256 at rest, TLS 1.3 in transit), SOC 2 Type II–certified infrastructure, and a zero-knowledge document vault. We never sell or share client data.</div>
+            </details>
+          </div>
+        </div>
+
+        <div class="faq-group" id="after">
+          <h2>After signing</h2>
+          <div class="faq-list" style="max-width:none;">
+            <details class="faq-item">
+              <summary>How often should I update my plan?
+                <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+              </summary>
+              <div class="faq-answer">Major life events — marriage, divorce, birth, death, big asset purchase or sale, move to a new state — warrant a call. Otherwise an annual review is plenty. We schedule that complimentary review with you every year.</div>
+            </details>
+            <details class="faq-item">
+              <summary>Where do you store the originals?
+                <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+              </summary>
+              <div class="faq-answer">You keep the originals. We provide a <strong>binder</strong> with all of your documents at signing, and store digital copies in your Octus vault. If you'd like to keep them in a fireproof safe, we link a model on Amazon that we recommend (see our <a href="legal.html#affiliate">affiliate disclosure</a>) — we don't sell safes ourselves.</div>
+            </details>
+            <details class="faq-item">
+              <summary>What happens to my plan when I die?
+                <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+              </summary>
+              <div class="faq-answer">Your successor trustee contacts us. We walk them through their responsibilities at no charge for the first hour, and provide them with an executor's checklist. They can choose to hire us for trust administration if they'd like ongoing help; otherwise we hand off cleanly.</div>
+            </details>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <div class="cta-inner">
+      <div>
+        <span class="eyebrow" style="color:var(--gold);">Still curious?</span>
+        <h2 style="margin-top:18px;">Ask us live.</h2>
+        <p>Twenty-minute fit calls are free — and we'd rather answer your actual questions than guess at them.</p>
+      </div>
+      <div>
+        <a class="btn btn-primary btn-large" href="https://calendly.com/octusfinancial/introduction" target="_blank" rel="noopener" style="justify-content:center;width:100%;">Schedule a fit call
+          <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="partials.js"></script>
+<script>
+  // FAQPage schema — generated from the rendered DOM so it stays in sync.
+  document.addEventListener("DOMContentLoaded", () => {
+    const items = Array.from(document.querySelectorAll(".faq-item")).map(el => {
+      const summary = el.querySelector("summary");
+      const answer = el.querySelector(".faq-answer");
+      if (!summary || !answer) return null;
+      // Strip the trailing + icon text from the summary
+      const q = summary.textContent.replace(/\s+/g, " ").trim();
+      const a = answer.textContent.replace(/\s+/g, " ").trim();
+      return {
+        "@type": "Question",
+        "name": q,
+        "acceptedAnswer": { "@type": "Answer", "text": a }
+      };
+    }).filter(Boolean);
+
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": items
+    };
+    const s = document.createElement("script");
+    s.type = "application/ld+json";
+    s.setAttribute("data-schema", "faq");
+    s.textContent = JSON.stringify(schema);
+    document.head.appendChild(s);
+  });
+</script>
+</body>
+</html>

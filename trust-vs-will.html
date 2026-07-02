@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Trust vs Will — Octus Estate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Instrument+Sans:wght@400;500;600&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"/>
+<link rel="icon" type="image/png" href="assets/octus-mark.png">
+<style>
+  .page-hero { padding: 80px 0 40px; text-align: center; }
+  .page-hero h1 { max-width: 22ch; margin: 16px auto 0; }
+  .page-hero .lead { max-width: 60ch; margin: 18px auto 0; }
+
+  .vs-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0;
+    align-items: stretch;
+    background: var(--bg-elev);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-top: 30px;
+  }
+  .vs-col { padding: 44px 40px; }
+  .vs-col.trust { background: color-mix(in oklab, var(--navy) 92%, transparent); color: #f7f1df; }
+  .vs-col.trust h2, .vs-col.trust h3 { color: #f7f1df; }
+  .vs-col.trust .vs-row strong { color: #f7f1df; }
+  .vs-col.trust .vs-row span { color: #b9c7d4; }
+  .vs-col.trust .label { color: var(--gold); }
+  .vs-divider {
+    width: 1px;
+    background: var(--rule);
+    position: relative;
+  }
+  .vs-divider::after {
+    content: "vs.";
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--gold);
+    color: var(--navy-deep);
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22px;
+    box-shadow: var(--shadow);
+  }
+  .label {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold-deep); margin-bottom: 14px; display: inline-block;
+  }
+  .vs-col h2 { font-size: 36px; margin-bottom: 14px; }
+  .vs-col > .summary { margin-bottom: 28px; font-size: 16px; line-height: 1.55; }
+  .vs-col.trust > .summary { color: #d6e0ea; }
+  .vs-col.will > .summary { color: var(--fg-soft); }
+  .vs-row {
+    padding: 16px 0;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .vs-col.trust .vs-row { border-color: rgba(247,241,223,0.12); }
+  .vs-row:first-of-type { border-top: 0; }
+  .vs-row strong { font-family: var(--sans); font-size: 13px; color: var(--navy); font-weight: 600; }
+  .vs-row span { font-size: 14.5px; color: var(--fg-soft); }
+
+  .decision-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 40px;
+  }
+  .decision-card {
+    padding: 32px;
+    background: var(--bg-elev);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-lg);
+  }
+  .decision-card.highlight { border-color: var(--gold); }
+  .decision-card h3 { font-size: 22px; margin-bottom: 12px; }
+  .decision-card ul { padding-left: 20px; margin: 0; font-size: 15px; color: var(--fg-soft); }
+  .decision-card li { margin-bottom: 8px; line-height: 1.5; }
+
+  @media (max-width: 980px) {
+    .vs-grid { grid-template-columns: 1fr; }
+    .vs-divider { width: 100%; height: 1px; }
+    .vs-divider::after { width: 48px; height: 48px; font-size: 18px; }
+    .decision-block { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Compare</span>
+    <h1>Revocable trust, or a will? <em style="color:var(--gold-deep);font-style:italic;">Sometimes both.</em></h1>
+    <p class="lead">A will alone passes your assets through probate. A revocable trust avoids probate, but only works for what you've actually titled into it. Here's what each does, and when each one is enough.</p>
+  </div>
+</section>
+
+<section style="padding-top:20px;">
+  <div class="container">
+    <div class="vs-grid">
+      <div class="vs-col trust">
+        <span class="label">Recommended for most</span>
+        <h2>Revocable Living Trust</h2>
+        <p class="summary">A legal arrangement that holds your assets during your lifetime, lets you stay in full control, and transfers them privately — without court — when you die or become incapacitated.</p>
+
+        <div class="vs-row"><strong>Probate</strong><span>Avoids probate entirely for funded assets</span></div>
+        <div class="vs-row"><strong>Privacy</strong><span>Private. Never becomes a public court record</span></div>
+        <div class="vs-row"><strong>Incapacity</strong><span>Successor trustee can manage assets immediately</span></div>
+        <div class="vs-row"><strong>Speed of transfer</strong><span>Days to weeks after death</span></div>
+        <div class="vs-row"><strong>Out-of-state property</strong><span>Avoids ancillary probate in each state</span></div>
+        <div class="vs-row"><strong>Cost upfront</strong><span>Higher — drafting and funding required</span></div>
+        <div class="vs-row"><strong>Cost at death</strong><span>Minimal — no probate fees</span></div>
+        <div class="vs-row"><strong>Maintenance</strong><span>Requires keeping assets titled in the trust</span></div>
+      </div>
+
+      <div class="vs-divider"></div>
+
+      <div class="vs-col will">
+        <span class="label">Right in some cases</span>
+        <h2>Last Will &amp; Testament</h2>
+        <p class="summary">A legal document that directs how your assets are distributed at death and names guardians for minor children. It only takes effect after death — and only through probate court.</p>
+
+        <div class="vs-row"><strong>Probate</strong><span>Required. Court-supervised process</span></div>
+        <div class="vs-row"><strong>Privacy</strong><span>Public record. Anyone can read it</span></div>
+        <div class="vs-row"><strong>Incapacity</strong><span>No effect — wills only act at death</span></div>
+        <div class="vs-row"><strong>Speed of transfer</strong><span>Typically 6–18 months</span></div>
+        <div class="vs-row"><strong>Out-of-state property</strong><span>Requires separate probate in each state</span></div>
+        <div class="vs-row"><strong>Cost upfront</strong><span>Lower — simpler document</span></div>
+        <div class="vs-row"><strong>Cost at death</strong><span>Probate fees, often 3–7% of estate</span></div>
+        <div class="vs-row"><strong>Maintenance</strong><span>Minimal — update on major life events</span></div>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin-top:30px;font-size:14px;color:var(--fg-soft);">
+      <em>Octus's Complete Plan includes both — plus a pour-over will, which catches anything not yet in the trust.</em>
+    </p>
+  </div>
+</section>
+
+<!-- Decision block -->
+<section class="band">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Which is right for you?</span>
+      <h2>A short rubric.</h2>
+      <p class="lead">These aren't rules — they're patterns. The discovery meeting is where we get specific to your situation.</p>
+    </div>
+
+    <div class="decision-block">
+      <div class="decision-card highlight">
+        <h3 style="color:var(--gold-deep);">A trust is usually right when…</h3>
+        <ul>
+          <li>You own real estate, especially in more than one state.</li>
+          <li>Your estate is worth over ~$200,000 in non-retirement assets.</li>
+          <li>You want privacy — to keep your affairs out of public probate records.</li>
+          <li>You have minor children or beneficiaries with special needs.</li>
+          <li>You want a clear plan for incapacity, not just death.</li>
+          <li>You'd like assets to transfer quickly and without court oversight.</li>
+        </ul>
+      </div>
+      <div class="decision-card">
+        <h3>A will + POAs may be enough when…</h3>
+        <ul>
+          <li>You're young, renting, and your main asset is a 401(k) with named beneficiaries.</li>
+          <li>You have minor children — and need to name guardians — but limited assets.</li>
+          <li>Your state has a streamlined small-estate probate process.</li>
+          <li>You want the lowest upfront cost and can revisit as life evolves.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Funding emphasis -->
+<section>
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+      <div>
+        <span class="eyebrow">The most-skipped step</span>
+        <h2 style="margin-top:18px;">A trust only works if it's funded.</h2>
+        <p class="lead">An unfunded trust is a piece of paper. Funding means re-titling your house, your accounts, and your investments <em>into</em> the trust — and updating beneficiaries to match. This is the step most planners hand to you as homework.</p>
+        <p>At Octus, we sit with you in meeting three and complete the funding paperwork together. You leave with a plan that's live, not pending.</p>
+      </div>
+      <div style="background:var(--bg-band);border-radius:14px;padding:36px;border-left:3px solid var(--gold);">
+        <h3 style="font-size:22px;margin-bottom:18px;">A funded trust includes</h3>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px;">
+          <li style="padding-left:24px;position:relative;font-size:15px;">
+            <span style="position:absolute;left:0;color:var(--gold-deep);font-weight:600;">✓</span>
+            <strong>Real estate</strong> — deed transferred to the trust
+          </li>
+          <li style="padding-left:24px;position:relative;font-size:15px;">
+            <span style="position:absolute;left:0;color:var(--gold-deep);font-weight:600;">✓</span>
+            <strong>Bank accounts</strong> — re-titled to the trust
+          </li>
+          <li style="padding-left:24px;position:relative;font-size:15px;">
+            <span style="position:absolute;left:0;color:var(--gold-deep);font-weight:600;">✓</span>
+            <strong>Brokerage &amp; investments</strong> — transferred or pay-on-death
+          </li>
+          <li style="padding-left:24px;position:relative;font-size:15px;">
+            <span style="position:absolute;left:0;color:var(--gold-deep);font-weight:600;">✓</span>
+            <strong>Business interests</strong> — assigned to the trust
+          </li>
+          <li style="padding-left:24px;position:relative;font-size:15px;">
+            <span style="position:absolute;left:0;color:var(--gold-deep);font-weight:600;">✓</span>
+            <strong>Beneficiary updates</strong> — retirement accounts &amp; insurance
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <div class="cta-inner">
+      <div>
+        <span class="eyebrow" style="color:var(--gold);">Still unsure?</span>
+        <h2 style="margin-top:18px;">Let's figure it out together.</h2>
+        <p>Schedule a free 20-minute fit call. Three questions, an honest recommendation.</p>
+      </div>
+      <div>
+        <a class="btn btn-primary btn-large" href="https://calendly.com/octusfinancial/introduction" target="_blank" rel="noopener" style="justify-content:center;width:100%;">Schedule a fit call
+          <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="partials.js"></script>
+</body>
+</html>

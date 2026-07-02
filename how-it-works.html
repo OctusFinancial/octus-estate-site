@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>How it works — Octus Estate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Instrument+Sans:wght@400;500;600&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"/>
+<link rel="icon" type="image/png" href="assets/octus-mark.png">
+<style>
+  .page-hero { padding: 80px 0 60px; }
+  .page-hero h1 { max-width: 14ch; }
+  .page-hero .lead { max-width: 60ch; }
+
+  .timeline {
+    position: relative;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 30px; top: 8px; bottom: 8px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), var(--rule));
+  }
+  .tl-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 32px;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .tl-item:last-child { border-bottom: 0; }
+  .tl-num {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1px solid var(--gold);
+    color: var(--gold-deep);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 500;
+    position: relative;
+    z-index: 2;
+  }
+  .tl-content h2 { font-size: 32px; margin-bottom: 8px; }
+  .tl-meta {
+    display: inline-flex;
+    gap: 14px;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 18px;
+  }
+  .tl-meta span { display: inline-flex; align-items: center; gap: 6px; }
+  .tl-meta .dot { width:4px;height:4px;border-radius:50%;background:var(--gold);display:inline-block; }
+
+  .tl-detail {
+    margin-top: 24px;
+    padding: 24px 28px;
+    background: var(--bg-band);
+    border-radius: var(--radius);
+    border-left: 3px solid var(--gold);
+  }
+  .tl-detail h4 {
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 12px;
+  }
+  .tl-detail ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 24px;
+  }
+  .tl-detail li {
+    font-size: 14.5px;
+    padding-left: 22px;
+    position: relative;
+    color: var(--fg);
+  }
+  .tl-detail li::before {
+    content: "✓";
+    position: absolute; left: 0; top: 0;
+    color: var(--gold-deep);
+    font-weight: 600;
+  }
+
+  .between {
+    padding: 20px 0 20px 92px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-soft);
+    display: flex; align-items: center; gap: 14px;
+  }
+  .between::before, .between::after {
+    content: ""; flex: 0 0 24px; height: 1px; background: var(--rule);
+  }
+</style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">How Octus works</span>
+    <h1 style="margin-top:16px;">Three meetings.<br/>One <em style="color:var(--gold-deep);font-style:italic;">complete</em> plan.</h1>
+    <p class="lead" style="margin-top:18px;">No portal logins, no document-signing-app-only experiences. You'll work directly with one advisor — by name, with their cell number — from discovery through funded execution.</p>
+  </div>
+</section>
+
+<section style="padding-top:30px;">
+  <div class="container">
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div><div class="tl-num">01</div></div>
+        <div class="tl-content">
+          <div class="tl-meta">
+            <span><span class="dot"></span>Discovery</span>
+            <span><span class="dot"></span>~ 90 minutes</span>
+            <span><span class="dot"></span>Virtual or in-person</span>
+          </div>
+          <h2>We listen.</h2>
+          <p class="lead">Your first meeting is a conversation, not a form. We want to understand your family, your assets, and the worries that have kept this on the back burner. By the end, you'll know exactly which documents you need — and which you don't.</p>
+
+          <div class="tl-detail">
+            <h4>What we cover</h4>
+            <ul>
+              <li>Family structure and beneficiaries</li>
+              <li>Real estate, accounts, business interests</li>
+              <li>Existing documents (we'll review them)</li>
+              <li>Guardianship for minor children</li>
+              <li>Charitable intentions, special bequests</li>
+              <li>Healthcare wishes and preferences</li>
+            </ul>
+          </div>
+          <div style="margin-top:18px;padding:18px 22px;background:#fbf6e9;border:1px solid rgba(197,159,74,0.35);border-radius:8px;">
+            <div style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:6px;font-weight:600;">What to bring</div>
+            <p style="font-size:14.5px;margin-bottom:0;color:var(--fg);">Ideally, your beneficiaries' personal information — full legal names, dates of birth, and contact details. Helpful but not required for the discovery meeting.</p>
+          </div>
+          <p style="margin-top:18px;font-size:14.5px;">
+            <strong style="color:var(--navy);">You leave with:</strong> a written recommendation for which Octus bundle fits, the flat fee in writing, and an intake form by email — the form populates everything we'll work from in the next meeting.
+          </p>
+        </div>
+      </div>
+
+      <div class="between">~ 7 to 10 days · we draft</div>
+
+      <div class="tl-item">
+        <div><div class="tl-num">02</div></div>
+        <div class="tl-content">
+          <div class="tl-meta">
+            <span><span class="dot"></span>Draft Review</span>
+            <span><span class="dot"></span>~ 60 minutes</span>
+            <span><span class="dot"></span>Virtual or in-person</span>
+          </div>
+          <h2>We draft, you read along.</h2>
+          <p class="lead">Your advisor shares the screen and walks you through every clause of your trust and ancillary documents — in plain English. Revisions happen live; you don't leave with homework.</p>
+
+          <div class="tl-detail">
+            <h4>What you'll see</h4>
+            <ul>
+              <li>Full revocable trust, clause by clause</li>
+              <li>Pour-over will and last will</li>
+              <li>Financial POA + medical POA</li>
+              <li>HIPAA release and living will</li>
+              <li>Schedule of assets to be funded</li>
+              <li>Successor trustee instructions</li>
+            </ul>
+          </div>
+          <p style="margin-top:18px;font-size:14.5px;">
+            <strong style="color:var(--navy);">You leave with:</strong> a marked-up draft reflecting any changes you requested, plus a signing date on the calendar.
+          </p>
+        </div>
+      </div>
+
+      <div class="between">~ 5 to 7 days · we finalize and route for attorney review</div>
+
+      <div class="tl-item">
+        <div><div class="tl-num">03</div></div>
+        <div class="tl-content">
+          <div class="tl-meta">
+            <span><span class="dot"></span>Signing &amp; Funding</span>
+            <span><span class="dot"></span>~ 75 minutes</span>
+            <span><span class="dot"></span>Notary coordinated</span>
+          </div>
+          <h2>We sign — and fund — together.</h2>
+          <p class="lead">This is the meeting other planners skip. We don't just sign documents; we walk through every account that needs to be re-titled into your trust and complete the funding with you on the call. When you leave, your plan is <em>live</em>, not pending.</p>
+
+          <div class="tl-detail">
+            <h4>What we complete in the room</h4>
+            <ul>
+              <li>Notarized signing of all documents</li>
+              <li>Bank account re-titling instructions</li>
+              <li>Brokerage account transfer paperwork</li>
+              <li>Real estate deed preparation</li>
+              <li>Beneficiary designation updates</li>
+              <li>Digital copies delivered to your secure vault</li>
+            </ul>
+          </div>
+          <div style="margin-top:18px;padding:18px 22px;background:#f1ede3;border-radius:8px;font-size:13.5px;line-height:1.55;color:var(--fg-soft);">
+            <strong style="color:var(--navy);">A note on costs outside the flat fee:</strong> If you choose to title your home into the trust, the county charges a recording fee that varies by location. You file this with your county directly between meetings 2 and 3 — we provide written, step-by-step guidance. A fireproof safe is optional; we link a model we recommend on Amazon rather than selling one ourselves.
+          </div>
+          <p style="margin-top:18px;font-size:14.5px;">
+            <strong style="color:var(--navy);">You leave with:</strong> a bound, executed plan, digital copies in your Octus vault, and your advisor's direct line for life events that warrant a check-in.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- After / lifetime -->
+<section class="band">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+      <div>
+        <span class="eyebrow">After the third meeting</span>
+        <h2 style="margin-top:18px;">Your advisor doesn't disappear.</h2>
+        <p class="lead">Life changes faster than estate plans. A new grandchild, a divorce, a move, a sale — they all warrant a phone call. Every Octus client receives complimentary annual reviews, unlimited check-in calls, and amendments at no additional cost going forward. Major restructures are quoted before any work begins.</p>
+        <div style="margin-top:32px;">
+          <a class="btn btn-primary" href="https://calendly.com/octusfinancial/introduction" target="_blank" rel="noopener">Start with discovery
+            <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div class="card" style="padding:24px;">
+          <div style="font-family:var(--serif);font-size:36px;color:var(--navy);font-weight:500;line-height:1;">Annual</div>
+          <div style="font-size:13px;color:var(--fg-soft);margin-top:6px;">Complimentary review with your advisor</div>
+        </div>
+        <div class="card" style="padding:24px;">
+          <div style="font-family:var(--serif);font-size:36px;color:var(--navy);font-weight:500;line-height:1;">Unlimited</div>
+          <div style="font-size:13px;color:var(--fg-soft);margin-top:6px;">Check-in calls — never billed by the minute</div>
+        </div>
+        <div class="card" style="padding:24px;">
+          <div style="font-family:var(--serif);font-size:36px;color:var(--navy);font-weight:500;line-height:1;">No cost</div>
+          <div style="font-size:13px;color:var(--fg-soft);margin-top:6px;">Amendments going forward — beneficiary updates, trustee swaps, address changes</div>
+        </div>
+        <div class="card" style="padding:24px;">
+          <div style="font-family:var(--serif);font-size:36px;color:var(--navy);font-weight:500;line-height:1;">Quoted</div>
+          <div style="font-size:13px;color:var(--fg-soft);margin-top:6px;">Major restructures — always priced before work begins</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <div class="cta-inner">
+      <div>
+        <span class="eyebrow" style="color:var(--gold);">Ready when you are</span>
+        <h2 style="margin-top:18px;">Book the first meeting.</h2>
+        <p>Twenty minutes to find a time that works. No payment, no commitment.</p>
+      </div>
+      <div>
+        <a class="btn btn-primary btn-large" href="https://calendly.com/octusfinancial/introduction" target="_blank" rel="noopener" style="justify-content:center;width:100%;">Schedule discovery
+          <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="partials.js"></script>
+</body>
+</html>

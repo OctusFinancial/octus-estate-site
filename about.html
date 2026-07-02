@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>About — Octus Estate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Instrument+Sans:wght@400;500;600&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"/>
+<link rel="icon" type="image/png" href="assets/octus-mark.png">
+<style>
+  .page-hero { padding: 80px 0 60px; }
+  .page-hero .grid { display:grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; }
+  .page-hero h1 { max-width: 14ch; }
+  .page-hero .lead { max-width: 50ch; }
+
+  .values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+  .value-card { padding: 32px; background: var(--bg-elev); border: 1px solid var(--rule); border-radius: 14px; }
+  .value-num {
+    font-family: var(--serif);
+    font-size: 40px;
+    color: var(--gold);
+    line-height: 1;
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+  .value-card h3 { font-size: 22px; margin-bottom: 10px; }
+
+  .team-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+  .team-card { background: var(--bg-elev); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden; }
+  .team-photo {
+    aspect-ratio: 4/5;
+    background: linear-gradient(155deg, var(--sage-soft), var(--sage));
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(15,49,78,0.5);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+  .team-photo::before {
+    content: ""; position: absolute; inset: 18px;
+    border: 1px dashed rgba(15,49,78,0.2); border-radius: 8px;
+    background-image: repeating-linear-gradient(45deg, transparent 0, transparent 12px, rgba(15,49,78,0.04) 12px, rgba(15,49,78,0.04) 13px);
+  }
+  .team-photo span { position: relative; background: rgba(255,255,255,0.7); padding: 5px 10px; border-radius: 999px; }
+  .team-info { padding: 22px 24px; }
+  .team-info .name { font-family: var(--serif); font-size: 22px; color: var(--navy); font-weight: 500; line-height: 1.1; }
+  .team-info .role { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-deep); margin: 6px 0 12px; }
+  .team-info p { font-size: 14px; margin-bottom: 0; }
+  .team-info .creds { font-family: var(--mono); font-size: 11px; color: var(--fg-soft); margin-top: 12px; letter-spacing: 0.06em; }
+
+  @media (max-width:980px) {
+    .page-hero .grid { grid-template-columns: 1fr; }
+    .values-grid, .team-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="grid">
+      <div>
+        <span class="eyebrow">About Octus</span>
+        <h1 style="margin-top:16px;">Estate planning, <em style="color:var(--gold-deep);font-style:italic;">slowed down</em> on purpose.</h1>
+      </div>
+      <div>
+        <p class="lead">We started Octus because the two ways most Americans get an estate plan are both broken: pay $5,000 to a law firm and never finish funding it, or buy a $99 PDF online and hope the template fits your life. There's a better third path. It just takes three meetings.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats / proof -->
+<section class="band">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:40px;text-align:left;">
+      <div>
+        <div style="font-family:var(--serif);font-size:52px;color:var(--navy);font-weight:500;line-height:1;">2,400+</div>
+        <div style="font-size:13px;color:var(--fg-soft);margin-top:8px;line-height:1.4;">Estate plans completed since 2019</div>
+      </div>
+      <div>
+        <div style="font-family:var(--serif);font-size:52px;color:var(--navy);font-weight:500;line-height:1;">50</div>
+        <div style="font-size:13px;color:var(--fg-soft);margin-top:8px;line-height:1.4;">States we serve, plus DC</div>
+      </div>
+      <div>
+        <div style="font-family:var(--serif);font-size:52px;color:var(--navy);font-weight:500;line-height:1;">4.9</div>
+        <div style="font-size:13px;color:var(--fg-soft);margin-top:8px;line-height:1.4;">Average client rating, 1,800+ reviews</div>
+      </div>
+      <div>
+        <div style="font-family:var(--serif);font-size:52px;color:var(--navy);font-weight:500;line-height:1;">$0</div>
+        <div style="font-size:13px;color:var(--fg-soft);margin-top:8px;line-height:1.4;">Hourly fees charged — ever</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Origin / story -->
+<section>
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:start;">
+      <div>
+        <span class="eyebrow">Our story</span>
+        <h2 style="margin-top:18px;">A firm built around the meeting most planners skip.</h2>
+      </div>
+      <div>
+        <p>Our founders spent fifteen years at large estate planning firms watching the same thing happen, over and over: a couple pays five figures, signs a beautiful trust, and walks out with a folder of instructions for funding it themselves. Two years later, the trust is still unfunded, the assets still pass through probate, and the family wonders what they paid for.</p>
+        <p>Octus exists because that third meeting — the one where you actually re-title the accounts, file the deeds, and update the beneficiaries — is not optional. It's the whole point. So we built our process around it. Flat fee, three meetings, and the third one is the one most planners cancel.</p>
+        <p>We work with families across every tax bracket, every life stage, and every state. We will tell you when a will is enough. We will tell you when a trust is the wrong tool. The recommendation is the product.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Values -->
+<section class="band">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">What we hold to</span>
+      <h2>Four operating principles.</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-num">i.</div>
+        <h3>Flat fee, always.</h3>
+        <p>No hourly billing. No "phone calls cost extra." Quoted in writing in meeting one.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-num">ii.</div>
+        <h3>Funded, not filed.</h3>
+        <p>A signed trust isn't done. We sit with you and complete the funding in meeting three.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-num">iii.</div>
+        <h3>One advisor.</h3>
+        <p>You get a name, a cell number, and the same person through every annual review.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-num">iv.</div>
+        <h3>Plain English.</h3>
+        <p>If you can't explain a clause to your spouse, we haven't done our job.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-num">v.</div>
+        <h3>Right tool, not biggest tool.</h3>
+        <p>Sometimes a will is enough. We'll tell you. The recommendation is the product.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-num">vi.</div>
+        <h3>Attorney-reviewed.</h3>
+        <p>Every document is reviewed by an attorney licensed in your state of residence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Advisors &amp; counsel</span>
+      <h2>The people you'll actually talk to.</h2>
+    </div>
+    <div class="team-grid">
+      <article class="team-card">
+        <div class="team-photo"><span>portrait · Linda</span></div>
+        <div class="team-info">
+          <div class="name">Linda Park</div>
+          <div class="role">Founding Advisor · Managing Partner</div>
+          <p>Fifteen years at a regional estate-planning firm before founding Octus. Lives in Central Florida with her husband and two teenagers.</p>
+          <div class="creds">CFP® · AEP® · MBA</div>
+        </div>
+      </article>
+      <article class="team-card">
+        <div class="team-photo"><span>portrait · Marcus</span></div>
+        <div class="team-info">
+          <div class="name">Marcus Reyes</div>
+          <div class="role">Senior Advisor · Trust Funding Lead</div>
+          <p>Specializes in clients with out-of-state real estate and family-business interests. Twelve years in private wealth.</p>
+          <div class="creds">CFP® · CTFA</div>
+        </div>
+      </article>
+      <article class="team-card">
+        <div class="team-photo"><span>portrait · Aisha</span></div>
+        <div class="team-info">
+          <div class="name">Aisha Okonkwo</div>
+          <div class="role">Senior Advisor · Blended Families</div>
+          <p>Works with second-marriage households, blended families, and special-needs planning. Bilingual (English / Spanish).</p>
+          <div class="creds">CFP® · ChSNC®</div>
+        </div>
+      </article>
+      <article class="team-card">
+        <div class="team-photo"><span>portrait · Daniel</span></div>
+        <div class="team-info">
+          <div class="name">Daniel Whitfield</div>
+          <div class="role">Of Counsel · Multi-state</div>
+          <p>Licensed in 14 states. Reviews and signs off on every trust we draft outside our advisors' home jurisdictions.</p>
+          <div class="creds">JD · LL.M. (Tax)</div>
+        </div>
+      </article>
+      <article class="team-card">
+        <div class="team-photo"><span>portrait · Hannah</span></div>
+        <div class="team-info">
+          <div class="name">Hannah Lee</div>
+          <div class="role">Client Experience Lead</div>
+          <p>Coordinates intake, scheduling, and notary logistics. The person who makes sure your signing day is calm.</p>
+          <div class="creds">Bar-admitted paralegal</div>
+        </div>
+      </article>
+      <article class="team-card">
+        <div class="team-photo"><span>portrait · Rafe</span></div>
+        <div class="team-info">
+          <div class="name">Rafe Andersson</div>
+          <div class="role">Director of Operations</div>
+          <p>Keeps our process boring on purpose. Former operations lead at a national RIA.</p>
+          <div class="creds">PMP · Series 65</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <div class="cta-inner">
+      <div>
+        <span class="eyebrow" style="color:var(--gold);">Meet your advisor</span>
+        <h2 style="margin-top:18px;">Book a 20-minute fit call.</h2>
+        <p>We'll match you with the advisor who fits your situation. If we're not the right fit, we'll tell you who is.</p>
+      </div>
+      <div>
+        <a class="btn btn-primary btn-large" href="https://calendly.com/octusfinancial/introduction" target="_blank" rel="noopener" style="justify-content:center;width:100%;">Schedule a fit call
+          <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="partials.js"></script>
+</body>
+</html>
