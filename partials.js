@@ -1,14 +1,14 @@
 /* Shared header/footer + Tweaks for Octus Estate */
 
 const OCTUS_NAV = [
-  { href: "index.html", label: "Home" },
-  { href: "how-it-works.html", label: "How it works" },
-  { href: "pricing.html", label: "Pricing" },
-  { href: "trust-vs-will.html", label: "Trust vs Will" },
-  { href: "about.html", label: "About" },
-  { href: "faq.html", label: "FAQ" },
-  { href: "blog.html", label: "Resources" },
-  { href: "contact.html", label: "Contact" },
+  { href: "/index.html", label: "Home" },
+  { href: "/how-it-works.html", label: "How it works" },
+  { href: "/pricing.html", label: "Pricing" },
+  { href: "/trust-vs-will.html", label: "Trust vs Will" },
+  { href: "/about.html", label: "About" },
+  { href: "/faq.html", label: "FAQ" },
+  { href: "/blog.html", label: "Resources" },
+  { href: "/contact.html", label: "Contact" },
 ];
 
 // Essay pages — treated as "Resources" for nav highlighting purposes
@@ -44,7 +44,7 @@ function renderHeader(currentPath) {
   return `
   <header class="site-header">
     <div class="site-header-inner">
-      <a class="brand" href="index.html" aria-label="Octus Estate home">
+      <a class="brand" href="/index.html" aria-label="Octus Estate home">
         <img src="assets/octus-mark.png" alt="" />
         <span class="brand-text">
           <span class="name">Octus</span>
@@ -77,38 +77,38 @@ function renderFooter() {
         <div class="footer-col">
           <h5>Services</h5>
           <ul>
-            <li><a href="pricing.html">Revocable Trust</a></li>
-            <li><a href="pricing.html">Last Will</a></li>
-            <li><a href="pricing.html">Pour-Over Will</a></li>
-            <li><a href="pricing.html">Powers of Attorney</a></li>
+            <li><a href="/pricing.html">Revocable Trust</a></li>
+            <li><a href="/pricing.html">Last Will</a></li>
+            <li><a href="/pricing.html">Pour-Over Will</a></li>
+            <li><a href="/pricing.html">Powers of Attorney</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h5>Learn</h5>
           <ul>
-            <li><a href="how-it-works.html">How it works</a></li>
-            <li><a href="trust-vs-will.html">Trust vs Will</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="blog.html">Resources</a></li>
+            <li><a href="/how-it-works.html">How it works</a></li>
+            <li><a href="/trust-vs-will.html">Trust vs Will</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+            <li><a href="/blog.html">Resources</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h5>Essays</h5>
           <ul>
-            <li><a href="essay-unfunded-trust.html">The unfunded trust epidemic</a></li>
-            <li><a href="essay-revocable-vs-irrevocable.html">Revocable vs irrevocable</a></li>
-            <li><a href="essay-probate.html">What probate actually costs</a></li>
-            <li><a href="essay-lady-bird-deed.html">Lady Bird deeds in Florida</a></li>
-            <li><a href="essay-blended-families.html">Blended family planning</a></li>
-            <li><a href="blog.html" style="color:var(--gold);margin-top:4px;display:inline-block;">All essays →</a></li>
+            <li><a href="/essay-unfunded-trust.html">The unfunded trust epidemic</a></li>
+            <li><a href="/essay-revocable-vs-irrevocable.html">Revocable vs irrevocable</a></li>
+            <li><a href="/essay-probate.html">What probate actually costs</a></li>
+            <li><a href="/essay-lady-bird-deed.html">Lady Bird deeds in Florida</a></li>
+            <li><a href="/essay-blended-families.html">Blended family planning</a></li>
+            <li><a href="/blog.html" style="color:var(--gold);margin-top:4px;display:inline-block;">All essays →</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h5>Firm</h5>
           <ul>
-            <li><a href="about.html">About Octus</a></li>
-            <li><a href="testimonials.html">Client stories</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="/about.html">About Octus</a></li>
+            <li><a href="/testimonials.html">Client stories</a></li>
+            <li><a href="/contact.html">Contact</a></li>
             <li><a href="https://calendly.com/octusfinancial/introduction" target="_blank" rel="noopener">Schedule now</a></li>
           </ul>
         </div>
@@ -117,17 +117,17 @@ function renderFooter() {
         <span>© 2026 Octus Estate. All rights reserved.</span>
         <span>Available in all 50 states</span>
         <span class="footer-legal-links">
-          <a href="legal.html#disclosures">Disclosures</a>
+          <a href="/legal.html#disclosures">Disclosures</a>
           <span aria-hidden="true">·</span>
-          <a href="legal.html#privacy">Privacy</a>
+          <a href="/legal.html#privacy">Privacy</a>
           <span aria-hidden="true">·</span>
-          <a href="legal.html#terms">Terms</a>
+          <a href="/legal.html#terms">Terms</a>
           <span aria-hidden="true">·</span>
-          <a href="legal.html#cookies">Cookies</a>
+          <a href="/legal.html#cookies">Cookies</a>
         </span>
       </div>
       <p class="footer-disclaimer">
-        Octus Estate, LLC is a financial advisory firm — not a law firm. Estate-planning documents are prepared using the Estately platform; where attorney involvement is required, legal services are provided by attorneys licensed in your state through Estately + Counsel (operated by Advanced Services Law Group). Information on this website is provided for general informational purposes only and does not constitute legal, tax, or financial advice, and does not create an attorney-client relationship. Past results do not guarantee future outcomes. By using this site you agree to our <a href="legal.html#terms" style="color:#d9bf85;text-decoration:underline;">Terms of Service</a> and <a href="legal.html#privacy" style="color:#d9bf85;text-decoration:underline;">Privacy Policy</a>. See our full <a href="legal.html" style="color:#d9bf85;text-decoration:underline;">Legal &amp; Disclosures</a> page.
+        Octus Estate, LLC is a financial advisory firm — not a law firm. Estate-planning documents are prepared using the Estately platform; where attorney involvement is required, legal services are provided by attorneys licensed in your state through Estately + Counsel (operated by Advanced Services Law Group). Information on this website is provided for general informational purposes only and does not constitute legal, tax, or financial advice, and does not create an attorney-client relationship. Past results do not guarantee future outcomes. By using this site you agree to our <a href="/legal.html#terms" style="color:#d9bf85;text-decoration:underline;">Terms of Service</a> and <a href="/legal.html#privacy" style="color:#d9bf85;text-decoration:underline;">Privacy Policy</a>. See our full <a href="/legal.html" style="color:#d9bf85;text-decoration:underline;">Legal &amp; Disclosures</a> page.
       </p>
     </div>
   </footer>`;
