@@ -58,6 +58,9 @@ function renderHeader(currentPath) {
           <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
       </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
     </div>
   </header>`;
 }
@@ -133,12 +136,74 @@ function renderFooter() {
   </footer>`;
 }
 
+function injectMobileCSS() {
+  if (document.querySelector('link[href="/mobile.css"]')) return;
+  const link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = "/mobile.css";
+  document.head.appendChild(link);
+}
+
+function mountMobileNav() {
+  const path = (location.pathname.split("/").pop() || "index.html");
+  const navPath = ESSAY_SLUGS.includes(path) ? "resources.html" : path;
+  const overlay = document.createElement("div");
+  overlay.className = "mobile-nav-overlay";
+  overlay.id = "mobileNavOverlay";
+  overlay.innerHTML = `
+    <div class="mobile-nav-header">
+      <a class="brand" href="/index.html" aria-label="Octus Estate home">
+        <img src="assets/octus-mark.png" alt="" width="36" height="36"/>
+        <span class="brand-text">
+          <span class="name">Octus</span>
+          <span class="sub">Financial</span>
+        </span>
+      </a>
+      <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <nav class="mobile-nav-links">
+      ${OCTUS_NAV.map(n => '<a href="' + n.href + '"' + (n.href === navPath ? ' class="current"' : '') + '>' + n.label + '</a>').join("")}
+    </nav>
+    <div class="mobile-nav-footer">
+      <a class="btn btn-primary" href="https://calendly.com/octusfinancial/introduction" target="_blank" rel="noopener">
+        Schedule a fit call
+        <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <div class="phone"><a href="tel:+18335331123">(833) 533-1123</a></div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  document.getElementById("mobileNavClose").addEventListener("click", () => {
+    overlay.classList.remove("open");
+    document.body.style.overflow = "";
+  });
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) {
+      overlay.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+  });
+  setTimeout(() => {
+    const btn = document.getElementById("mobileMenuBtn");
+    if (btn) {
+      btn.addEventListener("click", () => {
+        overlay.classList.add("open");
+        document.body.style.overflow = "hidden";
+      });
+    }
+  }, 50);
+}
+
 function mountHeaderFooter() {
   const path = (location.pathname.split("/").pop() || "index.html");
   const headerHost = document.getElementById("site-header");
   const footerHost = document.getElementById("site-footer");
   if (headerHost) headerHost.outerHTML = renderHeader(path);
   if (footerHost) footerHost.outerHTML = renderFooter();
+  mountMobileNav();
+  injectMobileCSS();
 }
 
 /* =========================================================

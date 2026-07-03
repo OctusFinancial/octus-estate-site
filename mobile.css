@@ -1,0 +1,583 @@
+/* =========================================================
+   Octus Estate — mobile.css
+   Responsive overrides for screens ≤ 768px
+   Loaded via partials.js so applies to every page
+   ========================================================= */
+
+/* =========================================================
+   HAMBURGER NAV
+   ========================================================= */
+@media (max-width: 980px) {
+
+  /* Add hamburger button — injected via JS below */
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    cursor: pointer;
+    margin-left: auto;
+    flex-shrink: 0;
+    color: var(--navy);
+    transition: background .15s;
+  }
+  .mobile-menu-btn:hover { background: var(--bg-band); }
+  .mobile-menu-btn svg { display: block; }
+
+  /* Full screen nav overlay */
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: var(--bg);
+    flex-direction: column;
+    padding: 24px var(--gutter);
+  }
+  .mobile-nav-overlay.open { display: flex; }
+
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 32px;
+  }
+  .mobile-nav-close {
+    background: none;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    color: var(--navy);
+  }
+  .mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    flex: 1;
+  }
+  .mobile-nav-links a {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--navy);
+    padding: 16px 0;
+    border-bottom: 1px solid var(--rule);
+    text-decoration: none;
+    transition: color .15s;
+  }
+  .mobile-nav-links a:hover,
+  .mobile-nav-links a.current { color: var(--gold-deep); }
+  .mobile-nav-footer {
+    padding-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .mobile-nav-footer .btn { justify-content: center; width: 100%; }
+  .mobile-nav-footer .phone {
+    text-align: center;
+    font-size: 14px;
+    color: var(--fg-soft);
+  }
+}
+
+/* =========================================================
+   SCROLL TO TOP BUTTON — fix position
+   ========================================================= */
+/* The Genspark scroll button */
+body > div[style*="position: fixed"],
+body > button[style*="position: fixed"] {
+  bottom: 20px !important;
+  right: 20px !important;
+  left: auto !important;
+  z-index: 99 !important;
+}
+
+/* =========================================================
+   HOMEPAGE — index.html
+   ========================================================= */
+@media (max-width: 768px) {
+
+  /* ── Hero badges → slim horizontal strips ── */
+  .hero-badge {
+    padding: 10px 16px;
+    max-width: none;
+    width: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 999px;
+  }
+  .hero-badge.tl {
+    top: 14px;
+    left: 14px;
+    right: auto;
+  }
+  .hero-badge.br {
+    bottom: 14px;
+    right: 14px;
+    left: auto;
+  }
+  .hero-badge .label {
+    margin-bottom: 0;
+    white-space: nowrap;
+    font-size: 10px;
+  }
+  .hero-badge .value {
+    font-size: 15px;
+    white-space: nowrap;
+  }
+  .hero-badge .note {
+    display: none; /* hide sub-note on mobile, keep it slim */
+  }
+
+  /* ── Trust bar → 2 col already, reduce padding ── */
+  .trust-bar {
+    padding: 24px 20px;
+    gap: 20px;
+  }
+  .trust-item .num { font-size: 28px; }
+
+  /* ── Video grid → single column ── */
+  /* Override the inline grid styles on the video section */
+  #video-grid-main,
+  section .container > div[style*="grid-template-columns:1.6fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  section .container > div[style*="grid-template-columns:repeat(4"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    margin-top: 12px !important;
+  }
+
+  /* Video cards — make featured full width, others full width */
+  .vid-card {
+    border-radius: 12px !important;
+    min-height: 140px !important;
+    aspect-ratio: unset !important;
+  }
+  /* Featured card taller */
+  .vid-card[style*="grid-row:span 2"],
+  .vid-card:first-child {
+    min-height: 200px !important;
+    aspect-ratio: 16/9 !important;
+  }
+  /* Smaller play buttons on mobile already work, just ensure sizing */
+  .play-btn[style*="width:64px"] {
+    width: 48px !important;
+    height: 48px !important;
+    top: 16px !important;
+    right: 16px !important;
+  }
+  .vid-card h3 {
+    font-size: 22px !important;
+  }
+  .vid-card h4 {
+    font-size: 16px !important;
+  }
+
+  /* ── Five things → single column ── */
+  /* The 2-col grid with padding-left/right on alternating cells */
+  section .container > div[style*="grid-template-columns:repeat(2,1fr)"][style*="border-top"] > div {
+    padding: 28px 0 !important;
+    border-right: none !important;
+  }
+  /* Make it a single column */
+  section .container > div[style*="grid-template-columns:repeat(2,1fr)"][style*="border-top"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Pricing — reorder Complete first on mobile ── */
+  .pricing-grid {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .pricing-grid .price-card.featured {
+    order: -1;
+    margin-bottom: 8px;
+  }
+  .price-badge {
+    top: -28px;
+  }
+
+  /* ── CTA band ── */
+  .cta-inner { gap: 28px; }
+  .cta-inner p { font-size: 16px; }
+
+  /* ── Footer → single column ── */
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .footer-brand { max-width: 100%; }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+}
+
+/* =========================================================
+   BLOG / RESOURCES — blog.html / resources.html
+   ========================================================= */
+@media (max-width: 768px) {
+
+  /* ── Topic pills → wrap nicely ── */
+  .topic-pills { gap: 8px; margin: 24px 0 16px; }
+  .topic-pill { font-size: 12px; padding: 7px 14px; }
+
+  /* ── Featured post → stack vertically ── */
+  .featured-post {
+    grid-template-columns: 1fr !important;
+  }
+  .featured-img {
+    aspect-ratio: 16/9 !important;
+  }
+  .featured-img h2 { font-size: 26px !important; }
+  .featured-content { padding: 28px 24px !important; }
+  .featured-content p { font-size: 15px; margin-bottom: 20px; }
+
+  /* ── Post grid → single column ── */
+  .post-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  /* ── Post cards — text INSIDE the box ── */
+  .post {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .post-thumb {
+    aspect-ratio: 16/9 !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  .post-meta {
+    position: absolute;
+    top: 12px;
+    left: 48px; /* after the tag */
+    color: rgba(255,255,255,0.8) !important;
+    font-size: 10px !important;
+    background: rgba(0,0,0,0.3);
+    padding: 3px 8px;
+    border-radius: 999px;
+  }
+  .post h3 {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 32px 16px 16px;
+    margin: 0;
+    font-size: 18px !important;
+    color: #fff !important;
+    background: linear-gradient(to top, rgba(15,49,78,0.85) 0%, transparent 100%);
+    line-height: 1.3;
+  }
+  .post:hover h3 { color: var(--gold-soft) !important; }
+  .post > p {
+    /* hide the excerpt on mobile — title in box is enough */
+    display: none;
+  }
+  .post-tag {
+    top: 10px;
+    left: 10px;
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  /* ── Newsletter section → stack ── */
+  .band > .container > div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  /* Newsletter form → stack input + button */
+  .band form[onsubmit] {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+  .band form[onsubmit] input {
+    width: 100%;
+    padding: 14px 16px;
+  }
+  .band form[onsubmit] button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* =========================================================
+   CONTACT — contact.html
+   ========================================================= */
+@media (max-width: 768px) {
+
+  /* ── Contact grid → single column ── */
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+  }
+
+  /* ── Office cards → stack ── */
+  .contact-grid + .band div[style*="grid-template-columns:1fr 1fr"],
+  div[style*="grid-template-columns:1fr 1fr"]:has(.office-card) {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* Fallback for the where-we-meet grid */
+  .office-card + .office-card {
+    margin-top: 0;
+  }
+
+  /* Target the where we meet section grid */
+  .band .container > div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* ── Contact form ── */
+  .contact-form { padding: 28px 20px; }
+  .field-row { grid-template-columns: 1fr !important; }
+
+  /* ── Info items ── */
+  .info-item .val { font-size: 20px; }
+}
+
+/* =========================================================
+   TRUST VS WILL — trust-vs-will.html
+   ========================================================= */
+@media (max-width: 768px) {
+
+  /* ── VS grid → stack vertically ── */
+  .vs-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .vs-divider {
+    width: 100% !important;
+    height: 1px !important;
+    position: relative;
+  }
+  .vs-divider::after {
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+  .vs-col { padding: 32px 24px !important; }
+  .vs-col h2 { font-size: 28px !important; }
+
+  /* ── Decision block → single column ── */
+  .decision-block {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    margin-top: 24px !important;
+  }
+
+  /* ── Funding section — stack ── */
+  section > .container > div[style*="grid-template-columns:1fr 1fr"][style*="align-items:center"] {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+}
+
+/* =========================================================
+   HOW IT WORKS — how-it-works.html
+   ========================================================= */
+@media (max-width: 768px) {
+
+  /* ── Any 2-col side by side → stack ── */
+  section > .container > div[style*="grid-template-columns:1fr 1.4fr"],
+  section > .container > div[style*="grid-template-columns:1.4fr 1fr"],
+  section > .container > div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  /* ── The 4 after-meeting mini cards → 2 col ── */
+  div[style*="grid-template-columns:1fr 1fr"][style*="gap:16px"] {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* ── Timeline/process steps ── */
+  .process-grid { gap: 16px; }
+  .process-step { padding: 24px 20px; }
+}
+
+/* =========================================================
+   PRICING — pricing.html
+   ========================================================= */
+@media (max-width: 768px) {
+
+  /* ── Pricing cards — Complete first ── */
+  .pricing-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+  .pricing-grid .price-card.featured { order: -1; }
+  .price-badge { top: -24px; }
+  .price-card { padding: 28px 24px; }
+  .price-amount { font-size: 44px; }
+
+  /* ── Comparison table → hide on mobile, replace with note ── */
+  /* The comparison table is complex — on mobile we hide it and show a simple note */
+  table.comparison-table,
+  div.comparison-table,
+  section > .container > div[style*="overflow-x:auto"],
+  section > .container > table {
+    display: none !important;
+  }
+  .comparison-table-mobile-note {
+    display: block !important;
+  }
+
+  /* ── Add-ons 3-col cards → single column ── */
+  section > .container > div[style*="grid-template-columns:repeat(3"],
+  div[style*="grid-template-columns: repeat(3"] {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  /* ── Any remaining 2-col grids on pricing page ── */
+  section > .container > div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+
+/* =========================================================
+   ABOUT — about.html
+   ========================================================= */
+@media (max-width: 768px) {
+
+  /* ── Founder section → stack ── */
+  .founder-section {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  .founder-photo-wrap { max-width: 100%; }
+  .founder-photo { max-height: 420px; object-fit: cover; }
+  .founder-creds-badge {
+    position: static !important;
+    margin-top: 16px;
+    border-radius: 10px;
+  }
+  .founder-content h2 { font-size: clamp(24px, 6vw, 36px); }
+
+  /* ── Behind the scenes 3-col → 1 col ── */
+  .behind-band {
+    grid-template-columns: 1fr !important;
+    padding: 28px 24px !important;
+    margin-top: 32px !important;
+    gap: 24px !important;
+  }
+
+  /* ── Values grid → 1 col ── */
+  .values-grid { grid-template-columns: 1fr !important; }
+
+  /* ── Stats 4-col → 2 col ── */
+  section.band > .container > div[style*="grid-template-columns:repeat(4,1fr)"] {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 24px !important;
+  }
+}
+
+/* =========================================================
+   ESSAY PAGES
+   ========================================================= */
+@media (max-width: 768px) {
+
+  /* ── Essay hero ── */
+  .essay-hero { padding: 48px 0 32px; }
+  .essay-hero h1 { font-size: clamp(28px, 7vw, 44px); }
+  .essay-hero .lead { font-size: 16px; }
+
+  /* ── Essay body ── */
+  .essay-body { padding: 40px 20px 60px; }
+  .essay-body p { font-size: 16px; }
+  .essay-body h2 { font-size: 22px; }
+
+  /* ── Essay nav ── */
+  .essay-nav .container {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+  }
+}
+
+/* =========================================================
+   GLOBAL MOBILE — applies to all pages
+   ========================================================= */
+@media (max-width: 768px) {
+
+  /* ── Section padding ── */
+  section { padding: 48px 0 !important; }
+  .band { padding: 40px 0 !important; }
+  .cta-band { padding: 48px 0 !important; }
+
+  /* ── Typography scale down ── */
+  h1 { font-size: clamp(32px, 8vw, 52px) !important; }
+  h2 { font-size: clamp(26px, 6vw, 40px) !important; }
+  .lead { font-size: 16px !important; }
+
+  /* ── Container padding ── */
+  .container { padding: 0 18px !important; }
+
+  /* ── Section heads ── */
+  .section-head { margin-bottom: 32px !important; }
+
+  /* ── Buttons ── */
+  .btn-large { padding: 14px 22px !important; font-size: 15px !important; }
+  .hero-actions { gap: 10px !important; }
+  .hero-actions .btn { width: 100% !important; justify-content: center !important; }
+
+  /* ── Hero meta ── */
+  .hero-meta { gap: 16px !important; flex-wrap: wrap !important; padding-top: 20px !important; }
+  .hero-meta-item strong { font-size: 22px !important; }
+
+  /* ── CTA band ── */
+  .cta-inner { gap: 24px !important; }
+  .cta-inner > div:last-child .btn { width: 100% !important; justify-content: center !important; }
+
+  /* ── Footer → true single column ── */
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    padding-bottom: 32px !important;
+  }
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 8px !important;
+    align-items: flex-start !important;
+  }
+  .site-footer { padding: 48px 0 24px; }
+
+  /* ── Page hero sections ── */
+  .page-hero { padding: 48px 0 32px !important; }
+
+  /* ── FAQ ── */
+  .faq-item summary { font-size: 18px !important; padding: 20px 0 !important; }
+  .faq-answer { font-size: 15px !important; }
+
+  /* ── Process steps ── */
+  .process-step { padding: 24px 20px !important; }
+  .process-num { width: 44px !important; height: 44px !important; font-size: 18px !important; }
+
+  /* ── Generic inline grids that need to collapse ── */
+  /* Catch any remaining 2-col or 3-col grids with inline styles */
+  div[style*="grid-template-columns:1fr 1fr"]:not(.footer-grid):not(.post-grid) {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
