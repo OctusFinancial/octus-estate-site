@@ -3,6 +3,7 @@
 const OCTUS_NAV = [
   { href: "/index.html", label: "Home" },
   { href: "/how-it-works.html", label: "How it works" },
+  { href: "/estate-assessment.html", label: "Do I need a plan?" },
   { href: "/pricing.html", label: "Pricing" },
   { href: "/trust-vs-will.html", label: "Trust vs Will" },
   { href: "/about.html", label: "About" },
