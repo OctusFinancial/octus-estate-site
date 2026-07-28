@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Does Your Family Actually Need? | Octus Estate</title>
+<link href="https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital@0;1&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+:root{
+  --navy:#0F314E;
+  --navy-lt:#1a4a70;
+  --gold:#C59F4A;
+  --gold-lt:#dcc07e;
+  --sage:#A9C8BE;
+  --pale:#f0f7f5;
+  --ink:#2d3748;
+  --muted:#5a6b7a;
+  --rule:#dde5ea;
+  --red:#b23b3b;
+  --amber:#c98a2e;
+  --green:#3f7d62;
+  --paper:#fdfdfb;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  font-family:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.65;
+  font-size:16px;
+  padding:0;
+}
+.wrap{max-width:760px;margin:0 auto;padding:28px 20px 64px;}
+
+/* ---------- Header ---------- */
+.masthead{text-align:center;padding:8px 0 22px;}
+.brandmark{
+  font-family:'Sorts Mill Goudy',Georgia,serif;
+  font-size:1.35rem;letter-spacing:.06em;color:var(--navy);
+}
+.brandmark span{color:var(--gold);}
+.rule{height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:14px auto 0;max-width:220px;}
+
+/* ---------- Progress ---------- */
+.progress{margin:0 0 26px;}
+.progress-track{height:3px;background:var(--rule);border-radius:2px;overflow:hidden;}
+.progress-fill{height:100%;background:var(--gold);width:0%;transition:width .45s cubic-bezier(.4,0,.2,1);}
+.progress-label{
+  font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin-top:9px;display:flex;justify-content:space-between;
+}
+.progress[hidden]{display:none;}
+
+/* ---------- Cards / steps ---------- */
+.step{display:none;animation:rise .4s ease both;}
+.step.active{display:block;}
+@keyframes rise{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+@media (prefers-reduced-motion:reduce){
+  .step{animation:none;}
+  .progress-fill{transition:none;}
+}
+
+h1{
+  font-family:'Sorts Mill Goudy',Georgia,serif;
+  font-weight:400;font-size:2.1rem;line-height:1.18;color:var(--navy);
+  margin-bottom:12px;letter-spacing:-.01em;
+}
+h2{
+  font-family:'Sorts Mill Goudy',Georgia,serif;
+  font-weight:400;font-size:1.55rem;line-height:1.25;color:var(--navy);margin-bottom:10px;
+}
+h3{
+  font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:10px;
+}
+.lede{font-size:1.02rem;color:var(--muted);margin-bottom:26px;line-height:1.6;}
+p{margin-bottom:14px;}
+.qtext{font-size:1.12rem;font-weight:500;color:var(--navy);margin-bottom:6px;line-height:1.4;}
+.qhelp{font-size:.86rem;color:var(--muted);margin-bottom:16px;line-height:1.55;}
+
+/* ---------- Options ---------- */
+.opts{display:flex;flex-direction:column;gap:9px;margin-bottom:8px;}
+.opt{
+  display:flex;align-items:flex-start;gap:12px;
+  border:1.5px solid var(--rule);background:#fff;border-radius:7px;
+  padding:14px 16px;cursor:pointer;
+  transition:border-color .18s,background .18s,transform .12s;
+  text-align:left;font-family:inherit;font-size:.97rem;color:var(--ink);width:100%;
+  line-height:1.45;
+}
+.opt:hover{border-color:var(--sage);background:var(--pale);}
+.opt:active{transform:scale(.995);}
+.opt:focus-visible{outline:2.5px solid var(--gold);outline-offset:2px;}
+.opt.sel{border-color:var(--navy);background:var(--pale);}
+.dot{
+  flex:0 0 18px;height:18px;border-radius:50%;border:2px solid var(--rule);
+  margin-top:2px;position:relative;transition:border-color .18s;
+}
+.opt.sel .dot{border-color:var(--navy);}
+.opt.sel .dot::after{
+  content:'';position:absolute;inset:3px;border-radius:50%;background:var(--navy);
+}
+.opt.multi .dot{border-radius:3px;}
+.opt.multi.sel .dot::after{border-radius:1px;}
+.optbody strong{display:block;font-weight:600;color:var(--navy);margin-bottom:1px;}
+.optbody small{display:block;color:var(--muted);font-size:.83rem;line-height:1.45;margin-top:2px;}
+
+/* ---------- Persona note ---------- */
+.persona{
+  border-left:3px solid var(--sage);background:var(--pale);
+  padding:13px 16px;border-radius:0 5px 5px 0;margin-bottom:22px;
+  font-size:.92rem;color:var(--navy);font-style:italic;line-height:1.55;
+}
+
+/* ---------- Nav ---------- */
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:26px;gap:12px;}
+.btn{
+  font-family:inherit;font-size:.92rem;font-weight:600;letter-spacing:.02em;
+  border-radius:6px;padding:13px 26px;cursor:pointer;border:1.5px solid transparent;
+  transition:background .18s,color .18s,border-color .18s,opacity .18s;
+}
+.btn:focus-visible{outline:2.5px solid var(--gold);outline-offset:2px;}
+.btn-primary{background:var(--navy);color:#fff;}
+.btn-primary:hover{background:var(--navy-lt);}
+.btn-primary:disabled{opacity:.35;cursor:not-allowed;}
+.btn-ghost{background:transparent;color:var(--muted);border-color:var(--rule);}
+.btn-ghost:hover{color:var(--navy);border-color:var(--sage);}
+.btn-gold{background:var(--gold);color:#fff;}
+.btn-gold:hover{background:#b28f3f;}
+.btn-full{width:100%;text-align:center;}
+
+/* ---------- Select / inputs ---------- */
+select,input[type=text],input[type=email],input[type=tel]{
+  width:100%;font-family:inherit;font-size:.97rem;color:var(--ink);
+  padding:13px 14px;border:1.5px solid var(--rule);border-radius:6px;background:#fff;
+}
+select:focus,input:focus{outline:none;border-color:var(--navy);}
+label.fld{display:block;margin-bottom:14px;}
+label.fld span{
+  display:block;font-size:.78rem;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:6px;
+}
+
+/* ---------- Results ---------- */
+.axis{
+  border:1.5px solid var(--rule);border-radius:8px;padding:18px 20px;margin-bottom:14px;
+  background:#fff;
+}
+.axis-head{display:flex;align-items:center;gap:11px;margin-bottom:8px;}
+.pill{
+  font-size:.66rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  padding:5px 11px;border-radius:20px;color:#fff;white-space:nowrap;
+}
+.pill.red{background:var(--red);}
+.pill.amber{background:var(--amber);}
+.pill.green{background:var(--green);}
+.axis-title{font-family:'Sorts Mill Goudy',Georgia,serif;font-size:1.22rem;color:var(--navy);}
+.axis p{font-size:.93rem;margin-bottom:9px;color:var(--ink);}
+.axis p:last-child{margin-bottom:0;}
+
+.docs{margin:26px 0 0;}
+.doc{
+  display:flex;gap:13px;padding:14px 0;border-bottom:1px solid var(--rule);align-items:flex-start;
+}
+.doc:last-child{border-bottom:none;}
+.doc-mark{
+  flex:0 0 24px;height:24px;border-radius:50%;background:var(--navy);color:#fff;
+  font-size:.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px;
+}
+.doc-mark.opt-mark{background:var(--sage);color:var(--navy);}
+.doc-body strong{display:block;color:var(--navy);font-size:1rem;margin-bottom:3px;}
+.doc-body span{font-size:.89rem;color:var(--muted);line-height:1.55;display:block;}
+
+.nothing{
+  border:1.5px solid var(--rule);border-left:3px solid var(--gold);
+  background:#fdf8ef;border-radius:0 7px 7px 0;padding:17px 20px;margin:24px 0;
+}
+.nothing h3{color:#8a6320;}
+.nothing p{font-size:.93rem;margin-bottom:0;}
+
+.statebox{
+  background:var(--pale);border-radius:7px;padding:17px 20px;margin:22px 0;
+  border-left:3px solid var(--sage);
+}
+.statebox h3{color:var(--navy);}
+.statebox p{font-size:.91rem;margin-bottom:9px;}
+.statebox p:last-child{margin-bottom:0;}
+
+/* ---------- CTA ---------- */
+.cta{
+  background:var(--navy);color:#fff;border-radius:9px;padding:28px 26px;margin:30px 0 0;
+}
+.cta h2{color:#fff;margin-bottom:8px;}
+.cta p{color:#c9d8e4;font-size:.95rem;}
+.cta .btn-gold{margin-top:6px;}
+.tabs{display:flex;gap:8px;margin:18px 0 16px;}
+.tab{
+  flex:1;padding:11px 8px;text-align:center;border-radius:6px;cursor:pointer;
+  font-size:.85rem;font-weight:600;background:rgba(255,255,255,.09);color:#c9d8e4;
+  border:1.5px solid transparent;font-family:inherit;transition:all .18s;
+}
+.tab:hover{background:rgba(255,255,255,.16);}
+.tab.on{background:#fff;color:var(--navy);}
+.tab:focus-visible{outline:2.5px solid var(--gold);outline-offset:2px;}
+.panel{display:none;}
+.panel.on{display:block;}
+.cta label.fld span{color:#a8bece;}
+.cta select,.cta input{background:rgba(255,255,255,.96);border-color:transparent;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+
+.msg{
+  margin-top:12px;padding:12px 15px;border-radius:6px;font-size:.9rem;
+  background:rgba(169,200,190,.22);color:#dff0e9;border-left:3px solid var(--sage);
+}
+.msg[hidden]{display:none;}
+
+/* ---------- Save / share ---------- */
+.savebar{
+  border:1.5px solid var(--rule);border-radius:8px;padding:20px 22px;margin-top:22px;background:#fff;
+}
+.savebar h2{font-size:1.3rem;}
+.savebar p{font-size:.92rem;color:var(--muted);}
+.sharelink{
+  display:flex;gap:8px;margin-top:12px;
+}
+.sharelink input{font-size:.84rem;color:var(--muted);}
+.sharebtns{display:flex;gap:10px;margin-top:14px;}
+.sharebtn{flex:1;text-align:center;}
+.linklike{
+  background:none;border:none;font-family:inherit;font-size:.86rem;color:var(--muted);
+  text-decoration:underline;cursor:pointer;padding:10px 0 0;display:block;
+}
+.linklike:hover{color:var(--navy);}
+.linklike:focus-visible{outline:2.5px solid var(--gold);outline-offset:2px;}
+.copied{font-size:.85rem;color:var(--green);font-weight:600;margin-top:9px;}
+.copied[hidden]{display:none;}
+.sharelink[hidden]{display:none;}
+
+/* ---------- Referral banner ---------- */
+.referral{
+  background:var(--pale);border-left:3px solid var(--gold);
+  padding:14px 18px;border-radius:0 6px 6px 0;margin-bottom:22px;font-size:.93rem;color:var(--navy);
+}
+.referral[hidden]{display:none;}
+
+/* ---------- Disclaimer ---------- */
+.fineprint{
+  margin-top:34px;padding-top:18px;border-top:1px solid var(--rule);
+  font-size:.76rem;color:var(--muted);line-height:1.6;
+}
+
+@media (max-width:600px){
+  .wrap{padding:20px 16px 48px;}
+  h1{font-size:1.7rem;}
+  h2{font-size:1.35rem;}
+  .grid2{grid-template-columns:1fr;}
+  .nav{flex-direction:column-reverse;}
+  .nav .btn{width:100%;}
+  .tabs{flex-direction:column;}
+  .sharelink{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="masthead">
+    <div class="brandmark">Octus <span>Estate</span></div>
+    <div class="rule"></div>
+  </div>
+
+  <div class="progress" id="prog" hidden>
+    <div class="progress-track"><div class="progress-fill" id="progFill"></div></div>
+    <div class="progress-label"><span id="progStep">Step 1</span><span id="progPct">0%</span></div>
+  </div>
+
+  <div class="referral" id="referral" hidden></div>
+
+  <!-- ================= INTRO ================= -->
+  <section class="step active" id="s-intro">
+    <h1>What does your family actually need?</h1>
+    <p class="lede">Most people are told they need “an estate plan.” That’s not useful. What matters is which documents close the gaps you actually have — and which gaps are urgent.</p>
+    <p>This takes about three minutes. You’ll get a straight answer at the end, with no email required to see it.</p>
+    <div class="nav">
+      <span></span>
+      <button class="btn btn-primary" data-go="s-who">Start</button>
+    </div>
+  </section>
+
+  <!-- ================= WHO ================= -->
+  <section class="step" id="s-who">
+    <h3>First question</h3>
+    <p class="qtext">Who are you planning for?</p>
+    <p class="qhelp">Plenty of people come here worried about someone else, not themselves. Either is fine.</p>
+    <div class="opts" id="whoOpts">
+      <button class="opt" data-v="self"><span class="dot"></span><span class="optbody"><strong>Myself or my household</strong><small>My own plan, my spouse, our children</small></span></button>
+      <button class="opt" data-v="parent"><span class="dot"></span><span class="optbody"><strong>My aging parent</strong><small>I’m worried about their affairs, or I may need to step in</small></span></button>
+      <button class="opt" data-v="adult"><span class="dot"></span><span class="optbody"><strong>My adult child</strong><small>They’re 18 or older — college, military, or out on their own</small></span></button>
+      <button class="opt" data-v="both"><span class="dot"></span><span class="optbody"><strong>Both myself and someone else</strong><small>I have my own gaps and I’m worried about a family member</small></span></button>
+    </div>
+    <div class="nav">
+      <button class="btn btn-ghost" data-go="s-intro">Back</button>
+      <button class="btn btn-primary" id="whoNext" disabled>Continue</button>
+    </div>
+  </section>
+
+  <!-- ================= STATE ================= -->
+  <section class="step" id="s-state">
+    <div class="persona" id="personaNote"></div>
+    <p class="qtext">Which state?</p>
+    <p class="qhelp">Estate law is state law. The same family situation produces different outcomes depending on where the property and the people are.</p>
+    <label class="fld">
+      <span>State of residence</span>
+      <select id="stateSel">
+        <option value="">Select a state…</option>
+      </select>
+    </label>
+    <div class="nav">
+      <button class="btn btn-ghost" data-go="s-who">Back</button>
+      <button class="btn btn-primary" id="stateNext" disabled>Continue</button>
+    </div>
+  </section>
+
+  <!-- ================= QUESTIONS ================= -->
+  <section class="step" id="s-q">
+    <div id="qHost"></div>
+    <div class="nav">
+      <button class="btn btn-ghost" id="qBack">Back</button>
+      <button class="btn btn-primary" id="qNext" disabled>Continue</button>
+    </div>
+  </section>
+
+  <!-- ================= RESULTS ================= -->
+  <section class="step" id="s-res">
+    <h3>Your results</h3>
+    <h1 id="resTitle">Here’s where you stand</h1>
+    <p class="lede" id="resLede"></p>
+
+    <div id="axes"></div>
+
+    <div id="docsHost" class="docs"></div>
+
+    <div class="nothing" id="nothingBox">
+      <h3>If nothing changes</h3>
+      <p id="nothingText"></p>
+    </div>
+
+    <div class="statebox" id="stateBox"></div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <h2>Talk it through</h2>
+      <p>A 30-minute conversation, long enough not to feel rushed. No cost, no obligation — just answers to the parts that are specific to you.</p>
+      <div class="tabs">
+        <button class="tab on" data-panel="p-book">Book a time</button>
+        <button class="tab" data-panel="p-call">Request a call back</button>
+      </div>
+
+      <div class="panel on" id="p-book">
+        <p style="font-size:.9rem;">Pick a slot that works. You’ll get a confirmation right away.</p>
+        <a class="btn btn-gold btn-full" style="display:block;text-decoration:none;margin-top:10px;" id="calLink" href="https://calendly.com/octusfinancial/just-a-few-questions" target="_blank" rel="noopener">Choose a time</a>
+      </div>
+
+      <div class="panel" id="p-call">
+        <p style="font-size:.9rem;">Tell us when you’re reachable and we’ll call you.</p>
+        <label class="fld"><span>Name</span><input type="text" id="cbName" autocomplete="name"></label>
+        <div class="grid2">
+          <label class="fld"><span>Email</span><input type="email" id="cbEmail" autocomplete="email"></label>
+          <label class="fld"><span>Phone</span><input type="tel" id="cbPhone" autocomplete="tel"></label>
+        </div>
+        <div class="grid2">
+          <label class="fld"><span>Best day</span>
+            <select id="cbDay">
+              <option value="">Select…</option>
+              <option>Monday</option><option>Tuesday</option><option>Wednesday</option>
+              <option>Thursday</option><option>Friday</option>
+            </select>
+          </label>
+          <label class="fld"><span>Best time (ET)</span>
+            <select id="cbTime">
+              <option value="">Select…</option>
+              <option>Morning (8–12)</option>
+              <option>Afternoon (12–4)</option>
+              <option>Evening (4–7)</option>
+            </select>
+          </label>
+        </div>
+        <button class="btn btn-gold btn-full" id="cbSend">Request my call</button>
+        <div class="msg" id="cbMsg" hidden></div>
+      </div>
+    </div>
+
+    <!-- Save + share -->
+    <div class="savebar">
+      <h2>Keep a copy</h2>
+      <p>Download your results as a PDF. Add your email and we’ll send a copy along with a plain-English guide to the documents above.</p>
+      <label class="fld" style="margin-top:12px;"><span>Email (optional)</span><input type="email" id="pdfEmail" placeholder="you@example.com" autocomplete="email"></label>
+      <button class="btn btn-primary btn-full" id="pdfBtn">Download my results</button>
+      <div class="msg" id="pdfMsg" hidden style="background:var(--pale);color:var(--navy);border-left-color:var(--sage);"></div>
+    </div>
+
+    <div class="savebar" id="shareBox">
+      <h2>Send this to someone</h2>
+      <p id="shareCopy">Know someone who should see this — a parent, an adult child, a friend? Add your first name and send it their way. They’ll see it came from you and take their own assessment. Nothing you entered is shared.</p>
+      <label class="fld" style="margin-top:12px;"><span>Your first name</span><input type="text" id="shareName" placeholder="e.g. Mia"></label>
+      <div class="sharebtns">
+        <button class="btn btn-primary sharebtn" id="shareText" disabled>Share by text</button>
+        <button class="btn btn-primary sharebtn" id="shareEmail" disabled>Share by email</button>
+      </div>
+      <button class="linklike" id="copyToggle">or copy the link instead</button>
+      <div class="sharelink" id="copyRow" hidden>
+        <input type="text" id="shareUrl" readonly value="">
+        <button class="btn btn-ghost" id="copyBtn">Copy</button>
+      </div>
+      <div class="copied" id="copiedMsg" hidden>Link copied. Paste it into a text or email.</div>
+      <div class="msg" id="shareHint" hidden style="background:var(--pale);color:var(--navy);border-left-color:var(--sage);">Add your first name above so they know who it’s from.</div>
+    </div>
+
+    <div class="nav">
+      <button class="btn btn-ghost" id="restart">Start over</button>
+      <span></span>
+    </div>
+
+    <div class="fineprint">
+      This assessment is general educational information, not legal, tax, or financial advice, and it does not create an attorney-client relationship. Estate planning outcomes depend on your specific facts, how your property is titled, and the law of your state, which changes over time. Octus Estate provides flat-fee estate planning through a licensed attorney network; legal documents and legal advice are provided by those attorneys. Please consult a licensed attorney in your state about your situation.
+    </div>
+  </section>
+
+</div>
+
+<script>
+/* ============================================================
+   CONFIG
+   ============================================================ */
+const CONFIG = {
+  ghlWebhook: "https://services.leadconnectorhq.com/hooks/kul4VFlXKWvtCrbxK9ZN/webhook-trigger/d0b0aded-e4e5-4759-9e7b-47d56d9831e3",
+  calendly:   "https://calendly.com/octusfinancial/just-a-few-questions",
+  brand:      "Octus Estate",
+  site:       "octusestate.com"
+};
+
+/* ============================================================
+   STATE CONTENT LAYER
+   Add new states by copying the FL object shape.
+   Any state without an entry falls back to GENERIC.
+   ============================================================ */
+const STATE_CONTENT = {
+  FL: {
+    name: "Florida",
+    surrogateTerm: "health care surrogate",
+    notes: [
+      {
+        t: "Your home is not yours to leave freely",
+        b: "Florida restricts who you can leave your homestead to. If you have a spouse or a child under 18, those limits override your will or trust. Get it wrong and your spouse can end up with the right to live in the house but not to sell it without your children agreeing."
+      },
+      {
+        t: "A power of attorney here takes effect the moment you sign it",
+        b: "Florida no longer allows a POA that springs into effect only when you become incapacitated. That makes choosing the right person, and deciding when to hand over the document, a real decision rather than a formality."
+      },
+      {
+        t: "Certain powers have to be spelled out and initialed separately",
+        b: "Making gifts, changing beneficiary designations, creating or changing survivorship rights, and dealing with trusts all require specific language your agent can point to. A generic form downloaded online will fail exactly when it matters."
+      },
+      {
+        t: "You can name your own guardian in advance",
+        b: "Florida lets you designate a preneed guardian, so if a court ever has to appoint someone, your choice is already on record. Most people have never heard of this, and it costs almost nothing to put in place."
+      }
+    ],
+    probate: "Florida probate generally requires an attorney, typically runs six to twelve months at minimum, and is a public record. Property you own in another state usually means a second probate in that state."
+  },
+  GENERIC: {
+    name: null,
+    surrogateTerm: "health care agent",
+    notes: [
+      {
+        t: "The documents are similar everywhere — the details are not",
+        b: "Every state recognizes some form of will, financial power of attorney, and health care directive. What differs is execution requirements, what a spouse is entitled to regardless of your will, how your home is treated, and how long and public the court process is."
+      },
+      {
+        t: "Where you own property matters as much as where you live",
+        b: "Real estate is governed by the law of the state it sits in. Owning property in more than one state commonly means more than one court process, which is one of the most common reasons a trust makes sense."
+      }
+    ],
+    probate: "Court supervision, timelines, and cost vary substantially by state. Whether probate is worth avoiding in your case depends on where your property is and how it's titled."
+  }
+};
+
+const US_STATES = [
+  ["AL","Alabama"],["AK","Alaska"],["AZ","Arizona"],["AR","Arkansas"],["CA","California"],
+  ["CO","Colorado"],["CT","Connecticut"],["DE","Delaware"],["DC","District of Columbia"],
+  ["FL","Florida"],["GA","Georgia"],["HI","Hawaii"],["ID","Idaho"],["IL","Illinois"],
+  ["IN","Indiana"],["IA","Iowa"],["KS","Kansas"],["KY","Kentucky"],["LA","Louisiana"],
+  ["ME","Maine"],["MD","Maryland"],["MA","Massachusetts"],["MI","Michigan"],["MN","Minnesota"],
+  ["MS","Mississippi"],["MO","Missouri"],["MT","Montana"],["NE","Nebraska"],["NV","Nevada"],
+  ["NH","New Hampshire"],["NJ","New Jersey"],["NM","New Mexico"],["NY","New York"],
+  ["NC","North Carolina"],["ND","North Dakota"],["OH","Ohio"],["OK","Oklahoma"],["OR","Oregon"],
+  ["PA","Pennsylvania"],["RI","Rhode Island"],["SC","South Carolina"],["SD","South Dakota"],
+  ["TN","Tennessee"],["TX","Texas"],["UT","Utah"],["VT","Vermont"],["VA","Virginia"],
+  ["WA","Washington"],["WV","West Virginia"],["WI","Wisconsin"],["WY","Wyoming"]
+];
+
+/* ============================================================
+   PERSONA FRAMING
+   ============================================================ */
+const PERSONA = {
+  self:   "You're here for your own household. Most people in your position have some pieces in place and one or two gaps they've never thought about.",
+  parent: "You want to make sure your parent's affairs are in order before it's too late. That instinct is right — and timing matters more than most families realize.",
+  adult:  "Your child is legally an adult now. That changes what you're allowed to know and do on their behalf, usually in ways families don't discover until there's an emergency.",
+  both:   "You've got your own plan to think about and someone else you're worried about. We'll cover both."
+};
+
+/* ============================================================
+   QUESTION BANK
+   axis: inc = incapacity, tr = transfer, ur = urgency
+   ============================================================ */
+const BANK = {
+  self: [
+    {id:"kidsminor", q:"Do you have any children under 18?", h:"Including stepchildren you're raising, and children from a previous relationship.",
+      opts:[{v:"y",l:"Yes",s:{tr:3,ur:2}},{v:"n",l:"No",s:{}}]},
+    {id:"blended", q:"Is this a blended family?", h:"A second marriage, children from a prior relationship, or a partner you aren't legally married to.",
+      opts:[{v:"y",l:"Yes",s:{tr:3,ur:1}},{v:"n",l:"No",s:{}}]},
+    {id:"realestate", q:"Do you own real estate?", h:"Your home, a rental, land, or a place in another state.",
+      opts:[{v:"multi",l:"Yes — in more than one state",s:{tr:3}},{v:"one",l:"Yes — in one state",s:{tr:1}},{v:"n",l:"No",s:{}}]},
+    {id:"poa", q:"If you couldn't make decisions tomorrow, has someone been legally named to act for you?", h:"Not who you'd want — who is named in a signed document.",
+      opts:[{v:"both",l:"Yes, for both money and medical",s:{}},{v:"one",l:"One of the two",s:{inc:4}},{v:"n",l:"No, or I'm not sure",s:{inc:8,ur:2}}]},
+    {id:"will", q:"Do you have a will or trust?", h:"Signed and witnessed, not a draft or an intention.",
+      opts:[{v:"trust",l:"Yes — a trust",s:{}},{v:"will",l:"Yes — a will",s:{tr:1}},{v:"old",l:"Yes, but it's more than five years old",s:{tr:2,ur:1}},{v:"n",l:"No",s:{tr:4,ur:2}}]},
+    {id:"benef", q:"When did you last check the beneficiaries on your retirement accounts and life insurance?", h:"These override your will. Whoever is listed gets the money, full stop.",
+      opts:[{v:"recent",l:"Within the last three years",s:{}},{v:"old",l:"Longer ago than that",s:{tr:2}},{v:"never",l:"Never, or I don't know",s:{tr:3,ur:1}}]},
+    {id:"special", q:"Does anyone who'd inherit have a disability or receive benefits?", h:"An inheritance left outright can disqualify someone from Medicaid or SSI.",
+      opts:[{v:"y",l:"Yes",s:{tr:4,ur:2}},{v:"n",l:"No",s:{}}]},
+    {id:"biz", q:"Do you own a business or a share of one?", h:"Any entity — including a single-member LLC or a partnership interest.",
+      opts:[{v:"y",l:"Yes",s:{tr:3,inc:2}},{v:"n",l:"No",s:{}}]},
+    {id:"change", q:"Is anything changing in the next few months?", h:"Surgery, a move, a diagnosis, a marriage or divorce, a new baby, retirement.",
+      opts:[{v:"y",l:"Yes",s:{ur:4}},{v:"maybe",l:"Possibly",s:{ur:2}},{v:"n",l:"No",s:{}}]}
+  ],
+  parent: [
+    {id:"pdocs", q:"Does your parent have documents in place — and do you know where they are?", h:"Knowing they exist somewhere isn't the same as being able to find them.",
+      opts:[{v:"y",l:"Yes, and I know where",s:{}},{v:"exists",l:"They exist, but I don't know where",s:{inc:2,tr:1}},{v:"n",l:"No, or I don't know",s:{inc:4,tr:3,ur:2}}]},
+    {id:"ppoa", q:"Is anyone legally named to handle their money if they can't?", h:"A durable financial power of attorney. Being on a joint account isn't the same thing.",
+      opts:[{v:"y",l:"Yes",s:{}},{v:"n",l:"No, or I'm not sure",s:{inc:4,ur:3}}]},
+    {id:"pmed", q:"Is anyone named to make their medical decisions?", h:"Without this, doctors may not be able to talk to you at all.",
+      opts:[{v:"y",l:"Yes",s:{}},{v:"n",l:"No, or I'm not sure",s:{inc:4,ur:3}}]},
+    {id:"pcog", q:"Have you noticed any changes in their memory or judgment?", h:"This is the question that determines whether there's still time to act.",
+      opts:[{v:"y",l:"Yes, noticeable changes",s:{ur:5,inc:3}},{v:"some",l:"Small things here and there",s:{ur:3,inc:2}},{v:"n",l:"No",s:{}}]},
+    {id:"phelp", q:"Is someone already helping with bills, medications, or appointments?", h:"Often the first sign that legal authority is about to be needed.",
+      opts:[{v:"y",l:"Yes",s:{inc:2,ur:2}},{v:"n",l:"No",s:{}}]},
+    {id:"pprop", q:"Do they own property in more than one state?", h:"A winter home, land, or a house they never sold after moving.",
+      opts:[{v:"y",l:"Yes",s:{tr:3}},{v:"n",l:"No",s:{}}]},
+    {id:"ptalk", q:"Have you been able to have the conversation with them?", h:"Honest answer. This is the hardest part for most families.",
+      opts:[{v:"y",l:"Yes, we've talked openly",s:{}},{v:"tried",l:"I've tried, it didn't go well",s:{ur:2}},{v:"n",l:"Not yet",s:{ur:2}}]}
+  ],
+  adult: [
+    {id:"asit", q:"What's their situation?", h:"This changes which documents matter most.",
+      opts:[
+        {v:"college",l:"Away at college",s:{ur:1}},
+        {v:"military",l:"In the military",s:{ur:3,tr:3}},
+        {v:"moved",l:"Moved out on their own",s:{}},
+        {v:"home",l:"Still living at home",s:{}}
+      ]},
+    {id:"amed", q:"If they were hospitalized tomorrow, could you legally be told anything?", h:"At 18, hospitals can refuse to speak with a parent without signed authorization.",
+      opts:[{v:"y",l:"Yes — we have signed documents",s:{}},{v:"n",l:"No, or I'm not sure",s:{inc:6,ur:3}}]},
+    {id:"ahipaa", q:"Have they signed a HIPAA authorization naming you?", h:"Separate from a health care directive. This is the one that lets doctors share information.",
+      opts:[{v:"y",l:"Yes",s:{}},{v:"n",l:"No, or I'm not sure",s:{inc:4,ur:2}}]},
+    {id:"afin", q:"Could you handle a financial or school matter for them if they couldn't?", h:"A frozen bank account, a tuition problem, an insurance claim, a lease.",
+      opts:[{v:"y",l:"Yes — there's a signed power of attorney",s:{}},{v:"n",l:"No",s:{inc:4,ur:1}}]},
+    {id:"aaway", q:"Are they traveling, studying abroad, or stationed away from home?", h:"Distance turns a small problem into a large one quickly.",
+      opts:[{v:"y",l:"Yes",s:{ur:3}},{v:"soon",l:"Soon",s:{ur:2}},{v:"n",l:"No",s:{}}]},
+    {id:"awill", q:"Do they have a will?", h:"Most young adults don't. It matters more than people expect once anything is in their own name.",
+      opts:[{v:"y",l:"Yes",s:{}},{v:"n",l:"No, or I'm not sure",s:{tr:4}}]},
+    {id:"aassets", q:"Do they have assets of their own?", h:"A car, a bank account, savings, a business, or an inheritance already received.",
+      opts:[{v:"y",l:"Yes, meaningful ones",s:{tr:4}},{v:"some",l:"A little",s:{tr:2}},{v:"n",l:"Not really",s:{}}]}
+  ]
+};
+
+/* ============================================================
+   STATE
+   ============================================================ */
+let A = { who:null, state:null, answers:{}, qs:[], qi:0, score:{inc:0,tr:0,ur:0} };
+
+/* ============================================================
+   HELPERS
+   ============================================================ */
+const $ = id => document.getElementById(id);
+function show(id){
+  document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
+  $(id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function band(v,hi,mid){ return v>=hi ? 'red' : v>=mid ? 'amber' : 'green'; }
+function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+/* ============================================================
+   INIT
+   ============================================================ */
+(function init(){
+  const sel = $('stateSel');
+  US_STATES.forEach(([ab,nm])=>{
+    const o=document.createElement('option'); o.value=ab; o.textContent=nm; sel.appendChild(o);
+  });
+  $('calLink').href = CONFIG.calendly;
+
+  // referral banner
+  const p = new URLSearchParams(location.search);
+  const from = p.get('from');
+  if(from){
+    $('referral').hidden = false;
+    $('referral').innerHTML = "<strong>" + esc(from) + " thought this would be useful to you.</strong> "
+      + "It's a free, no-obligation assessment from Octus Estate that helps you see which estate planning documents your family actually needs. It takes about three minutes, and nothing is required to see your results.";
+  }
+  const st = p.get('state');
+  if(st && US_STATES.some(s=>s[0]===st.toUpperCase())){
+    sel.value = st.toUpperCase();
+  }
+
+  document.querySelectorAll('[data-go]').forEach(b=>{
+    b.addEventListener('click',()=>{
+      const t=b.dataset.go;
+      show(t);
+      $('prog').hidden = (t==='s-intro');
+      if(t!=='s-intro') updateProgress();
+    });
+  });
+})();
+
+/* ---------- WHO ---------- */
+$('whoOpts').addEventListener('click',e=>{
+  const btn=e.target.closest('.opt'); if(!btn) return;
+  $('whoOpts').querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));
+  btn.classList.add('sel');
+  A.who = btn.dataset.v;
+  $('whoNext').disabled=false;
+});
+$('whoNext').addEventListener('click',()=>{
+  $('personaNote').textContent = PERSONA[A.who];
+  show('s-state'); updateProgress();
+});
+
+/* ---------- STATE ---------- */
+$('stateSel').addEventListener('change',e=>{
+  A.state = e.target.value || null;
+  $('stateNext').disabled = !A.state;
+});
+if($('stateSel').value){ A.state=$('stateSel').value; $('stateNext').disabled=false; }
+
+$('stateNext').addEventListener('click',()=>{
+  A.qs = (A.who==='both') ? BANK.self.concat(BANK.parent) : (BANK[A.who]||BANK.self);
+  A.qi = 0; A.answers={}; A.score={inc:0,tr:0,ur:0};
+  renderQ(); show('s-q'); updateProgress();
+});
+
+/* ---------- QUESTIONS ---------- */
+function renderQ(){
+  const q = A.qs[A.qi];
+  const chosen = A.answers[q.id];
+  let html = `<h3>Question ${A.qi+1} of ${A.qs.length}</h3>`;
+  html += `<p class="qtext">${esc(q.q)}</p>`;
+  if(q.h) html += `<p class="qhelp">${esc(q.h)}</p>`;
+  html += `<div class="opts" id="qOpts">`;
+  q.opts.forEach(o=>{
+    const sel = chosen===o.v ? ' sel' : '';
+    html += `<button class="opt${sel}" data-v="${esc(o.v)}"><span class="dot"></span><span class="optbody"><strong>${esc(o.l)}</strong></span></button>`;
+  });
+  html += `</div>`;
+  $('qHost').innerHTML = html;
+  $('qNext').disabled = !chosen;
+  $('qNext').textContent = (A.qi === A.qs.length-1) ? 'See my results' : 'Continue';
+
+  $('qOpts').addEventListener('click',e=>{
+    const b=e.target.closest('.opt'); if(!b) return;
+    $('qOpts').querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));
+    b.classList.add('sel');
+    A.answers[q.id]=b.dataset.v;
+    $('qNext').disabled=false;
+  });
+}
+$('qNext').addEventListener('click',()=>{
+  if(A.qi < A.qs.length-1){ A.qi++; renderQ(); updateProgress(); }
+  else { computeAndShow(); }
+});
+$('qBack').addEventListener('click',()=>{
+  if(A.qi>0){ A.qi--; renderQ(); updateProgress(); }
+  else { show('s-state'); updateProgress(); }
+});
+
+function updateProgress(){
+  const total = A.qs.length ? A.qs.length + 2 : 3;
+  let done = 1;
+  if(A.who) done = 2;
+  if(A.state && A.qs.length) done = 2 + A.qi;
+  const pct = Math.min(100, Math.round((done/total)*100));
+  $('progFill').style.width = pct+'%';
+  $('progPct').textContent = pct+'%';
+  $('progStep').textContent = A.qs.length ? `Question ${Math.min(A.qi+1,A.qs.length)} of ${A.qs.length}` : 'Getting started';
+}
+
+/* ============================================================
+   SCORING + RESULTS
+   ============================================================ */
+function computeAndShow(){
+  A.score={inc:0,tr:0,ur:0};
+  A.qs.forEach(q=>{
+    const v=A.answers[q.id]; if(!v) return;
+    const o=q.opts.find(x=>x.v===v); if(!o||!o.s) return;
+    for(const k in o.s) A.score[k]+=o.s[k];
+  });
+
+  const incB = band(A.score.inc,6,3);
+  const trB  = band(A.score.tr,6,3);
+  const urB  = band(A.score.ur,5,2);
+
+  const axisCopy = {
+    inc: {
+      title:"If you couldn't speak for yourself",
+      red:"This is your most urgent gap. Right now, if a medical emergency or sudden incapacity happened, no one has clear legal authority to act — which means decisions get made by a court process instead of by the people who know the situation. This is the fastest and least expensive thing on this list to fix, and the one with the shortest window.",
+      amber:"There's a partial gap here. Some authority exists but not all of it, which in practice often means someone can handle either the medical side or the financial side, but hits a wall on the other exactly when both are needed at once.",
+      green:"You've covered this. Worth confirming the documents are current and that the people named still know they're named."
+    },
+    tr:{
+      title:"What happens to what you own",
+      red:"The path your property would take right now is either undefined or likely to produce an outcome you didn't intend. That usually means a court decides, on a timeline and in public. The fixes here are well understood — this is a matter of getting it documented.",
+      amber:"The basics are in place, but there are complications your current setup probably doesn't account for. This is the category where small oversights create disproportionate problems years later.",
+      green:"Your situation is relatively straightforward and appears to be addressed. Beneficiary designations are still worth a periodic look, since they override everything else."
+    },
+    ur:{
+      title:"How much time you have",
+      red:"Something in your answers suggests this shouldn't wait. Estate planning has a hard requirement most people don't know about: the person signing has to have legal capacity at the time they sign. Once that's gone, the only remaining path is a court process that's expensive, public, and slow.",
+      amber:"Nothing is on fire, but there's a reason not to leave this on the list indefinitely. Circumstances that are merely likely have a way of becoming immediate.",
+      green:"You have room to do this thoughtfully rather than reactively. That's the best position to plan from."
+    }
+  };
+
+  const bands = {inc:incB, tr:trB, ur:urB};
+  const labels = {red:"Needs attention", amber:"Partial gap", green:"Looks covered"};
+
+  let ax='';
+  ['inc','tr','ur'].forEach(k=>{
+    ax += `<div class="axis">
+      <div class="axis-head">
+        <span class="pill ${bands[k]}">${labels[bands[k]]}</span>
+        <span class="axis-title">${axisCopy[k].title}</span>
+      </div>
+      <p>${axisCopy[k][bands[k]]}</p>
+    </div>`;
+  });
+  $('axes').innerHTML = ax;
+
+  // documents
+  const docs = buildDocs(bands);
+  $('docsHost').innerHTML = `<h3 style="margin-bottom:4px;">What this points to</h3>
+    <p class="qhelp" style="margin-bottom:6px;">Marked <strong>Core</strong> if it addresses a gap you have now, <strong>Worth discussing</strong> if it depends on details we'd need to talk through.</p>` +
+    docs.map(d=>`<div class="doc">
+      <span class="doc-mark ${d.core?'':'opt-mark'}">${d.core?'✓':'?'}</span>
+      <span class="doc-body"><strong>${esc(d.name)}</strong><span>${esc(d.why)}</span></span>
+    </div>`).join('');
+
+  // consequence
+  $('nothingText').textContent = buildConsequence(bands);
+
+  // state block
+  const SC = STATE_CONTENT[A.state] || STATE_CONTENT.GENERIC;
+  const stName = (US_STATES.find(s=>s[0]===A.state)||[,''])[1];
+  let sb = `<h3>${esc(stName)} specifics</h3>`;
+  SC.notes.forEach(n=>{ sb += `<p><strong>${esc(n.t)}.</strong> ${esc(n.b)}</p>`; });
+  sb += `<p>${esc(SC.probate)}</p>`;
+  if(!STATE_CONTENT[A.state]){
+    sb += `<p style="margin-top:10px;"><em>We cover the specifics for ${esc(stName)} on the call — the rules that differ most are the ones worth walking through directly rather than reading.</em></p>`;
+  }
+  $('stateBox').innerHTML = sb;
+
+  // headline
+  const worst = ['red','amber','green'].find(b=>[incB,trB,urB].includes(b));
+  const heads = {
+    red:"There are real gaps worth closing",
+    amber:"You're partly covered",
+    green:"You're in reasonable shape"
+  };
+  const ledes = {
+    red:"Below is what's exposed and what closes it. None of this is complicated to fix — it's mostly a matter of getting the right documents signed before they're needed.",
+    amber:"The foundation is there. What's below is what your current setup probably doesn't account for.",
+    green:"Nothing here looks alarming. The items below are worth confirming rather than rebuilding."
+  };
+  $('resTitle').textContent = heads[worst];
+  $('resLede').textContent = ledes[worst];
+
+  buildShareLink();
+  show('s-res');
+  $('prog').hidden = true;
+  postToGHL('assessment_completed', {});
+}
+
+function buildDocs(b){
+  const d=[], a=A.answers, who=A.who;
+  const SC = STATE_CONTENT[A.state] || STATE_CONTENT.GENERIC;
+  const surro = SC.surrogateTerm;
+
+  if(who==='adult'){
+    d.push({name:"Health care directive naming you", core:true, why:`Lets your child name you to make medical decisions if they can't. In many states this can be written to take effect immediately, which is what makes it work in an emergency.`});
+    d.push({name:"HIPAA authorization", core:true, why:"The separate document that actually lets doctors and hospitals share information with you. Without it, staff may legally refuse to tell you anything."});
+    d.push({name:"Durable power of attorney", core:true, why:"Covers the practical problems — a frozen account, a lease, an insurance claim, a tuition hold — that come up far more often than medical emergencies."});
+    d.push({name:"FERPA release", core:(a.asit==='college'), why:"Lets the school discuss grades, enrollment, and disciplinary matters with you. Without it, a university can decline to tell a parent anything."});
+    if(a.awill==='n'){
+      const mil = a.asit==='military';
+      d.push({name:"Simple will", core:(mil || a.aassets==='y'), why: mil
+        ? "Service members deploy on short notice and face concentrated risk periods. A basic will and current beneficiary designations belong in the same conversation as the medical documents."
+        : "Anything in their own name — a car, an account, savings — needs a stated destination. Without one, the state's default rules decide, and for an unmarried adult that usually routes everything back to parents in fixed shares regardless of intent."});
+    }
+    return d;
+  }
+
+  d.push({name:"Durable financial power of attorney", core:b.inc!=='green', why:"Names who can handle money, property, and paperwork if you can't. This is the single most common gap, and the one that forces families into court when it's missing."});
+  d.push({name:`Health care directive (${surro})`, core:b.inc!=='green', why:"Names who makes medical decisions and states what you'd want. Prevents the situation where doctors need a decision and no one has authority to give one."});
+  d.push({name:"HIPAA authorization", core:b.inc!=='green', why:"Separate from the directive. This is what lets providers share information with the people helping you."});
+  d.push({name:"Will", core:(a.will==='n'||a.will==='old'||who==='parent'), why:"States where things go, names who administers it, and — if you have minor children — nominates who raises them. That last part is why most parents finally act."});
+
+  const wantsTrust = a.realestate==='multi' || a.blended==='y' || a.special==='y' || a.biz==='y' || a.kidsminor==='y' || a.pprop==='y';
+  d.push({name:"Revocable living trust", core:false, why: wantsTrust
+    ? "Your answers point to at least one complication a will alone handles poorly — property in more than one state, a blended family, a beneficiary who needs protection, or a business. A trust also keeps the details private."
+    : "Not automatic for everyone. Worth discussing if privacy matters to you, if you own property in more than one state, or if you want to control the timing of what beneficiaries receive."});
+
+  if(a.special==='y') d.push({name:"Special needs trust", core:true, why:"An inheritance left outright can disqualify someone from Medicaid or SSI. This is the structure that lets you provide for them without costing them their benefits."});
+  if(a.kidsminor==='y') d.push({name:"Guardian nomination for minor children", core:true, why:"If both parents are gone, a court decides who raises your children. Your written nomination is the strongest voice you get in that decision — and you only get it in advance."});
+  if(a.biz==='y') d.push({name:"Business succession provisions", core:false, why:"What happens to your interest, who can sign, and how a partner or family member is bought out. Rarely handled by a personal will alone."});
+  if(a.benef==='old'||a.benef==='never') d.push({name:"Beneficiary designation review", core:true, why:"Retirement accounts and life insurance pass by designation, not by your will. An outdated form quietly overrides everything else you've signed."});
+  if(who==='parent'||who==='both') d.push({name:"Advance guardian designation", core:false, why:"Names in advance who should serve if a court ever has to appoint someone — a backstop when a power of attorney isn't enough or is challenged."});
+
+  return d;
+}
+
+function buildConsequence(b){
+  const a=A.answers, who=A.who;
+  if(who==='adult'){
+    return "If your child has a medical emergency tomorrow, the hospital can legally decline to tell you their condition, and you would have no authority to make decisions or handle their affairs. Sorting that out means going to court for guardianship — for your own child — while they're in a hospital bed. The paperwork that prevents it takes about an hour.";
+  }
+  if(who==='parent'){
+    if(a.pcog==='y'||a.pcog==='some'){
+      return "This is the part families most often learn too late: your parent has to have legal capacity at the moment they sign. If cognitive decline progresses past that point, powers of attorney are no longer an option, and the only remaining path is court-supervised guardianship — expensive, public, ongoing, and stressful for everyone. The window is open now. It doesn't stay open.";
+    }
+    return "Without documents in place, if your parent has a stroke or a fall next month, no one can pay their bills, talk to their doctors, manage their insurance, or make decisions on their behalf without a court appointing someone. That process takes months and costs thousands, at exactly the moment your family has the least capacity to deal with it.";
+  }
+  if(b.inc==='red'&&b.tr==='red'){
+    return "As things stand, two separate things go wrong. If you're incapacitated, your family goes to court to get authority someone should already have. If you die, the state's default rules decide who gets what — and those rules don't know about your blended family, your intentions, or the promises you've made.";
+  }
+  if(b.inc==='red'){
+    return "The immediate exposure is incapacity, not death. If something happened tomorrow, the people closest to you would have no legal standing to act — no access to accounts, no authority with doctors, no ability to keep things running. Getting that authority through a court takes months.";
+  }
+  if(b.tr==='red'){
+    return "If you died without this in place, your state's default rules would determine who receives what. Those rules are rigid, they don't account for your circumstances, and the process is public. Families sort it out eventually — usually more slowly and more expensively than anyone expects.";
+  }
+  return "The gaps here aren't emergencies, but they're the kind that get more expensive to fix the longer they sit — usually because circumstances change before the documents do.";
+}
+
+/* ============================================================
+   SHARE
+   ============================================================ */
+function shareBaseURL(){
+  const base = location.origin + location.pathname;
+  const nm = ($('shareName').value||'').trim();
+  const parts=[];
+  if(nm) parts.push('from='+encodeURIComponent(nm));
+  if(A.state) parts.push('state='+A.state);
+  parts.push('src=referral');
+  return base + '?' + parts.join('&');
+}
+function buildShareLink(){
+  $('shareUrl').value = shareBaseURL();
+  const ready = !!($('shareName').value||'').trim();
+  $('shareText').disabled = !ready;
+  $('shareEmail').disabled = !ready;
+  if(ready) $('shareHint').hidden = true;
+}
+function shareMessage(){
+  const nm = ($('shareName').value||'').trim() || 'A friend';
+  const url = shareBaseURL();
+  return {
+    nm, url,
+    body: `Hi — ${nm} here. I just did this quick estate-planning assessment and thought of you. It's free and takes about three minutes, and it shows which documents your family actually needs (a will, a trust, powers of attorney). No obligation, just useful. Here's the link: ${url}`,
+    subject: `${nm} thought this would be useful to you`
+  };
+}
+$('shareName').addEventListener('input',()=>{
+  buildShareLink();
+  if(($('shareName').value||'').trim()) $('shareHint').hidden = true;
+});
+$('shareText').addEventListener('click',()=>{
+  if(!($('shareName').value||'').trim()){ $('shareHint').hidden=false; return; }
+  const m = shareMessage();
+  postToGHL('shared_by_text',{shared_by:m.nm});
+  // sms: link works on mobile; body is pre-filled
+  window.location.href = 'sms:?&body=' + encodeURIComponent(m.body);
+});
+$('shareEmail').addEventListener('click',()=>{
+  if(!($('shareName').value||'').trim()){ $('shareHint').hidden=false; return; }
+  const m = shareMessage();
+  postToGHL('shared_by_email',{shared_by:m.nm});
+  window.location.href = 'mailto:?subject=' + encodeURIComponent(m.subject) + '&body=' + encodeURIComponent(m.body);
+});
+$('copyToggle').addEventListener('click',()=>{
+  const row = $('copyRow');
+  row.hidden = !row.hidden;
+  if(!row.hidden){ buildShareLink(); }
+});
+$('copyBtn').addEventListener('click',async ()=>{
+  const el=$('shareUrl');
+  try{ await navigator.clipboard.writeText(el.value); }
+  catch(_){ el.select(); document.execCommand('copy'); }
+  $('copiedMsg').hidden=false;
+  setTimeout(()=>{$('copiedMsg').hidden=true;},3500);
+});
+
+/* ============================================================
+   TABS
+   ============================================================ */
+document.querySelectorAll('.tab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
+    document.querySelectorAll('.panel').forEach(x=>x.classList.remove('on'));
+    t.classList.add('on');
+    $(t.dataset.panel).classList.add('on');
+  });
+});
+
+/* ============================================================
+   GHL POST
+   ============================================================ */
+function postToGHL(event, extra){
+  if(!CONFIG.ghlWebhook) return Promise.resolve();
+  const stName = (US_STATES.find(s=>s[0]===A.state)||[,''])[1];
+  const payload = Object.assign({
+    event: event,
+    source: "Estate Planning Assessment",
+    planning_for: A.who,
+    state: A.state,
+    state_name: stName,
+    score_incapacity: A.score.inc,
+    score_transfer: A.score.tr,
+    score_urgency: A.score.ur,
+    band_incapacity: band(A.score.inc,6,3),
+    band_transfer: band(A.score.tr,6,3),
+    band_urgency: band(A.score.ur,5,2),
+    answers: JSON.stringify(A.answers),
+    referred_by: new URLSearchParams(location.search).get('from') || "",
+    lead_source: new URLSearchParams(location.search).get('src') || "web",
+    submitted_at: new Date().toISOString()
+  }, extra||{});
+  return fetch(CONFIG.ghlWebhook,{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(payload)
+  }).catch(()=>{});
+}
+
+/* ============================================================
+   CALLBACK REQUEST
+   ============================================================ */
+$('cbSend').addEventListener('click',()=>{
+  const name=$('cbName').value.trim(), em=$('cbEmail').value.trim(),
+        ph=$('cbPhone').value.trim(), dy=$('cbDay').value, tm=$('cbTime').value;
+  const m=$('cbMsg');
+  if(!name || (!em && !ph) || !dy || !tm){
+    m.hidden=false;
+    m.textContent="Add your name, a way to reach you, and when you're available.";
+    return;
+  }
+  $('cbSend').disabled=true; $('cbSend').textContent="Sending…";
+  postToGHL('callback_requested',{
+    name:name, email:em, phone:ph, callback_day:dy, callback_window:tm
+  }).then(()=>{
+    m.hidden=false;
+    m.textContent=`Got it, ${name.split(' ')[0]}. We'll reach you ${dy} ${tm.toLowerCase()}.`;
+    $('cbSend').textContent="Request sent";
+  });
+});
+
+/* ============================================================
+   PDF
+   ============================================================ */
+$('pdfBtn').addEventListener('click',()=>{
+  const em=$('pdfEmail').value.trim();
+  if(em) postToGHL('pdf_requested',{email:em});
+  makePDF();
+  const m=$('pdfMsg');
+  m.hidden=false;
+  m.textContent = em
+    ? "Downloading now — we'll also send a copy and a plain-English guide to your email."
+    : "Downloading now. Add your email above if you'd also like it sent to you with a guide to these documents.";
+});
+
+function makePDF(){
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({unit:'pt',format:'letter'});
+  const W=612, M=56; let y=64;
+  const navy=[15,49,78], gold=[197,159,74], grey=[90,107,122], ink=[45,55,72];
+
+  function need(h){ if(y+h>720){ doc.addPage(); y=64; } }
+  function para(txt,size,color,style,lead,gap){
+    doc.setFont('helvetica',style||'normal'); doc.setFontSize(size);
+    doc.setTextColor(color[0],color[1],color[2]);
+    const lines=doc.splitTextToSize(txt,W-M*2);
+    lines.forEach(l=>{ need(lead); doc.text(l,M,y); y+=lead; });
+    y += (gap||0);
+  }
+
+  // header
+  doc.setFillColor(navy[0],navy[1],navy[2]); doc.rect(0,0,W,8,'F');
+  doc.setFont('helvetica','bold'); doc.setFontSize(15); doc.setTextColor(navy[0],navy[1],navy[2]);
+  doc.text('OCTUS ESTATE',M,y); y+=8;
+  doc.setDrawColor(gold[0],gold[1],gold[2]); doc.setLineWidth(1.6);
+  doc.line(M,y,M+92,y); y+=30;
+
+  para('Your Estate Planning Assessment',20,navy,'bold',25,6);
+
+  const stName=(US_STATES.find(s=>s[0]===A.state)||[,''])[1];
+  const whoTxt={self:'Myself or my household',parent:'My aging parent',adult:'My adult child',both:'Myself and a family member'}[A.who];
+  para(`Planning for: ${whoTxt}   ·   State: ${stName}   ·   ${new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}`,9,grey,'normal',13,20);
+
+  const bands={inc:band(A.score.inc,6,3),tr:band(A.score.tr,6,3),ur:band(A.score.ur,5,2)};
+  const labels={red:'NEEDS ATTENTION',amber:'PARTIAL GAP',green:'LOOKS COVERED'};
+  const titles={inc:"If you couldn't speak for yourself",tr:'What happens to what you own',ur:'How much time you have'};
+
+  ['inc','tr','ur'].forEach(k=>{
+    need(52);
+    const c = bands[k]==='red'?[178,59,59]:bands[k]==='amber'?[201,138,46]:[63,125,98];
+    doc.setFillColor(c[0],c[1],c[2]); doc.roundedRect(M,y-9,doc.getTextWidth(labels[bands[k]])*0.62+18,14,7,7,'F');
+    doc.setFont('helvetica','bold'); doc.setFontSize(7); doc.setTextColor(255,255,255);
+    doc.text(labels[bands[k]],M+9,y+1);
+    y+=22;
+    para(titles[k],12,navy,'bold',16,3);
+    const el=document.querySelectorAll('.axis p')[['inc','tr','ur'].indexOf(k)];
+    para(el?el.textContent:'',9.5,ink,'normal',13.5,14);
+  });
+
+  need(40);
+  y+=4; doc.setDrawColor(221,229,234); doc.setLineWidth(.8); doc.line(M,y,W-M,y); y+=22;
+  para('What this points to',14,navy,'bold',18,10);
+
+  buildDocs(bands).forEach(d=>{
+    need(42);
+    doc.setFont('helvetica','bold'); doc.setFontSize(10); doc.setTextColor(navy[0],navy[1],navy[2]);
+    const tag = d.core ? '' : '  (worth discussing)';
+    doc.text('• '+d.name+tag,M,y); y+=14;
+    doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.setTextColor(grey[0],grey[1],grey[2]);
+    doc.splitTextToSize(d.why,W-M*2-14).forEach(l=>{ need(12); doc.text(l,M+14,y); y+=12; });
+    y+=8;
+  });
+
+  need(60); y+=6;
+  para('If nothing changes',13,navy,'bold',17,6);
+  para($('nothingText').textContent,9.5,ink,'normal',13.5,16);
+
+  need(80);
+  para(stName+' specifics',13,navy,'bold',17,6);
+  const SC=STATE_CONTENT[A.state]||STATE_CONTENT.GENERIC;
+  SC.notes.forEach(n=>{
+    need(34);
+    para(n.t+'.',10,navy,'bold',14,2);
+    para(n.b,9.5,ink,'normal',13,10);
+  });
+  para(SC.probate,9.5,ink,'normal',13,16);
+
+  need(70);
+  doc.setFillColor(navy[0],navy[1],navy[2]); doc.roundedRect(M,y,W-M*2,64,5,5,'F');
+  doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.setTextColor(255,255,255);
+  doc.text('Talk it through',M+18,y+24);
+  doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.setTextColor(201,216,228);
+  doc.text('A 30-minute conversation, no cost or obligation.',M+18,y+40);
+  doc.setTextColor(gold[0],gold[1],gold[2]);
+  doc.text(CONFIG.calendly,M+18,y+55);
+  y+=80;
+
+  need(60);
+  doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.setTextColor(140,150,160);
+  const dis='This assessment is general educational information, not legal, tax, or financial advice, and does not create an attorney-client relationship. Outcomes depend on your specific facts, how property is titled, and the law of your state, which changes over time. Octus Estate provides flat-fee estate planning through a licensed attorney network; legal documents and legal advice are provided by those attorneys. Please consult a licensed attorney in your state.';
+  doc.splitTextToSize(dis,W-M*2).forEach(l=>{ need(9); doc.text(l,M,y); y+=9; });
+
+  doc.save('Octus-Estate-Assessment.pdf');
+}
+
+/* ============================================================
+   RESTART
+   ============================================================ */
+$('restart').addEventListener('click',()=>{
+  A={who:null,state:null,answers:{},qs:[],qi:0,score:{inc:0,tr:0,ur:0}};
+  document.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));
+  $('whoNext').disabled=true; $('stateSel').value=''; $('stateNext').disabled=true;
+  $('prog').hidden=true;
+  show('s-intro');
+});
+</script>
+</body>
+</html>
