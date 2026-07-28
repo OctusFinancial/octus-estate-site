@@ -49,7 +49,7 @@ function renderHeader(currentPath) {
         <img src="assets/octus-mark.png" alt="" />
         <span class="brand-text">
           <span class="name">Octus</span>
-          <span class="sub">Financial</span>
+          <span class="sub">Estate</span>
         </span>
       </a>
       <nav class="site-nav">${links}</nav>
