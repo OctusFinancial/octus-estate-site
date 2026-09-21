@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Florida Home Planning Decision Tree | Octus Estate</title>
+<meta name="description" content="Answer a few questions about your Florida home, family, and goals to see which planning tools may fit: a Lady Bird deed, a revocable trust, a will, or a combination, plus when attorney review matters most.">
+<link rel="canonical" href="https://octusestate.com/resources/florida-home-planning-decision-tree">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Sorts+Mill+Goudy:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f314e; --gold:#c59f4a; --sage:#a9c8be; --grey:#e8e8e8;
+  --gold-wash:#f6efe0; --sage-wash:#e8f0ed; --ink:#26303a; --muted:#5b6670; --rule:#d6d6d2;
+  --green:#3f7d5c; --green-wash:#e5f1ea; --amber:#a86f12; --amber-wash:#fbf1dc; --red:#a23b2c; --red-wash:#f8e6e2;
+  --serif:"Sorts Mill Goudy", Georgia, "Times New Roman", serif;
+  --sans:"Montserrat", "Helvetica Neue", Arial, sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0; background:#fff; color:var(--ink); font-family:var(--sans); font-size:1rem; line-height:1.6}
+a{color:var(--navy); text-decoration-color:var(--gold); text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--gold); outline-offset:2px}
+.topbar{background:var(--navy); color:#fff; border-bottom:4px solid var(--gold)}
+.topbar .inner{max-width:1080px; margin:0 auto; padding:.9rem 1.5rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap}
+.brand{font-family:var(--serif); font-size:1.45rem; color:#fff; text-decoration:none}
+.topbar nav a{color:#fff; font-size:.88rem; margin-left:1.25rem; text-decoration:none}
+.draft{background:var(--amber-wash); color:var(--amber); text-align:center; font-size:.85rem; font-weight:600; padding:.5rem 1rem; border-bottom:1px solid #ecd9b0}
+.hero{background:var(--grey)}
+.hero .inner{max-width:1080px; margin:0 auto; padding:2.75rem 1.5rem 2.25rem}
+.hero .kicker{font-size:.9rem; color:var(--muted); margin:0 0 .5rem}
+.hero h1{font-family:var(--serif); font-weight:400; color:var(--navy); font-size:clamp(2rem,4.2vw,3rem); line-height:1.12; margin:0 0 .9rem; max-width:22ch}
+.hero p{max-width:64ch; margin:0 0 .6rem}
+.hero .small{font-size:.88rem; color:var(--muted)}
+
+.wrap{max-width:1080px; margin:0 auto; padding:2rem 1.5rem 3.5rem}
+.stages{display:flex; gap:.35rem; list-style:none; padding:0; margin:0 0 1.75rem; flex-wrap:wrap}
+.stages li{flex:1 1 110px; font-size:.78rem; color:var(--muted); border-top:4px solid var(--grey); padding-top:.45rem}
+.stages li.done{border-top-color:var(--sage); color:var(--ink)}
+.stages li.current{border-top-color:var(--gold); color:var(--navy); font-weight:600}
+
+.card{border:1px solid var(--rule); border-radius:12px; padding:1.75rem; max-width:760px; background:#fff}
+.card .count{font-size:.85rem; color:var(--muted); margin:0 0 .4rem}
+.card h2{font-family:var(--serif); font-weight:400; color:var(--navy); font-size:clamp(1.45rem,2.6vw,1.9rem); line-height:1.25; margin:0 0 .5rem}
+.card .help{color:var(--muted); font-size:.95rem; margin:0 0 1.2rem; max-width:62ch}
+fieldset{border:0; margin:0; padding:0}
+legend{position:absolute; left:-9999px}
+.opts{display:grid; gap:.55rem}
+.opt{display:flex; gap:.8rem; align-items:flex-start; border:1.5px solid var(--rule); border-radius:10px; padding:.8rem 1rem; cursor:pointer; background:#fff}
+.opt:hover{border-color:var(--sage)}
+.opt input{margin-top:.28rem; accent-color:var(--navy); width:1.05rem; height:1.05rem; flex:none}
+.opt.sel{border-color:var(--navy); background:#f4f7fa}
+.opt span small{display:block; color:var(--muted); font-size:.85rem; margin-top:.1rem}
+.nav{display:flex; justify-content:space-between; gap:.75rem; margin-top:1.5rem; flex-wrap:wrap}
+.btn{font-family:var(--sans); font-size:.95rem; font-weight:500; padding:.75rem 1.35rem; border-radius:6px; border:1.5px solid var(--navy); background:var(--navy); color:#fff; cursor:pointer}
+.btn:hover{background:#15426a}
+.btn[disabled]{opacity:.4; cursor:not-allowed}
+.btn.ghost{background:transparent; color:var(--navy)}
+.btn.ghost:hover{background:var(--grey)}
+.inline-note{margin-top:1rem; padding:.8rem 1rem; border-radius:8px; background:var(--sage-wash); font-size:.92rem}
+
+/* results */
+.results h2.title{font-family:var(--serif); font-weight:400; color:var(--navy); font-size:clamp(1.8rem,3.4vw,2.5rem); margin:0 0 .4rem}
+.tier{border-radius:12px; padding:1.25rem 1.4rem; margin:1rem 0 1.75rem; border-left:6px solid}
+.tier.green{background:var(--green-wash); border-color:var(--green)}
+.tier.yellow{background:var(--amber-wash); border-color:var(--amber)}
+.tier.red{background:var(--red-wash); border-color:var(--red)}
+.tier .label{font-weight:600; font-size:.95rem; margin:0 0 .3rem}
+.tier.green .label{color:var(--green)} .tier.yellow .label{color:var(--amber)} .tier.red .label{color:var(--red)}
+.tier p{margin:0}
+.grid2{display:grid; gap:1.25rem; grid-template-columns:1fr}
+@media (min-width:860px){.grid2{grid-template-columns:1.2fr 1fr}}
+.panel{border:1px solid var(--rule); border-radius:12px; padding:1.25rem 1.4rem; margin-bottom:1.25rem}
+.panel.lane{border-top:4px solid var(--gold); background:var(--grey)}
+.panel h3{font-family:var(--serif); font-weight:400; color:var(--navy); font-size:1.35rem; margin:0 0 .6rem}
+.panel h4{font-size:.95rem; color:var(--navy); margin:1rem 0 .35rem}
+.panel ul{margin:.3rem 0 0; padding-left:1.2rem}
+.panel li{margin:.35rem 0}
+.flag{padding:.7rem .9rem; border-radius:8px; margin:.5rem 0; font-size:.93rem}
+.flag.red{background:var(--red-wash)} .flag.yellow{background:var(--amber-wash)} .flag.info{background:var(--sage-wash)}
+.flag strong{display:block; margin-bottom:.15rem}
+dl.terms{margin:0}
+dl.terms dt{font-weight:600; color:var(--navy); margin-top:.7rem}
+dl.terms dd{margin:.15rem 0 0; font-size:.93rem}
+.summary{font-size:.9rem}
+.summary div{display:flex; justify-content:space-between; gap:1rem; border-bottom:1px solid #eeeeea; padding:.4rem 0}
+.summary div span:first-child{color:var(--muted)}
+.summary div span:last-child{text-align:right}
+.prep{display:flex; flex-wrap:wrap; gap:.5rem 1rem; align-items:center; margin:.2rem 0 1rem; font-size:.9rem}
+.prep input{font:inherit; padding:.45rem .6rem; border:1.5px solid var(--rule); border-radius:6px; min-width:240px}
+.prep-print{display:none; font-size:.95rem; color:var(--muted); margin:0 0 .6rem}
+.toast{font-size:.88rem; color:var(--green); margin:.2rem 0 0; min-height:1.2em}
+@media print{.prep{display:none !important} .prep-print{display:block}}
+.disclaimer{font-size:.85rem; color:var(--muted); border-top:1px solid var(--rule); padding-top:1rem; margin-top:1.5rem; max-width:80ch}
+.actions{display:flex; gap:.75rem; flex-wrap:wrap; margin:1.25rem 0}
+
+.contact{background:var(--navy); color:#fff; border-top:4px solid var(--gold)}
+.contact .inner{max-width:1080px; margin:0 auto; padding:2.25rem 1.5rem}
+.contact h2{font-family:var(--serif); font-weight:400; font-size:1.6rem; margin:0 0 .4rem}
+.contact p{margin:.2rem 0}
+.contact a{color:#fff}
+footer.legal{background:var(--grey); font-size:.8rem; color:var(--muted)}
+footer.legal .inner{max-width:1080px; margin:0 auto; padding:1.1rem 1.5rem}
+.savehint{font-size:.85rem; color:var(--muted); margin:-.4rem 0 .8rem}
+.plainbox{margin:0 0 1rem} .plainbox summary{cursor:pointer; color:var(--navy); font-weight:500; font-size:.92rem}
+.plainbox textarea{width:100%; margin-top:.6rem; font-family:var(--sans); font-size:.85rem; padding:.7rem; border:1px solid var(--rule); border-radius:8px}
+@media print{.savehint,.plainbox{display:none !important}}
+@media print{
+  .topbar nav,.stages,.actions,.hero,.draft{display:none !important}
+  body{font-size:10pt}
+  .wrap{padding:0}
+  .panel,.tier,.flag{break-inside:avoid; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+  .grid2{display:block}
+  .contact{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="inner">
+    <a class="brand" href="/">Octus Estate</a>
+    <nav aria-label="Site"><a href="tools.html">All tools</a><a href="#contact">Contact</a></nav>
+  </div>
+</header>
+<div class="draft" id="draftBanner" hidden>Draft for attorney review. Routing rules and wording are pending approval.</div>
+
+<div class="hero">
+  <div class="inner">
+    <p class="kicker">Florida home planning</p>
+    <h1>Which planning tools fit your Florida home?</h1>
+    <p>Answer questions about your home, family, and goals. At the end you'll see which tools may fit (a Lady Bird deed, a revocable trust, a will, or a combination), the deed terms worth knowing, and when attorney review matters most.</p>
+    <p class="small">About 5 minutes. Your answers stay in your browser and aren't saved or sent anywhere.</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <ol class="stages" id="stages" aria-label="Progress"></ol>
+  <div id="app" aria-live="polite"></div>
+</div>
+
+<section class="contact" id="contact">
+  <div class="inner">
+    <h2>Talk it through with us</h2>
+    <p>Octus Estate works alongside licensed Florida attorneys on deeds, trusts, and the rest of the estate plan.</p>
+    <p>Mia Smith, MBA, NSSA, FPWM &nbsp;|&nbsp; <a href="tel:+13215671958">(321) 567-1958</a> &nbsp;|&nbsp; <a href="mailto:Estate@OctusFinancial.com">Estate@OctusFinancial.com</a> &nbsp;|&nbsp; <a href="https://octusestate.com">octusestate.com</a></p>
+  </div>
+</section>
+<footer class="legal"><div class="inner">Educational information only, not legal, tax, title, Medicaid, or insurance advice. <span id="reviewed"></span></div></footer>
+
+<script>
+/* =====================================================================
+   CONFIG: edit wording and settings here once attorney partners approve.
+   ===================================================================== */
+const CONFIG = {
+  showDraftBanner: false,         // attorney-approved September 2026
+  lastReviewed: "September 2026",
+  threeMeaningsUrl: "three-meanings-of-homestead.pdf",            // link to the Three Meanings PDF on your site
+  implementationUrl: "home-succession-implementation-checklist.pdf", // link to the Implementation Checklist PDF
+  portabilityUrl: "save-our-homes-portability-calculator.html",          // link to the portability calculator page
+  offerDeedToTrustLane: true,     // "Lady Bird deed naming a trust" option; attorney approval pending
+  disclaimer: "This tool offers general educational information, not legal, tax, title, Medicaid, or insurance advice, and it doesn't create an attorney-client relationship. Florida homestead, marital rights, minor-child protections, title, lender terms, public-benefits rules, and the exact wording of any deed or trust can change the result. Review by a lawyer licensed where the property is located is the safest step before signing, recording, or transferring anything, and in more complicated circumstances, confirming the details with counsel is especially important.",
+  redText: "Your answers point to a possible Florida homestead, spouse, minor-child, title, public-benefits, or beneficiary-protection issue. In situations like this, a Lady Bird deed or revocable trust may not produce the intended result, so this tool doesn't suggest a self-prepared document. An attorney review is the right next step.",
+  yellowText: "A plan is very workable here, and a few of your answers add details worth reviewing with an attorney before anything is signed.",
+  greenText: "Your answers describe a fairly straightforward situation. The tools below are common fits, and an attorney still drafts and reviews the final documents.",
+  outOfStateText: "Real estate planning is governed mainly by the law of the state where the property sits. This Florida tool can't determine whether a Lady Bird deed, beneficiary deed, trust, or other method works for property outside Florida. Counsel licensed in that state is the best resource."
+};
+
+/* =====================================================================
+   QUESTIONS, in order. show(a) decides whether a question appears.
+   ===================================================================== */
+const STAGES = ["Screening","Household","Homestead","Your wishes","Assets","Priorities"];
+
+const Q = [
+  {id:"location", stage:0, type:"radio", q:"Where is the property you're planning for?",
+   help:"Real estate follows the law of the state where it sits, so this comes first.",
+   opts:[["fl","Florida"],["ladybird","Michigan, Texas, Vermont, or West Virginia"],["other","Another state"],["multi","Florida plus property in another state"]]},
+
+  {id:"use", stage:0, type:"radio", q:"How is the property used today?",
+   help:"Florida's homestead protections apply to a primary residence, so this shapes everything that follows.",
+   show:a=>a.location!=="ladybird"&&a.location!=="other",
+   opts:[["primary","My primary residence"],["second","A second or seasonal home"],["rental","A long-term or short-term rental"],["mixed","My home, with part used for business or rented out"],["multi","A multi-family building where I live in one unit"],["land","Vacant land or farm property"]]},
+
+  {id:"title", stage:0, type:"radio", q:"How is the home titled today?",
+   help:"Check the most recent recorded deed if you're not sure.",
+   show:a=>a.location!=="ladybird"&&a.location!=="other",
+   opts:[["me","In my name alone"],["spouse","My spouse and me"],["other","Me and someone who isn't my spouse"],["entity","An LLC, a trust, or an estate"],["deceased","It still includes someone who has passed away"],["unsure","Not sure"]]},
+
+  {id:"issues", stage:0, type:"check", q:"Do any of these apply to the home?",
+   help:"Select all that apply.",
+   show:a=>a.location!=="ladybird"&&a.location!=="other",
+   opts:[["mortgage","Mortgage or HELOC"],["reverse","Reverse mortgage"],["liens","Liens, judgments, or tax debts"],["hoa","HOA or condo dispute or claim"],["divorce","Separation or divorce in progress"],["creditor","A creditor concern, lawsuit, or possible bankruptcy"],["sale","Planning to sell or refinance soon"],["none","None of these"]]},
+
+  {id:"reverseSpouse", stage:0, type:"radio", q:"On the reverse mortgage, who is a borrower?",
+   help:"This decides whether a spouse can stay in the home after the borrower passes away.",
+   show:a=>a.location!=="ladybird"&&a.location!=="other"&&(a.issues||[]).includes("reverse"),
+   opts:[["both","Both spouses are borrowers"],["meOnly","Only one spouse is a borrower"],["single","I'm the only owner and I'm not married"],["unsure","Not sure"]]},
+
+  {id:"benefits", stage:0, type:"radio", q:"Is anyone in the household applying for or receiving long-term-care help or means-tested benefits?",
+   help:"This includes Medicaid, SSI, and VA needs-based benefits.",
+   show:a=>a.location!=="ladybird"&&a.location!=="other",
+   opts:[["now","Yes, applying or receiving now"],["soon","Possibly within the next five years"],["no","No"],["unsure","Not sure"]]},
+
+  {id:"marital", stage:1, type:"radio", q:"What's your relationship status?",
+   show:a=>inFlow(a),
+   opts:[["married","Married"],["partner","Living with a partner, not married"],["single","Single"],["widowed","Widowed"],["divorced","Divorced"]]},
+
+  {id:"spouseSign", stage:1, type:"radio", q:"If the home is your Florida homestead, would your spouse sign a deed or join the plan?",
+   help:"For a married couple's homestead, the spouse generally has to sign even if the spouse isn't on the title.",
+   show:a=>inFlow(a)&&homeUse(a)&&a.marital==="married",
+   opts:[["yes","Yes"],["no","No, or my spouse isn't available"],["unsure","Not sure"]]},
+
+  {id:"minor", stage:1, type:"radio", q:"Could any child of yours be under 18 when you pass away?",
+   help:"Include children from prior relationships, adopted children, and any expected children.",
+   show:a=>inFlow(a),
+   opts:[["yes","Yes"],["no","No"],["unsure","Not sure"]]},
+
+  {id:"family", stage:1, type:"check", q:"Do any of these describe your family?",
+   help:"Select all that apply.",
+   show:a=>inFlow(a),
+   opts:[["prior","I have children from a prior relationship"],["step","Stepchildren I'd like to include"],["special","A beneficiary with special needs"],["pubben","A beneficiary who receives public benefits"],["creditor","A beneficiary with creditor, divorce, or bankruptcy concerns"],["disagree","Heirs who may disagree about the home"],["none","None of these"]]},
+
+  {id:"capacity", stage:1, type:"check", q:"Do any of these apply right now?",
+   help:"None of these rule anything out. They point to extra care in how documents are signed, which helps protect the plan later.",
+   show:a=>inFlow(a),
+   opts:[["memory","A recent diagnosis affecting memory or decision-making, or a recent hospital stay"],["caregiver","A caregiver, new partner, or new friend would receive the home"],["change","The plan changes an earlier will, trust, or deed"],["conflict","Family disagreement, or someone being left out"],["none","None of these"]]},
+
+  {id:"homestead", stage:2, type:"radio", q:"Is this home your Florida homestead?",
+   help:"Homestead here means your permanent Florida residence. It's related to, but not the same as, the property tax exemption.",
+   show:a=>inFlow(a)&&homeUse(a),
+   opts:[["yes","Yes"],["no","No"],["unsure","Not sure"]]},
+
+  {id:"hResidence", stage:2, type:"radio", q:"Is this your permanent residence, the place you intend to live indefinitely?",
+   show:a=>inFlow(a)&&homeUse(a)&&a.homestead==="unsure",
+   opts:[["yes","Yes"],["no","No, it's a second home, rental, or vacant"],["unsure","Not sure"]]},
+
+  {id:"hSize", stage:2, type:"radio", q:"Where is it, and how large is the lot?",
+   help:"Florida limits homestead to half an acre inside city limits and 160 acres outside them.",
+   show:a=>inFlow(a)&&homeUse(a)&&a.homestead==="unsure",
+   opts:[["cityIn","Inside city limits, half an acre or less"],["cityOver","Inside city limits, more than half an acre"],["outIn","Outside city limits, 160 acres or less"],["outOver","Outside city limits, more than 160 acres"],["unsure","Not sure"]]},
+
+  {id:"hExempt", stage:2, type:"radio", q:"Do you receive the homestead property tax exemption on this home?",
+   help:"It's good evidence of homestead, but not the only test.",
+   show:a=>inFlow(a)&&homeUse(a)&&a.homestead==="unsure",
+   opts:[["yes","Yes"],["no","No"],["unsure","Not sure"]]},
+
+  {id:"parcel", stage:2, type:"check", q:"Do any of these describe the property?",
+   help:"Select all that apply. These can change how Florida's homestead protections apply.",
+   show:a=>inFlow(a)&&homeUse(a)&&a.homestead!=="no",
+   opts:[["rental","Part of it is rented out"],["business","Part of it is used for a business or farming"],["condo","It's a condominium or co-op"],["mobile","It's a mobile or manufactured home"],["parcels","It includes more than one parcel or an adjacent lot"],["none","None of these"]]},
+
+  {id:"stay", stage:3, type:"radio", q:"After you're gone, who should be able to live in the home?",
+   show:a=>inFlow(a),
+   opts:[["none","No one in particular; it can pass directly to my heirs"],["spouse","My spouse"],["partnerLife","My partner, for the rest of their life"],["partnerTime","My partner, for a set time or until they move out"],["family","A child or another family member"],["sell","No one; it should be sold and the proceeds divided"]]},
+
+  {id:"heirs", stage:3, type:"radio", q:"Who should ultimately receive the home?",
+   show:a=>inFlow(a),
+   opts:[["spouseThenKids","My spouse or partner first, then my children"],["kidsEqual","My children, in equal shares"],["unequal","Specific people in shares I choose"],["one","One person"],["charity","A charity, in whole or in part"],["undecided","I'm not sure yet"]]},
+
+  {id:"decider", stage:3, type:"radio", q:"After you're gone, who should make decisions about the home, such as repairs, renting, or selling?",
+   show:a=>inFlow(a)&&(a.heirs==="kidsEqual"||a.heirs==="unequal"||a.stay==="family"),
+   opts:[["together","My heirs, deciding together"],["one","One person I choose"],["pro","A professional trustee"],["unsure","I'm not sure yet"]]},
+
+  {id:"contingency", stage:3, type:"radio", q:"If someone you name passes away before you, what should happen to their share?",
+   help:"Deeds don't fill this in automatically, so it's worth deciding now.",
+   show:a=>inFlow(a),
+   opts:[["descendants","It goes to their children"],["survivors","It's split among the other people I named"],["alternate","It goes to a backup person I name"],["undecided","I'm not sure yet"]]},
+
+  {id:"assets", stage:4, type:"check", q:"What else do you own?",
+   help:"Select all that apply. Different assets pass in different ways.",
+   show:a=>inFlow(a),
+   opts:[["flOther","Other Florida real estate"],["rental","Rental property"],["outState","Real estate in another state"],["bank","Bank accounts"],["invest","Investment accounts"],["retire","Retirement accounts (IRA, 401(k), TSP)"],["life","Life insurance"],["business","A business interest"],["vehicle","Vehicles"],["personal","Valuables or personal property"],["none","Just the home"]]},
+
+  {id:"move", stage:5, type:"radio", q:"Do you expect to sell, downsize, or move in the next few years?",
+   show:a=>inFlow(a),
+   opts:[["flhome","Yes, to another Florida home"],["care","Yes, to assisted living, a family member's home, or out of state"],["maybe","Maybe"],["no","No"]]},
+
+  {id:"priorities", stage:5, type:"check", q:"Which of these matter most to you?",
+   help:"Select all that apply.",
+   show:a=>inFlow(a),
+   opts:[["incap","Someone can manage the home if I become unable to"],["privacy","Keeping my plan private"],["cost","Keeping upfront cost low"],["manager","One person handling any sale for my heirs"],["protect","Protecting heirs from creditors or divorce"],["control","Keeping full control of the home while I'm alive"]]}
+];
+
+function inFlow(a){ return a.location==="fl"||a.location==="multi"; }
+function homeUse(a){ return !a.use || a.use==="primary"||a.use==="mixed"||a.use==="multi"; }
+
+/* =====================================================================
+   STATE AND RENDERING
+   ===================================================================== */
+const answers = {};
+let history = [];
+const app = document.getElementById("app");
+const stagesEl = document.getElementById("stages");
+if (CONFIG.showDraftBanner) document.getElementById("draftBanner").hidden = false;
+document.getElementById("reviewed").textContent = "Last reviewed " + CONFIG.lastReviewed + ".";
+
+function visible(){ return Q.filter(q => !q.show || q.show(answers)); }
+function nextIndex(fromId){
+  const v = visible(); const i = fromId ? v.findIndex(q=>q.id===fromId) : -1;
+  return v[i+1] || null;
+}
+function drawStages(stage){
+  stagesEl.innerHTML = STAGES.map((s,i)=>`<li class="${i<stage?'done':i===stage?'current':''}">${s}</li>`).join("") +
+    `<li class="${stage===6?'current':''}">Results</li>`;
+}
+function esc(s){ return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+
+function renderQuestion(q){
+  drawStages(q.stage);
+  const v = visible(); const n = v.findIndex(x=>x.id===q.id)+1;
+  const est = answers.location ? v.length : Q.filter(x=>!x.show || x.show(Object.assign({location:"fl"},answers))).length;
+  const multi = q.type==="check";
+  const cur = answers[q.id] || (multi?[]:null);
+  app.innerHTML = `
+  <div class="card">
+    <p class="count">Question ${n} of about ${est}</p>
+    <h2 id="qh">${esc(q.q)}</h2>
+    ${q.help?`<p class="help">${esc(q.help)}</p>`:""}
+    <fieldset aria-labelledby="qh"><legend>${esc(q.q)}</legend>
+      <div class="opts">
+      ${q.opts.map(([val,label])=>{
+        const on = multi?cur.includes(val):cur===val;
+        return `<label class="opt ${on?'sel':''}"><input type="${multi?'checkbox':'radio'}" name="${q.id}" value="${val}" ${on?'checked':''}><span>${esc(label)}</span></label>`;
+      }).join("")}
+      </div>
+    </fieldset>
+    <div class="nav">
+      <button class="btn ghost" type="button" id="back" ${history.length?'':'disabled'}>Back</button>
+      <button class="btn" type="button" id="next" ${hasAnswer(q)?'':'disabled'}>Continue</button>
+    </div>
+  </div>`;
+  app.querySelectorAll("input").forEach(inp=>inp.addEventListener("change",()=>{
+    if (multi){
+      let vals = [...app.querySelectorAll("input:checked")].map(i=>i.value);
+      if (inp.value==="none" && inp.checked) vals=["none"];
+      else vals = vals.filter(v=>v!=="none");
+      answers[q.id]=vals;
+      app.querySelectorAll("input").forEach(i=>{ i.checked = vals.includes(i.value); i.closest(".opt").classList.toggle("sel", i.checked); });
+    } else {
+      answers[q.id]=inp.value;
+      app.querySelectorAll(".opt").forEach(o=>o.classList.toggle("sel", o.querySelector("input").checked));
+    }
+    document.getElementById("next").disabled = !hasAnswer(q);
+  }));
+  document.getElementById("next").onclick=()=>{ history.push(q.id); const nx=nextIndex(q.id); nx?renderQuestion(nx):renderResults(); window.scrollTo({top:stagesEl.offsetTop-20}); };
+  document.getElementById("back").onclick=()=>{ const prev=history.pop(); renderQuestion(Q.find(x=>x.id===prev)); };
+  if (history.length){ const first = app.querySelector("input:checked")||app.querySelector("input"); if (first) first.focus({preventScroll:true}); }
+}
+function hasAnswer(q){ const v=answers[q.id]; return q.type==="check" ? Array.isArray(v)&&v.length>0 : !!v; }
+function has(id,val){ const v=answers[id]; return Array.isArray(v)?v.includes(val):v===val; }
+
+/* =====================================================================
+   RULES ENGINE
+   ===================================================================== */
+function evaluate(){
+  const a = answers, flags=[], notes=[], terms=[];
+  let tier = "green";
+  const up = t => { if (t==="red" || (t==="yellow" && tier==="green")) tier=t; };
+  const flag = (level, title, text) => { flags.push({level,title,text}); up(level); };
+
+  // Out-of-state only
+  if (a.location==="ladybird" || a.location==="other"){
+    return {outOfState:true, tier:"red"};
+  }
+  if (a.location==="multi") flag("yellow","Property in another state","Each parcel is planned under the law of the state where it sits. The Florida home follows the results below; the other property needs counsel licensed in that state.");
+
+  // Property use
+  const useLabels={second:"a second or seasonal home",rental:"a rental",land:"vacant land or farm property"};
+  if (useLabels[a.use]) notes.push({title:"Not a primary residence", text:"Florida's homestead protections apply to a primary residence. For "+useLabels[a.use]+", the owner's creditors can generally reach the property during life, the homestead tax exemption doesn't apply, and the inheritance limits for a spouse or minor child don't apply to it. A Lady Bird deed or trust can still pass it outside probate."});
+  if (a.use==="mixed"||a.use==="multi") flag("yellow","Part home, part business or rental","Homestead protections may cover only the part you live in, and tax, insurance, and lender rules can differ for the rest. Your individual circumstances are reviewed on a case-by-case basis.");
+  if (a.use==="rental"||a.use==="mixed") notes.push({title:"Rental history and taxes", text:"Depreciation from rental use can affect taxes when the property is sold. Keeping rental and improvement records helps."});
+  // Capacity and undue influence
+  if (has("capacity","memory")||has("capacity","caregiver")) flag("red","Extra care with signing","Late-life changes can later be questioned for capacity or undue influence. Meeting with an independent attorney, careful signing with qualified witnesses, and documenting the decision all help protect the plan. Your individual circumstances are reviewed on a case-by-case basis.");
+  else if (has("capacity","change")||has("capacity","conflict")) flag("yellow","Changes and family dynamics","When a plan changes earlier documents or someone is left out, clear documents and a careful signing process make the plan harder to challenge. Reviewing the will, trust, and deeds together keeps them consistent.");
+
+  // Homestead determination
+  let homestead = (a.use && !homeUse(a)) ? "no" : a.homestead; // yes | no | unsure
+  let hNote = "";
+  if (a.homestead==="unsure"){
+    if (a.hResidence==="no"){ homestead="no"; hNote="Because this isn't your permanent residence, it likely isn't homestead for inheritance purposes. An attorney can confirm."; }
+    else if (a.hResidence==="yes"){ homestead="likely"; hNote="A permanent residence owned by a person is likely homestead, so the results treat it that way."; }
+    else { homestead="likely"; hNote="Since it's unclear, the results treat the home as homestead, which is the more cautious assumption."; }
+    if (a.hSize==="cityOver"||a.hSize==="outOver") flag("yellow","Lot may exceed the homestead size limit","Only part of the property may qualify as homestead. An attorney can sort out which part the homestead rules cover.");
+    if (a.hExempt==="yes" && homestead!=="no") hNote += " Receiving the tax exemption supports that.";
+  }
+  const isHomestead = homestead==="yes" || homestead==="likely";
+  if ((a.parcel||[]).some(x=>x!=="none")) flag("yellow","How the property is used or built","Rental or business use, condominiums, mobile homes, and multiple parcels can change how the homestead protections apply. Your individual circumstances are reviewed on a case-by-case basis.");
+  if (isHomestead) notes.push({title:"Homestead means three things in Florida", text:"The property tax exemption, protection from creditors, and limits on who can inherit the home are separate. A home can qualify for one and not another, so each is worth checking on its own."});
+  if (hNote) notes.push({title:"About your homestead status", text:hNote});
+
+  // Title
+  if (a.title==="entity") flag("red","Home is owned by an LLC, trust, or estate","A standard Lady Bird deed is written for a person who owns the home. The title and ownership structure need review before choosing any tool.");
+  if (a.title==="deceased") flag("red","Title still includes someone who has passed away","Clearing title, sometimes through probate, usually comes before any new deed.");
+  if (a.title==="unsure") flag("yellow","Current title is unclear","Pulling the most recent recorded deed confirms who owns the home and how.");
+  if (a.title==="other") flag("yellow","Co-owned with someone who isn't a spouse","Every current owner's interest and rights shape what a new deed can do.");
+
+  // Issues
+  if (has("issues","divorce")) flag("red","Separation or divorce in progress","Marital rights to the home may change, so planning usually waits for or coordinates with the divorce.");
+  if (has("issues","creditor")) flag("red","Creditor, lawsuit, or bankruptcy concern","Changing title while a creditor issue is pending can create new legal problems, and Florida's homestead protection has limits in bankruptcy. A Florida attorney's review comes first, before any deed or trust change. Your individual circumstances are reviewed on a case-by-case basis.");
+  if (has("issues","reverse")) flag("yellow","Reverse mortgage","The loan documents are worth reviewing before any title change. A transfer, a death, a move, or falling behind on taxes and insurance can affect when the loan comes due.");
+  if (a.reverseSpouse==="meOnly"||a.reverseSpouse==="unsure") flag("yellow","A spouse who may not be a borrower","Whether a non-borrowing spouse can stay after the borrower's death depends on the loan date and whether they qualified as an eligible non-borrowing spouse. Your individual circumstances are reviewed on a case-by-case basis.");
+  if (has("issues","liens")) flag("yellow","Liens, judgments, or tax debts","Avoiding probate doesn't remove valid liens, so these need attention in any plan.");
+  if (has("issues","hoa")) flag("yellow","HOA or condo claim","Outstanding association claims can affect title and a later sale.");
+  if (has("issues","sale")) flag("info","Sale or refinance planned","It can make sense to finish the sale or refinance first, since some lenders review recent transfers.");
+  if (has("issues","mortgage")) notes.push({title:"Mortgage", text:"A mortgage stays with the home through any transfer, and the lender's terms are worth checking before a new deed is recorded."});
+
+  // Benefits
+  if (a.benefits==="now") flag("red","Medicaid or benefits now","Eligibility, the five-year look-back, and estate recovery are separate questions. Florida elder-law counsel is the right first stop.");
+  if (a.benefits==="soon"||a.benefits==="unsure") flag("yellow","Long-term care may be ahead","A Lady Bird deed may reduce exposure to Florida's probate-based estate recovery, but it doesn't establish eligibility. Elder-law review is worth including.");
+
+  // Spouse
+  if (a.marital==="married" && isHomestead){
+    if (a.spouseSign==="no") flag("red","Spouse may not sign","For a married couple's homestead, the spouse generally has to join the deed. Without that, a Lady Bird deed isn't a workable option.");
+    else flag("yellow","Married, with a Florida homestead","Your spouse generally has to sign, even if not on title. The signature alone doesn't guarantee that a deed naming others will hold up, so attorney review is part of this plan.");
+  }
+  if (a.title==="spouse" && a.marital==="married") notes.push({title:"First death may already be handled", text:"Married couples who own their home together usually hold it so the survivor keeps it automatically. The real planning question is what happens after the second death."});
+
+  // Minor child
+  if (isHomestead && (a.minor==="yes"||a.minor==="unsure")) flag("red","A minor child and a Florida homestead","Florida's homestead rules protect minor children and can override a deed or trust. A standard Lady Bird deed keeps the power to revoke, which is exactly what keeps it from qualifying for the lifetime-transfer exception. This needs a Florida homestead attorney.");
+  else if (a.minor==="yes") flag("yellow","Minor children","Minors can't manage property directly, so a trust or guardianship plan usually belongs alongside any deed.");
+
+  // Family
+  if (has("family","special")||has("family","pubben")) flag("yellow","Beneficiary with special needs or public benefits","Leaving the home outright can affect benefits. A special-needs or protective trust is often the better receiver.");
+  if (has("family","creditor")) flag("yellow","Beneficiary with creditor or divorce concerns","A deed passes the home outright, with no protection. A trust can hold it for them instead.");
+  if (has("family","disagree")) flag("yellow","Heirs who may disagree","A deed makes heirs co-owners with equal say, which can lead to a forced sale. A trustee can decide for them.");
+  if (has("family","prior")||has("family","step")) notes.push({title:"Blended family", text:"Stepchildren don't inherit under Florida's default rules, and children from a prior relationship can be unintentionally left out. Naming everyone clearly matters."});
+
+  // Governance
+  if (a.decider==="together" && (a.heirs==="kidsEqual"||a.heirs==="unequal")) flag("yellow","Heirs deciding together","Co-owners each have a say, and disagreements over repairs, renting, or selling can lead to a buyout or forced sale. A trustee, or a written agreement among heirs, can set who decides.");
+  if (a.decider==="unsure") notes.push({title:"Who decides after you're gone", text:"Naming one decision-maker, or setting rules in a trust, avoids leaving every choice to a group of co-owners."});
+  if (a.stay==="family") notes.push({title:"A family member living in the home", text:"It helps to settle ahead of time whether they pay rent or share costs, who pays taxes and insurance, and what happens if others want to sell."});
+  // Moving
+  if (a.move==="flhome") notes.push({title:"Portability", text:"Florida lets you carry up to $500,000 of Save Our Homes savings to a new Florida homestead. File Form DR-501T with the new homestead application by March 1, and establish the new home by January 1 of the third year after leaving the old one. A less expensive home receives a proportional share."});
+  if (a.move==="care") flag("yellow","A move out of the home","Moving out can end the property tax exemption and may affect the home's other homestead protections and Medicaid treatment. Selling turns the home into cash, which generally isn't protected the same way. Your individual circumstances are reviewed on a case-by-case basis.");
+  if (a.move==="maybe") notes.push({title:"If you sell or move", text:"A sale turns a protected home into cash, and a new Florida home may qualify for portability of your Save Our Homes savings. Timing and title are worth reviewing before listing."});
+
+  // Partner
+  if (a.stay==="partnerLife"||a.stay==="partnerTime") flag("yellow","Partner stays in the home","An unmarried partner has no automatic homestead rights. A Lady Bird deed isn't designed to give one person occupancy and others ownership later; a trust usually handles this more cleanly. Title insurance for these structures isn't guaranteed.");
+  if (a.marital==="partner" && a.stay!=="partnerLife" && a.stay!=="partnerTime" && a.heirs==="spouseThenKids") flag("yellow","Partner first, then children","A partner inherits only if named. Passing the home first to a partner and then to children is usually done through a trust.");
+
+  // Assets
+  const assets = a.assets||[];
+  if (assets.includes("outState") && a.location!=="multi") flag("yellow","Real estate in another state","That property follows its own state's law and may need its own plan, often a trust, to avoid a second probate there.");
+  if (assets.includes("vehicle")) notes.push({title:"Vehicles", text:"Florida doesn't offer transfer-on-death vehicle titles. A surviving spouse can transfer a vehicle using FLHSMV Form HSMV 82152; otherwise, joint titling or the estate process applies."});
+  if (assets.some(x=>["bank","invest","retire","life"].includes(x))) notes.push({title:"Accounts and insurance", text:"Bank accounts, investment accounts, retirement accounts, and life insurance usually pass by beneficiary designation, not by the deed or will. Checking that each designation matches your plan is an easy win."});
+
+  // Lane scoring
+  const trustReasons=[];
+  if (assets.includes("flOther")||assets.includes("outState")||a.location==="multi") trustReasons.push("more than one property");
+  if (assets.includes("rental")) trustReasons.push("rental property that needs management");
+  if (assets.includes("business")) trustReasons.push("a business interest");
+  if (has("priorities","incap")) trustReasons.push("a plan if you become unable to manage the home");
+  if (has("priorities","privacy")) trustReasons.push("privacy");
+  if (has("priorities","manager")) trustReasons.push("one person handling any sale");
+  if (a.decider==="one"||a.decider==="pro") trustReasons.push("one decision-maker for the home after you're gone");
+  if (a.stay==="partnerLife"||a.stay==="partnerTime") trustReasons.push("a partner living in the home first");
+  if (a.heirs==="spouseThenKids" && a.marital==="partner") trustReasons.push("a partner first, then children");
+  const benReasons=[];
+  if (has("family","special")||has("family","pubben")) benReasons.push("a beneficiary with special needs or benefits");
+  if (has("family","creditor")||has("priorities","protect")) benReasons.push("protection for heirs");
+  if (has("family","disagree")) benReasons.push("heirs who may disagree");
+  if (a.minor==="yes") benReasons.push("minor children");
+
+  let lane, laneWhy;
+  const deedBlocked = flags.some(f=>f.level==="red");
+  if (trustReasons.length){
+    lane="trust"; laneWhy=trustReasons.concat(benReasons);
+  } else if (benReasons.length && CONFIG.offerDeedToTrustLane){
+    lane="deedTrust"; laneWhy=benReasons;
+  } else if (benReasons.length){
+    lane="trust"; laneWhy=benReasons;
+  } else {
+    lane="deed"; laneWhy=["one Florida home","adult heirs"];
+    if (has("priorities","cost")) laneWhy.push("keeping upfront cost low");
+    if (has("priorities","control")) laneWhy.push("full control while you're alive");
+    if (a.benefits==="soon"||a.benefits==="unsure") laneWhy.push("possible long-term-care needs");
+  }
+
+  // Deed terms (plain language, for discussion with an attorney)
+  if (lane==="deed"||lane==="deedTrust"){
+    terms.push(["Enhanced life estate","You keep the home and full control, including the right to sell, mortgage, or change your mind, for the rest of your life."]);
+    terms.push(["Remainder beneficiary","The person, people, or trust that receives the home automatically at your death."]);
+    if (a.title==="spouse" && a.marital==="married") terms.push(["Tenants by the entirety","How many married couples hold title together. The survivor keeps the home, and the deed's beneficiaries take after the second death."]);
+    if (a.contingency==="descendants") terms.push(["Per stirpes","If a beneficiary dies before you, that person's children split their share."]);
+    if (a.contingency==="survivors") terms.push(["Survivorship language, such as \"to those who survive me\"","A beneficiary who dies first drops out, and the others divide the home."]);
+    if (a.contingency==="alternate") terms.push(["\"If [name] does not survive me, then to [backup]\"","A named backup takes the share of someone who dies first."]);
+    if (a.contingency==="undecided") terms.push(["Contingent beneficiary","A backup plan for a beneficiary who dies first. Without one, the result can be uncertain."]);
+    if (a.heirs==="kidsEqual"||a.heirs==="unequal") terms.push(["Tenants in common","Each heir owns a stated share and can leave it to their own heirs. Shares can be equal or unequal."]);
+    if (lane==="deedTrust") terms.push(["Trust as remainder beneficiary","The deed names a trust instead of individuals, so a trustee manages or distributes the home for your heirs."]);
+  }
+  return {tier, flags, notes, lane, laneWhy, terms, homestead, deedBlocked};
+}
+
+const LANES = {
+  deed:{title:"Lady Bird deed, plus a simple will", body:"A Lady Bird deed (enhanced life estate deed) lets the home pass outside probate while you keep full control during your life. A simple will covers everything the deed doesn't."},
+  trust:{title:"Revocable living trust, plus a pour-over will", body:"A trust can hold the home and other assets, name someone to step in if you can't manage things, and set detailed rules for who lives there and how heirs receive it. A pour-over will catches anything left outside the trust."},
+  deedTrust:{title:"Lady Bird deed naming a trust as beneficiary, plus a will", body:"The home passes outside probate by deed, but to a trust, so a trustee manages or distributes it for heirs who need that structure. Your attorney can confirm whether this fits your situation."}
+};
+
+function label(qid){
+  const q=Q.find(x=>x.id===qid); const v=answers[qid]; if(!q||v==null) return null;
+  const map=Object.fromEntries(q.opts);
+  return Array.isArray(v)? v.map(x=>map[x]).join(", ") : map[v];
+}
+
+function renderResults(){
+  drawStages(6);
+  const r = evaluate();
+  if (r.outOfState){
+    app.innerHTML = `<div class="results">
+      <h2 class="title">Your results</h2>
+      <div class="tier red"><p class="label">Outside this tool's scope</p><p>${esc(CONFIG.outOfStateText)}</p></div>
+      ${answers.location==="ladybird"?`<div class="panel"><h3>Good to know</h3><p>Your state is one of a few where enhanced life estate deeds are used, but its rules differ from Florida's. Alternatives elsewhere can include a transfer-on-death deed where the state allows one, a revocable trust, or survivorship ownership.</p></div>`:
+      `<div class="panel"><h3>Good to know</h3><p>Lady Bird deeds aren't generally available in your state. Common alternatives include a transfer-on-death deed where the state allows one, a revocable trust, or survivorship ownership.</p></div>`}
+      <div class="actions"><button class="btn ghost" type="button" id="restart">Start over</button></div>
+      <p class="disclaimer">${esc(CONFIG.disclaimer)}</p></div>`;
+    document.getElementById("restart").onclick=restart; return;
+  }
+  const tierText = r.tier==="red"?CONFIG.redText : r.tier==="yellow"?CONFIG.yellowText : CONFIG.greenText;
+  const tierLabel = r.tier==="red"?"Attorney review is the next step" : r.tier==="yellow"?"Workable, with details to review" : "A fairly straightforward situation";
+  const lane = LANES[r.lane];
+  const always = ["A will, even alongside a deed or trust, to cover anything else you own","A durable power of attorney for finances","A health care surrogate designation and a living will"];
+  const summaryRows = ["location","use","title","marital","minor","homestead","stay","heirs","decider","contingency","move","benefits"].map(id=>{const l=label(id); return l?`<div><span>${esc(Q.find(q=>q.id===id).q.replace(/\?$/,""))}</span><span>${esc(l)}</span></div>`:""}).join("");
+
+  const today=new Date().toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"});
+  app.innerHTML = `<div class="results" id="resultsBox">
+    <h2 class="title">Your results</h2>
+    <div class="prep"><label for="prepFor">Prepared for (optional)</label><input id="prepFor" type="text" value="${esc(PREP.name)}" placeholder="Name"><span style="color:var(--muted)">${today}</span></div>
+    <p class="prep-print" id="prepLine">${PREP.name?`Prepared for ${esc(PREP.name)} · `:""}${today}</p>
+    <div class="tier ${r.tier}"><p class="label">${tierLabel}</p><p>${esc(tierText)}</p></div>
+    <div class="grid2">
+      <div>
+        <div class="panel lane">
+          <h3>${r.tier==="red"?"Likely direction, once reviewed: ":""}${esc(lane.title)}</h3>
+          <p>${esc(lane.body)}</p>
+          <h4>Why this fits your answers</h4>
+          <ul>${r.laneWhy.map(w=>`<li>${esc(w.charAt(0).toUpperCase()+w.slice(1))}</li>`).join("")}</ul>
+          <h4>Part of every plan</h4>
+          <ul>${always.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
+        </div>
+        ${r.flags.length?`<div class="panel"><h3>Worth reviewing with an attorney</h3>${r.flags.map(f=>`<div class="flag ${f.level}"><strong>${esc(f.title)}</strong>${esc(f.text)}</div>`).join("")}</div>`:""}
+        ${r.notes.length?`<div class="panel"><h3>Good to know</h3>${r.notes.map(n=>`<div class="flag info"><strong>${esc(n.title)}</strong>${esc(n.text)}</div>`).join("")}</div>`:""}
+      </div>
+      <div>
+        ${r.terms.length?`<div class="panel"><h3>Deed terms to know</h3><p style="font-size:.9rem;color:var(--muted);margin:0">Plain-language terms that match your answers, for your conversation with an attorney. The attorney writes the actual deed language.</p><dl class="terms">${r.terms.map(([t,d])=>`<dt>${esc(t)}</dt><dd>${esc(d)}</dd>`).join("")}</dl></div>`:""}
+        <div class="panel"><h3>Helpful next reads</h3><ul>
+          <li><a href="${CONFIG.threeMeaningsUrl}">The three meanings of Florida homestead</a></li>
+          <li><a href="${CONFIG.implementationUrl}">Home succession implementation checklist</a>, for after documents are signed</li>
+          ${(answers.move==="flhome"||answers.move==="maybe")?`<li><a href="${CONFIG.portabilityUrl}">Save Our Homes portability calculator</a>, to estimate the savings that could move with you</li>`:""}
+        </ul></div>
+        <div class="panel summary"><h3>Your answers</h3>${summaryRows}</div>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn" type="button" id="dl">Download my results</button>
+      <button class="btn" type="button" id="mail">Email my results</button>
+      <button class="btn ghost" type="button" id="prt">Print</button>
+      <button class="btn ghost" type="button" id="cp">Copy as text</button>
+      <button class="btn ghost" type="button" id="edit">Change an answer</button>
+      <button class="btn ghost" type="button" id="restart">Start over</button>
+    </div>
+    <p class="savehint" id="savehint">Download saves a file you can open, print, or attach to an email. If a button doesn't respond, some previews and phones block it; the text below always works.</p>
+    <details class="plainbox"><summary>Show my results as plain text</summary><textarea id="plain" readonly rows="14"></textarea></details>
+    <p class="toast" id="toast" role="status"></p>
+    <p class="disclaimer">${esc(CONFIG.disclaimer)}</p>
+  </div>`;
+  document.getElementById("restart").onclick=restart;
+  document.getElementById("edit").onclick=()=>{ const prev=history.pop(); renderQuestion(Q.find(x=>x.id===prev)); };
+  wireSaving(r, lane, tierLabel, tierText, always);
+}
+
+/* ---------- Saving and sharing results ---------- */
+const PREP = { name: "" };
+function plainText(r, lane, tierLabel, tierText, always){
+  const L=[]; const d=new Date().toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"});
+  L.push("FLORIDA HOME PLANNING RESULTS"+(PREP.name?" FOR "+PREP.name.toUpperCase():"")+"  ("+d+")","Octus Estate | octusestate.com","");
+  L.push(tierLabel.toUpperCase(), tierText, "");
+  L.push("BEST FIT: "+lane.title, lane.body, "");
+  L.push("Why this fits:"); r.laneWhy.forEach(w=>L.push(" - "+w.charAt(0).toUpperCase()+w.slice(1))); L.push("");
+  L.push("Part of every plan:"); always.forEach(x=>L.push(" - "+x)); L.push("");
+  if (r.flags.length){ L.push("WORTH REVIEWING WITH AN ATTORNEY:"); r.flags.forEach(f=>L.push(" - "+f.title+": "+f.text)); L.push(""); }
+  if (r.notes.length){ L.push("GOOD TO KNOW:"); r.notes.forEach(n=>L.push(" - "+n.title+": "+n.text)); L.push(""); }
+  if (r.terms.length){ L.push("DEED TERMS TO KNOW:"); r.terms.forEach(([t,x])=>L.push(" - "+t+": "+x)); L.push(""); }
+  L.push("YOUR ANSWERS:");
+  ["location","use","title","marital","minor","homestead","stay","heirs","decider","contingency","move","benefits"].forEach(id=>{const l=label(id); if(l) L.push(" - "+Q.find(q=>q.id===id).q.replace(/\?$/,"")+": "+l);});
+  L.push("","Questions? Mia Smith, MBA, NSSA, FPWM | (321) 567-1958 | Estate@OctusFinancial.com","",CONFIG.disclaimer);
+  return L.join("\n");
+}
+function wireSaving(r, lane, tierLabel, tierText, always){
+  let text=plainText(r, lane, tierLabel, tierText, always);
+  const ta=document.getElementById("plain"); ta.value=text;
+  const today=new Date().toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"});
+  const pf=document.getElementById("prepFor");
+  pf.addEventListener("input",()=>{ PREP.name=pf.value.trim();
+    document.getElementById("prepLine").textContent=(PREP.name?"Prepared for "+PREP.name+" \u00b7 ":"")+today;
+    text=plainText(r, lane, tierLabel, tierText, always); ta.value=text; });
+  document.getElementById("prt").onclick=()=>{ try{ window.print(); }catch(e){ note("Printing is blocked here. Try Download instead."); } };
+  document.getElementById("dl").onclick=()=>{
+    try{
+      const css=[...document.querySelectorAll("style")].map(x=>x.textContent).join("\n");
+      const body=document.querySelector(".results").cloneNode(true);
+      body.querySelectorAll(".actions,.savehint,.plainbox,.prep,.toast").forEach(n=>n.remove());
+      const pl=body.querySelector(".prep-print"); if(pl) pl.style.display="block";
+      body.querySelectorAll("a").forEach(x=>{ const h=x.getAttribute("href")||""; if(!/^https?:/.test(h)){ try{ x.setAttribute("href", /^https?:/.test(location.protocol+"")?new URL(h,location.href).href:"https://octusestate.com/resources/"+h); }catch(e){} } });
+      const html='<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Florida Home Planning Results'+(PREP.name?" for "+esc(PREP.name):"")+'</title><style>'+css+' body{padding:1.5rem;max-width:1080px;margin:0 auto}</style></head><body><header class="topbar" style="margin:-1.5rem -1.5rem 1.5rem"><div class="inner"><span class="brand">Octus Estate</span></div></header>'+body.outerHTML+'<p class="disclaimer">Mia Smith, MBA, NSSA, FPWM | (321) 567-1958 | Estate@OctusFinancial.com | octusestate.com</p></body></html>';
+      const blob=new Blob([html],{type:"text/html"}); const a=document.createElement("a");
+      a.href=URL.createObjectURL(blob); a.download="florida-home-planning-results"+(PREP.name?"-"+PREP.name.replace(/[^A-Za-z0-9]+/g,"-").toLowerCase():"")+".html"; document.body.appendChild(a); a.click();
+      setTimeout(()=>{URL.revokeObjectURL(a.href); a.remove();},1500);
+      note("Saved as "+a.download+". Attach it to an email, or open it and print to PDF.");
+    }catch(e){ note("Downloads are blocked here. Use the plain text below instead."); openPlain(); }
+  };
+  document.getElementById("mail").onclick=()=>{
+    let body=text; if (body.length>1800) body=body.slice(0,1800)+"\n\n(Shortened for email. The full results are in the downloaded file.)";
+    window.location.href="mailto:?subject="+encodeURIComponent("Your Florida home planning results"+(PREP.name?" for "+PREP.name:""))+"&body="+encodeURIComponent(body);
+  };
+  document.getElementById("cp").onclick=async()=>{
+    try{ await navigator.clipboard.writeText(text); note("Copied. Paste it into an email or document."); }
+    catch(e){ openPlain(); ta.select(); note("Copying is blocked here. The text below is selected; copy it with Ctrl+C or Cmd+C."); }
+  };
+}
+function openPlain(){ const d=document.querySelector(".plainbox"); if(d) d.open=true; }
+function note(msg){ const h=document.getElementById("savehint"); if(h){ h.textContent=msg; h.style.color="var(--navy)"; h.style.fontWeight="600"; } }
+function restart(){ for (const k in answers) delete answers[k]; history=[]; PREP.name=""; renderQuestion(Q[0]); window.scrollTo({top:0}); }
+
+renderQuestion(Q[0]);
+</script>
+</body>
+</html>
