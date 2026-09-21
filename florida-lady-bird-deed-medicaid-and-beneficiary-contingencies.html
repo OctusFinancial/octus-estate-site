@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Florida Lady Bird Deeds: Medicaid and Beneficiary Contingencies | Octus Estate</title>
+<meta name="description" content="How a Florida Lady Bird (enhanced life estate) deed interacts with Medicaid eligibility, transfer rules, and estate recovery, and what happens if a named beneficiary dies before the owner.">
+<link rel="canonical" href="https://octusestate.com/florida-lady-bird-deed-medicaid-and-beneficiary-contingencies">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Florida Lady Bird Deeds: Medicaid and Beneficiary Contingencies">
+<meta property="og:description" content="What an enhanced life estate deed can and can't do for Medicaid planning, and what happens if a beneficiary dies first.">
+<meta property="og:url" content="https://octusestate.com/florida-lady-bird-deed-medicaid-and-beneficiary-contingencies">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Sorts+Mill+Goudy:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f314e; --gold:#c59f4a; --sage:#a9c8be; --grey:#e8e8e8;
+  --gold-wash:#f6efe0; --sage-wash:#e8f0ed; --ink:#26303a; --muted:#5b6670; --rule:#d6d6d2;
+  --serif:"Sorts Mill Goudy", Georgia, "Times New Roman", serif;
+  --sans:"Montserrat", "Helvetica Neue", Arial, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:1.5rem}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0; background:#fff; color:var(--ink); font-family:var(--sans); font-size:1rem; line-height:1.65}
+a{color:var(--navy); text-decoration-color:var(--gold); text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:3px solid var(--gold); outline-offset:2px}
+
+.topbar{background:var(--navy); color:#fff; border-bottom:4px solid var(--gold)}
+.topbar .inner{max-width:1180px; margin:0 auto; padding:.9rem 1.5rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap}
+.brand{font-family:var(--serif); font-size:1.45rem; color:#fff; text-decoration:none}
+.topbar nav a{color:#fff; font-size:.88rem; margin-left:1.25rem; text-decoration:none}
+.topbar nav a:hover{text-decoration:underline}
+
+.hero{background:var(--grey)}
+.hero .inner{max-width:1180px; margin:0 auto; padding:3.25rem 1.5rem 2.75rem}
+.hero .kicker{font-size:.9rem; color:var(--muted); margin:0 0 .6rem}
+.hero h1{font-family:var(--serif); font-weight:400; color:var(--navy); font-size:clamp(2.1rem,4.4vw,3.3rem); line-height:1.12; margin:0 0 1rem; max-width:18ch}
+.hero .lede{font-size:1.08rem; max-width:62ch; margin:0 0 1.5rem}
+.hero .reviewed{font-size:.88rem; color:var(--muted); margin:0 0 1.5rem}
+.actions{display:flex; gap:.75rem; flex-wrap:wrap}
+.btn{font-family:var(--sans); font-size:.92rem; font-weight:500; padding:.75rem 1.25rem; border-radius:6px; border:1.5px solid var(--navy); background:var(--navy); color:#fff; cursor:pointer; text-decoration:none; display:inline-block}
+.btn.ghost{background:transparent; color:var(--navy)}
+.btn:hover{background:#15426a}
+.btn.ghost:hover{background:#fff}
+
+.layout{max-width:1180px; margin:0 auto; padding:2.5rem 1.5rem 4rem; display:grid; grid-template-columns:1fr; gap:2.5rem}
+@media (min-width:1080px){.layout{grid-template-columns:230px minmax(0,1fr)}}
+.toc{font-size:.9rem}
+@media (min-width:1080px){.toc{position:sticky; top:1.5rem; align-self:start}}
+.toc h2{font-family:var(--serif); font-weight:400; font-size:1.2rem; color:var(--navy); margin:0 0 .6rem}
+.toc ol{list-style:none; margin:0; padding:0; border-left:2px solid var(--rule)}
+.toc li a{display:block; padding:.32rem 0 .32rem .9rem; text-decoration:none; color:var(--ink); margin-left:-2px; border-left:2px solid transparent}
+.toc li a:hover{border-left-color:var(--gold); color:var(--navy)}
+
+main{max-width:800px}
+.notice{border:1px solid var(--rule); border-left:4px solid var(--gold); background:var(--gold-wash); padding:1.1rem 1.3rem; margin:0 0 2.5rem; font-size:.95rem}
+.notice p{margin:0}
+section{margin:0 0 3.5rem}
+h2.sec{font-family:var(--serif); font-weight:400; color:var(--navy); font-size:clamp(1.7rem,3vw,2.15rem); line-height:1.2; margin:0 0 .5rem; display:flex; gap:.7rem; align-items:baseline}
+h2.sec .n{font-family:var(--sans); font-size:.95rem; font-weight:600; color:#fff; background:var(--navy); border-radius:50%; width:2rem; height:2rem; display:inline-grid; place-items:center; flex:none; transform:translateY(-3px)}
+.sec-intro{color:var(--muted); margin:0 0 1.5rem; max-width:64ch}
+h3{font-family:var(--sans); font-weight:600; font-size:1.02rem; color:var(--navy); margin:2rem 0 .75rem}
+
+.flow{display:grid; gap:0; margin:1rem 0 .5rem}
+.stage{border:1px solid var(--rule); border-left:5px solid var(--gold); background:var(--grey); border-radius:8px; padding:1rem 1.25rem}
+.stage.final{background:var(--sage-wash); border-color:var(--sage); border-left-color:var(--gold)}
+.stage h4{font-family:var(--serif); font-weight:400; font-size:1.3rem; color:var(--navy); margin:0 0 .35rem}
+.stage p{margin:0; font-size:.95rem}
+.arrow{height:30px; display:grid; place-items:center}
+.arrow::before{content:""; width:2px; height:16px; background:var(--gold)}
+.arrow::after{content:""; border:7px solid transparent; border-top:8px solid var(--gold); margin-top:-2px}
+.arrow{grid-template-rows:16px 8px; justify-items:center; align-content:center}
+.roles{display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin-top:1rem}
+.role{border:1px solid var(--rule); border-radius:8px; padding:.75rem 1rem; text-align:center; background:#fff}
+.role span{display:block; font-size:.8rem; color:var(--muted)}
+.role strong{font-family:var(--serif); font-weight:400; font-size:1.15rem; color:var(--navy)}
+
+.check{list-style:none; padding:0; margin:0 0 .5rem}
+.check li{position:relative; padding:.5rem 0 .5rem 2.1rem; border-bottom:1px solid #eeeeea}
+.check li:last-child{border-bottom:0}
+.check input{position:absolute; left:0; top:.62rem; appearance:none; -webkit-appearance:none; width:1.15rem; height:1.15rem; border:1.5px solid var(--navy); border-radius:3px; background:#fff; cursor:pointer; margin:0}
+.check input:checked{background:var(--navy)}
+.check input:checked::after{content:""; position:absolute; left:.33rem; top:.1rem; width:.3rem; height:.6rem; border:solid #fff; border-width:0 2px 2px 0; transform:rotate(45deg)}
+.check label{cursor:pointer; display:block}
+.check input:checked + label{color:var(--muted)}
+ol.check{counter-reset:step}
+ol.check li{padding-left:3.6rem}
+ol.check li::before{counter-increment:step; content:counter(step) "."; position:absolute; left:1.8rem; top:.5rem; font-weight:600; color:var(--gold)}
+.group{border:1px solid var(--rule); border-radius:10px; padding:.4rem 1.25rem .6rem; margin:0 0 1.1rem}
+.group.flag{background:var(--gold-wash); border-color:#e4d3ad}
+.group h3{margin:.8rem 0 .3rem}
+.group > p{margin:.2rem 0 .6rem; font-size:.95rem}
+.tools{display:flex; justify-content:flex-end; margin:-.5rem 0 1rem}
+.linkbtn{background:none; border:0; color:var(--navy); font-family:var(--sans); font-size:.85rem; text-decoration:underline; text-decoration-color:var(--gold); text-underline-offset:3px; cursor:pointer; padding:.25rem 0}
+
+.table-wrap{overflow-x:auto; margin:0 0 1rem; border:1px solid var(--rule); border-radius:10px}
+table{border-collapse:collapse; width:100%; font-size:.9rem; min-width:620px}
+thead th{background:var(--navy); color:#fff; text-align:left; font-weight:600; padding:.75rem .9rem; border-bottom:3px solid var(--gold)}
+tbody td,tbody th{padding:.75rem .9rem; vertical-align:top; border-top:1px solid var(--rule); text-align:left}
+tbody th{font-weight:600; color:var(--navy); background:var(--gold-wash); width:24%}
+tbody tr:nth-child(even) td{background:#f5f5f3}
+table.sheet td{height:2.4rem; background:#fff !important}
+table.sheet th{width:38%}
+
+.statute{background:var(--sage-wash); border-radius:10px; padding:1.1rem 1.3rem; font-size:.95rem}
+.statute p{margin:.3rem 0}
+.guide{display:grid; grid-template-columns:1fr; gap:1rem}
+@media (min-width:700px){.guide{grid-template-columns:1fr 1fr}}
+.fit{border:1px solid var(--rule); border-top:4px solid var(--gold); border-radius:8px; padding:1rem 1.2rem; background:var(--grey)}
+.fit.trust{background:var(--sage-wash); border-color:var(--sage); border-top-color:var(--gold)}
+.fit h3{font-family:var(--serif); font-weight:400; font-size:1.25rem; margin:0 0 .4rem}
+.fit p{margin:0; font-size:.95rem}
+.sources li{margin:.4rem 0}
+.closing{border-left:4px solid var(--gold); padding:.3rem 0 .3rem 1.2rem; font-family:var(--serif); font-size:1.2rem; color:var(--navy); line-height:1.5}
+
+.contact{background:var(--navy); color:#fff; border-top:4px solid var(--gold)}
+.contact .inner{max-width:1180px; margin:0 auto; padding:2.5rem 1.5rem; display:grid; gap:.5rem}
+.contact h2{font-family:var(--serif); font-weight:400; font-size:1.7rem; margin:0}
+.contact p{margin:0; max-width:62ch}
+.contact a{color:#fff}
+footer.legal{background:var(--grey); font-size:.8rem; color:var(--muted)}
+footer.legal .inner{max-width:1180px; margin:0 auto; padding:1.25rem 1.5rem}
+.print-only{display:none}
+
+@media print{
+  @page{size:letter; margin:.6in .6in .75in;
+    @bottom-left{content:"Octus Estate  |  Mia Smith, MBA, NSSA, FPWM  |  (321) 567-1958  |  Estate@OctusFinancial.com  |  octusestate.com"; font-family:Montserrat, Arial, sans-serif; font-size:7.5pt; color:#5b6670}
+    @bottom-right{content:"Page " counter(page) " of " counter(pages); font-family:Montserrat, Arial, sans-serif; font-size:7.5pt; color:#5b6670}}
+  body{font-size:9.6pt; line-height:1.45}
+  .topbar nav,.actions,.toc,.tools,.screen-only{display:none !important}
+  .print-only{display:block}
+  .topbar,.hero,.contact,thead th,h2.sec .n,.stage,.group.flag,.notice,.statute,.fit,tbody th,tbody tr:nth-child(even) td,.check input:checked{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  .topbar .inner,.hero .inner,.layout,.contact .inner,footer.legal .inner{padding-left:0; padding-right:0; max-width:none}
+  .topbar{margin:0 0 0}
+  .hero .inner{padding:1.4rem 1.2rem 1.2rem}
+  .hero h1{font-size:25pt; max-width:none}
+  .hero .lede{font-size:10.5pt; margin-bottom:.6rem}
+  .hero .reviewed{margin:0}
+  .layout{display:block; padding-top:1.2rem; padding-bottom:0}
+  main{max-width:none}
+  section{margin:0 0 1.4rem}
+  section.newpage{break-before:page}
+  h2.sec{font-size:18pt}
+  .check li{padding-top:.3rem; padding-bottom:.3rem; break-inside:avoid}
+  .check input{top:.4rem; width:11pt; height:11pt}
+  ol.check li::before{top:.3rem}
+  .stage,.fit,.statute,tr,.roles,.guide{break-inside:avoid}
+  .group{padding:.2rem .9rem .3rem; margin-bottom:.8rem}
+  .group h3{margin:.5rem 0 .2rem}
+  .stage{padding:.55rem .9rem}
+  .stage h4{font-size:13pt; margin-bottom:.1rem}
+  .stage p{font-size:9.2pt}
+  .arrow{height:20px}
+  .notice{margin-bottom:1.1rem; padding:.7rem 1rem; font-size:9pt}
+  .sec-intro{margin-bottom:.8rem}
+  h3{margin:1rem 0 .5rem}
+  tbody td,tbody th{padding:.45rem .6rem}
+  thead th{padding:.5rem .6rem}
+  .fit{padding:.7rem .9rem}
+  h2,h3{break-after:avoid}
+  .table-wrap{overflow:visible; border-radius:0}
+  table{min-width:0; font-size:8.6pt}
+  thead{display:table-header-group}
+  table.sheet td{height:.28in}
+  .closing{break-inside:avoid; font-size:11pt}
+  .sources li{margin:.2rem 0}
+  a{text-decoration:none; color:inherit}
+  .contact,footer.legal{display:none !important}
+  .contact .inner{padding:1rem 1.2rem}
+  .contact h2{font-size:14pt}
+  footer.legal .inner{padding:.6rem 1.2rem}
+}
+.cards{display:grid; gap:1rem; grid-template-columns:1fr; margin-bottom:1.5rem}
+.cards .fit h3{font-size:1.15rem}
+.cards .fit p{margin-bottom:.4rem}
+ul.tight{margin:.3rem 0 0; padding-left:1.2rem; font-size:.95rem}
+ul.tight li{margin:.2rem 0}
+.fit.trust ul.tight{margin:0}
+table.sheet th{width:55%}
+.related{margin:1rem 0 1.5rem}
+.hero h1{max-width:24ch}
+h2.sec .n{font-family:var(--serif)}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="inner">
+    <a class="brand" href="/">Octus Estate</a>
+    <nav aria-label="Site">
+      <a href="tools.html">All tools</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="inner">
+    <p class="kicker">Estate planning resource for Florida</p>
+    <h1>Lady Bird deeds, Medicaid, and beneficiary contingencies</h1>
+    <p class="lede">What a Florida enhanced life estate deed can and can't do for Medicaid planning, and what happens to the property if a named beneficiary dies first.</p>
+    <p class="reviewed">Last reviewed: <time datetime="2026-09">September 2026</time></p>
+    <div class="actions">
+      <button class="btn" type="button" onclick="window.print()">Print or save this guide</button>
+      <a class="btn ghost" href="florida-lady-bird-deed-medicaid-and-beneficiary-contingencies.pdf" download>Download the PDF</a>
+    </div>
+  </div>
+</div>
+
+<div class="layout">
+  <nav class="toc" aria-label="On this page">
+    <h2>On this page</h2>
+    <ol>
+      <li><a href="#summary">Summary</a></li>
+      <li><a href="#three-questions">Part I: Medicaid</a></li>
+      <li><a href="#concepts">Key concepts</a></li>
+      <li><a href="#recovery">Estate-recovery framework</a></li>
+      <li><a href="#workflow">Medicaid planning workflow</a></li>
+      <li><a href="#risk-screen">Medicaid risk screen</a></li>
+      <li><a href="#misconceptions">Common misconceptions</a></li>
+      <li><a href="#core-rule">Part II: A beneficiary dies first</a></li>
+      <li><a href="#matrix">Outcome matrix</a></li>
+      <li><a href="#decisions">Contingency decisions</a></li>
+      <li><a href="#update">Updating the deed</a></li>
+      <li><a href="#owner-died">If the owner has died</a></li>
+      <li><a href="#trust-signs">When a trust may fit better</a></li>
+      <li><a href="#worksheet">Decision worksheet</a></li>
+      <li><a href="#sources">Legal references</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <div class="notice" role="note">
+      <p><strong>Educational reference only, not legal, Medicaid, tax, title, or benefits advice.</strong> Florida Lady Bird deeds (enhanced life estate deeds) are technical title documents. Medicaid eligibility and estate-recovery outcomes depend on the applicant's facts, the exact deed language, ownership, homestead status, spouse and minor-child rights, timing, the program involved, and changes in law or agency practice. Advice from a Florida elder-law or estate-planning attorney before signing, changing, or relying on a deed is strongly recommended.</p>
+    </div>
+
+    <section id="summary" aria-labelledby="h-sum">
+      <h2 class="sec" id="h-sum">Summary</h2>
+      <p>A properly drafted Florida Lady Bird deed is commonly used so a Florida parcel passes outside probate at the owner's death while the owner keeps control during life. Because the owner generally keeps the power to sell, mortgage, lease, give away, or revoke the arrangement, practitioners commonly treat the deed as <em>not</em> a completed lifetime gift for Medicaid transfer-penalty purposes.</p>
+      <p>The deed does not, by itself, qualify anyone for Medicaid, protect every asset, replace long-term-care planning, or resolve Florida homestead and title issues.</p>
+      <p>Florida's Medicaid Estate Recovery Act works through a claim against the estate of a deceased Medicaid recipient, filed by AHCA in the probate proceeding. A valid transfer outside probate can therefore be relevant to estate-recovery exposure, but only if the deed actually works, and every other fact still matters. Recovery rules, exemptions, and claims deserve an independent review for each estate.</p>
+    </section>
+
+    <section id="three-questions" class="newpage" aria-labelledby="h-three">
+      <h2 class="sec" id="h-three"><span class="n">I</span>Medicaid eligibility and estate recovery</h2>
+      <p class="sec-intro">Medicaid planning involves three separate questions. A Lady Bird deed affects each one differently.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Question</th><th scope="col">What it asks</th><th scope="col">What a Lady Bird deed may and may not do</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Eligibility</th><td>Can the applicant qualify for a particular Medicaid program now?</td><td>It doesn't make anyone eligible by itself. Income, resources, residence, level of care, transfers, exemptions, and program rules still apply.</td></tr>
+            <tr><th scope="row">Transfer and look-back</th><td>Did the applicant give away an asset for less than fair value in a way that triggers a penalty?</td><td>An enhanced deed is commonly planned so the owner keeps enough control that no completed lifetime transfer occurs. Exact wording and facts are critical.</td></tr>
+            <tr><th scope="row">Estate recovery after death</th><td>Can Florida seek repayment from the decedent's estate for covered Medicaid benefits?</td><td>A valid deed may move the described property outside probate. Florida's recovery statute uses an estate-claim process, but the deed may not resolve every claim, lien, settlement, creditor, tax, title, or homestead issue.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="concepts">
+        <h3>Key concepts</h3>
+        <div class="cards">
+          <div class="fit">
+            <h3>A standard life estate is not a Lady Bird deed</h3>
+            <p>A conventional life-estate deed generally gives another person a present remainder interest and can sharply limit the life tenant's freedom to sell or mortgage without the remainderman. A Lady Bird deed reserves enhanced powers to the owner: control, sale, mortgage, lease, conveyance, revocation, and keeping the proceeds, all without beneficiary consent. The distinction matters for title, tax, creditor, and benefits analysis.</p>
+          </div>
+          <div class="fit">
+            <h3>An exempt home is only part of the analysis</h3>
+            <p>Florida Medicaid treatment of a home depends on the program and the facts, and eligibility rules can differ from post-death recovery rules. Three things are easy to blur:</p>
+            <ul class="tight">
+              <li>The home's resource or exemption status while the person is alive</li>
+              <li>The effect of a transfer or retained interest during a Medicaid look-back period</li>
+              <li>A state recovery claim after death</li>
+            </ul>
+          </div>
+          <div class="fit">
+            <h3>It doesn't eliminate every risk</h3>
+            <p>It may not solve an improperly drafted deed, a missing spouse signature, homestead devise limits, liens, mortgages, reverse mortgages, creditor claims, a beneficiary who dies first, title defects, or a failure to record. It also doesn't transfer cash, investments, vehicles, personal property, business interests, or other real estate.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="statute" id="recovery">
+        <h3 style="margin-top:.2rem">Florida's estate-recovery framework</h3>
+        <p><strong>Section 409.9101, Florida Statutes,</strong> is titled the Medicaid Estate Recovery Act. Recovery happens through the Agency for Health Care Administration (AHCA) filing a statement of claim against the estate of a deceased Medicaid recipient in the probate process.</p>
+        <p>Under the statute, accepting covered Medicaid assistance after age 55 creates a debt, subject to the statute's conditions and limits. Recovery is not enforced in certain circumstances, including when the recipient is survived by a spouse, a child under 21, or a child who is blind or permanently and totally disabled under the applicable standard. The statute also provides an undue-hardship waiver process.</p>
+      </div>
+    </section>
+
+    <section id="workflow" aria-labelledby="h-work">
+      <h2 class="sec" id="h-work">Medicaid planning workflow</h2>
+      <div class="tools screen-only"><button class="linkbtn" type="button" id="reset">Clear all checkmarks</button></div>
+      <div class="group">
+        <ol class="check">
+          <li><input type="checkbox" id="m1"><label for="m1"><strong>Identify the Medicaid program and timing.</strong> Is the person seeking long-term-care Medicaid, community-based services, institutional care, or another program? One program's resource and transfer rules may not apply to another.</label></li>
+          <li><input type="checkbox" id="m2"><label for="m2"><strong>Inventory ownership and debts.</strong> Gather deeds, mortgage or reverse-mortgage documents, title work, the tax bill, homeowner's insurance, liens, HOA/condominium records, bank and investment statements, trusts, annuities, life insurance, and records of prior gifts.</label></li>
+          <li><input type="checkbox" id="m3"><label for="m3"><strong>Establish the home facts.</strong> Is the parcel Florida homestead? Who lives there? What are the owner's marital status, any minor children, and the expected occupancy?</label></li>
+          <li><input type="checkbox" id="m4"><label for="m4"><strong>Analyze the deed language, not the label.</strong> Confirm the document truly reserves enhanced lifetime powers and was properly executed and recorded.</label></li>
+          <li><input type="checkbox" id="m5"><label for="m5"><strong>Review the transfer history.</strong> A new deed is only one part of the transfer analysis. Review all gifts, asset changes, beneficiary changes, joint-account changes, and prior conveyances in the relevant period.</label></li>
+          <li><input type="checkbox" id="m6"><label for="m6"><strong>Separate eligibility from recovery.</strong> Determine how the home is treated during life, then separately evaluate likely probate and post-death estate-recovery consequences.</label></li>
+          <li><input type="checkbox" id="m7"><label for="m7"><strong>Coordinate the estate documents.</strong> Align the deed, will, trust, powers of attorney, beneficiary designations, and the records heirs will need.</label></li>
+          <li><input type="checkbox" id="m8"><label for="m8"><strong>Get individualized review.</strong> A Florida elder-law attorney can assess homestead, title, spouse and minor-child rights, public-benefits implications, and whether a trust or other plan fits better. A form alone can't do that.</label></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="risk-screen" aria-labelledby="h-risk">
+      <h2 class="sec" id="h-risk">Medicaid risk screen</h2>
+      <p class="sec-intro">If any item below applies, attorney review before going further is especially valuable.</p>
+      <div class="group flag">
+        <ul class="check">
+          <li><input type="checkbox" id="r1"><label for="r1">The owner is applying for or receiving Medicaid, SSI, VA needs-based benefits, or other means-tested benefits.</label></li>
+          <li><input type="checkbox" id="r2"><label for="r2">The owner has recently made gifts, deed changes, beneficiary changes, or joint-account changes.</label></li>
+          <li><input type="checkbox" id="r3"><label for="r3">The property is Florida homestead and the owner is married or has minor children.</label></li>
+          <li><input type="checkbox" id="r4"><label for="r4">The property has a reverse mortgage, conventional mortgage, HELOC, judgment, tax lien, HOA/condominium claim, or title defect.</label></li>
+          <li><input type="checkbox" id="r5"><label for="r5">A beneficiary receives SSI, Medicaid, or disability benefits, or has a special-needs trust.</label></li>
+          <li><input type="checkbox" id="r6"><label for="r6">A beneficiary has creditor, divorce, bankruptcy, substance-use, or financial-management concerns.</label></li>
+          <li><input type="checkbox" id="r7"><label for="r7">The property is owned with another person, by a trust or LLC, or through an estate.</label></li>
+          <li><input type="checkbox" id="r8"><label for="r8">The plan assumes Medicaid will "never" recover, without reviewing actual benefits received, the probate estate, exemptions, and the claim procedure.</label></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="misconceptions" aria-labelledby="h-mis">
+      <h2 class="sec" id="h-mis">Common misconceptions</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">What people often hear</th><th scope="col">A more accurate framing</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">"A Lady Bird deed makes me Medicaid eligible."</th><td>It is a title-planning device. Eligibility depends on the whole financial and care situation.</td></tr>
+            <tr><th scope="row">"Any deed to my child is the same."</th><td>A quitclaim deed, an ordinary life-estate deed, and an enhanced life-estate deed can have very different transfer, control, tax, title, and Medicaid consequences.</td></tr>
+            <tr><th scope="row">"Recording guarantees Medicaid protection."</th><td>Recording gives public notice of the instrument. It doesn't validate the legal plan or resolve homestead, deed-language, benefits, or creditor issues.</td></tr>
+            <tr><th scope="row">"Avoiding probate means no claims can ever exist."</th><td>Avoiding probate can matter, but it doesn't erase liens, mortgages, taxes, title defects, creditor rights, or every legal claim.</td></tr>
+            <tr><th scope="row">"My heirs can just use a death certificate."</th><td>A death certificate may be part of clearing title, but heirs may still need legal or title review, affidavits, lien resolution, tax and insurance changes, and recorded documents.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="core-rule" class="newpage" aria-labelledby="h-core">
+      <h2 class="sec" id="h-core"><span class="n">II</span>If a beneficiary dies first</h2>
+      <div class="statute">
+        <h3 style="margin-top:.2rem">The core rule</h3>
+        <p>A Florida Lady Bird deed is not a will. Whether a deceased beneficiary's children, spouse, estate, or co-beneficiaries receive the interest depends mainly on the exact language of the deed. Florida's anti-lapse rules for wills, and the common expectation that "the children inherit," may not supply the answer.</p>
+        <p>If a named beneficiary dies before the owner, the usual next step is for Florida counsel to review the recorded deed and, if appropriate, for the owner to sign and record a replacement or corrective plan while still competent. Because an enhanced life-estate owner normally keeps the power to revoke or convey during life, the plan can often be changed, but the original deed language, title, homestead status, and family facts control.</p>
+      </div>
+
+      <h3 id="matrix">Outcome matrix</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Deed wording or circumstance</th><th scope="col">Likely planning result</th><th scope="col">Typical step while the owner is living</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Names one beneficiary and says nothing about a beneficiary who dies first</th><td>The result may be uncertain or may not match the owner's wishes; the beneficiary's descendants may not automatically take</td><td>Prompt review; revoke and replace with explicit contingency language</td></tr>
+            <tr><th scope="row">"To A, if A survives me"</th><td>A must survive the owner to take; if A dies first, the deed's alternate provision applies, if there is one</td><td>Add a named alternate beneficiary or a clear default rule</td></tr>
+            <tr><th scope="row">"A, then B if A does not survive me"</th><td>B is the intended substitute if A dies before the owner</td><td>Confirm B is still appropriate; update if needed</td></tr>
+            <tr><th scope="row">Names beneficiaries "per stirpes" or expressly names descendants</th><td>The deceased beneficiary's line may take as the deed specifies</td><td>Confirm the wording defines the class and fits the overall plan</td></tr>
+            <tr><th scope="row">Names A and B "as joint tenants with right of survivorship"</th><td>The surviving named beneficiary may take the deceased beneficiary's share, depending on the wording and its validity</td><td>Confirm a survivor-takes-all result is intended</td></tr>
+            <tr><th scope="row">Names A and B in stated percentages with no survivorship or contingency language</th><td>A deceased beneficiary's share may create ambiguity or an unwanted result</td><td>Replace with explicit survival, substitute-beneficiary, and share-allocation provisions</td></tr>
+            <tr><th scope="row">The owner has died, and a beneficiary died before the owner</th><td>No rewrite is available after death; the estate and heirs need title and legal review</td><td>Gather the deed, death certificates, a title search, and counsel or title-company analysis before any sale or distribution</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="decisions" aria-labelledby="h-dec">
+      <h2 class="sec" id="h-dec">Contingency decisions to make in writing</h2>
+      <p class="sec-intro">Before a deed is signed, or when one is being updated, answering these in writing keeps the drafting clear.</p>
+      <div class="group">
+        <ol class="check">
+          <li><input type="checkbox" id="d1"><label for="d1"><strong>Survival period:</strong> Does the beneficiary need to survive the owner by a stated period, such as 30 days?</label></li>
+          <li><input type="checkbox" id="d2"><label for="d2"><strong>Substitute beneficiary:</strong> If the named person dies first, who receives the property instead?</label></li>
+          <li><input type="checkbox" id="d3"><label for="d3"><strong>Descendants:</strong> Should a deceased child's descendants receive that child's share? If so, is the distribution per stirpes or another specified method?</label></li>
+          <li><input type="checkbox" id="d4"><label for="d4"><strong>Survivors:</strong> With multiple beneficiaries, should the survivors divide a deceased beneficiary's share, or should that person's descendants take it?</label></li>
+          <li><input type="checkbox" id="d5"><label for="d5"><strong>Simultaneous death:</strong> What result is intended if deaths occur close together and the order of death can't be established?</label></li>
+          <li><input type="checkbox" id="d6"><label for="d6"><strong>Disclaimers:</strong> If a beneficiary legally disclaims the interest, who takes instead?</label></li>
+          <li><input type="checkbox" id="d7"><label for="d7"><strong>Special-needs and creditor planning:</strong> Should the property pass to a protective trust rather than directly to an at-risk beneficiary?</label></li>
+          <li><input type="checkbox" id="d8"><label for="d8"><strong>Co-ownership:</strong> If two or more people take, should they receive the real estate directly, or should a trustee be authorized to sell and distribute the proceeds?</label></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="update" aria-labelledby="h-upd">
+      <h2 class="sec" id="h-upd">Updating the deed after a beneficiary dies</h2>
+      <p class="sec-intro">The owner's process while alive and competent:</p>
+      <div class="group">
+        <ol class="check">
+          <li><input type="checkbox" id="u1"><label for="u1"><strong>Leave the recorded deed unaltered.</strong> Cross-outs, handwritten substitutions, and informal statements don't reliably change land title.</label></li>
+          <li><input type="checkbox" id="u2"><label for="u2"><strong>Locate the recorded instrument.</strong> Get a certified or recorded copy, including the legal description and recording information.</label></li>
+          <li><input type="checkbox" id="u3"><label for="u3"><strong>Get proof of the beneficiary's death.</strong> Keep a certified death certificate and identify the beneficiary's surviving descendants or estate facts as relevant.</label></li>
+          <li><input type="checkbox" id="u4"><label for="u4"><strong>Reassess the plan.</strong> Decide whether to name a new beneficiary, a contingent beneficiary, a trust, or multiple successors, and whether direct co-ownership still makes sense.</label></li>
+          <li><input type="checkbox" id="u5"><label for="u5"><strong>Review homestead and title.</strong> A changed beneficiary plan can affect spouse and minor-child rights, title, creditor exposure, and the wider estate plan.</label></li>
+          <li><input type="checkbox" id="u6"><label for="u6"><strong>Prepare a new instrument or other legally effective revision.</strong> Florida counsel determines whether a revocation, replacement enhanced deed, or trust-based plan fits.</label></li>
+          <li><input type="checkbox" id="u7"><label for="u7"><strong>Sign and record properly.</strong> Follow Florida formalities and record in the Official Records of the county where the land lies.</label></li>
+          <li><input type="checkbox" id="u8"><label for="u8"><strong>Update the estate-plan file.</strong> Keep recorded copies and let the personal representative, successor trustee, and a trusted family contact know where the current plan is stored.</label></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="owner-died" aria-labelledby="h-died">
+      <h2 class="sec" id="h-died">If the owner has already died</h2>
+      <p class="sec-intro">The outcome depends on the deed's wording, so the usual sequence for the family is:</p>
+      <div class="group">
+        <ol class="check">
+          <li><input type="checkbox" id="o1"><label for="o1">Get certified death certificates for both the owner and the beneficiary who died first.</label></li>
+          <li><input type="checkbox" id="o2"><label for="o2">Get the recorded Lady Bird deed and every relevant prior deed.</label></li>
+          <li><input type="checkbox" id="o3"><label for="o3">Order a title search or title commitment.</label></li>
+          <li><input type="checkbox" id="o4"><label for="o4">Review the exact remainder, survivorship, and substitution language with Florida title or estate counsel.</label></li>
+          <li><input type="checkbox" id="o5"><label for="o5">Determine whether probate is needed for any other asset or to resolve an interest, and whether homestead rules apply.</label></li>
+          <li><input type="checkbox" id="o6"><label for="o6">Before listing, selling, refinancing, or distributing the property, get the title company's written requirements and resolve liens, taxes, HOA/condominium issues, and any required affidavits.</label></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="trust-signs" aria-labelledby="h-trust">
+      <h2 class="sec" id="h-trust">When a revocable trust may fit better</h2>
+      <p class="sec-intro">A revocable trust may be more suitable than direct remainder beneficiaries when there is:</p>
+      <div class="fit trust">
+        <ul class="tight">
+          <li>More than one property, or significant non-real-estate assets</li>
+          <li>Multiple heirs who may disagree or need a manager</li>
+          <li>A wish to keep a home for a spouse, child, or disabled beneficiary for a period of time</li>
+          <li>Minor beneficiaries or beneficiaries with special needs</li>
+          <li>Blended-family or unequal-distribution goals</li>
+          <li>Asset-protection or spendthrift goals for heirs</li>
+          <li>A need for incapacity administration before death</li>
+          <li>Contingency rules too complex for a deed</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="worksheet" class="newpage" aria-labelledby="h-ws">
+      <h2 class="sec" id="h-ws">One-page decision worksheet</h2>
+      <p class="sec-intro">The printed version leaves room to note answers and the documents to gather.</p>
+      <div class="table-wrap">
+        <table class="sheet">
+          <thead><tr><th scope="col">Question</th><th scope="col">Answer or documents to gather</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Is the property Florida homestead?</th><td></td></tr>
+            <tr><th scope="row">Is the owner married? Does the owner have minor children?</th><td></td></tr>
+            <tr><th scope="row">Who currently owns the property, and how is title held?</th><td></td></tr>
+            <tr><th scope="row">Does the current deed have enhanced-powers language?</th><td></td></tr>
+            <tr><th scope="row">Is the deed recorded? Instrument number and county?</th><td></td></tr>
+            <tr><th scope="row">Who is named as primary beneficiary?</th><td></td></tr>
+            <tr><th scope="row">Does the deed name a substitute beneficiary or descendants?</th><td></td></tr>
+            <tr><th scope="row">Has any beneficiary died, divorced, become disabled, filed bankruptcy, or begun receiving public benefits?</th><td></td></tr>
+            <tr><th scope="row">Is the owner applying for or receiving Medicaid or another means-tested benefit?</th><td></td></tr>
+            <tr><th scope="row">Are there mortgages, reverse mortgages, liens, taxes, or HOA/condominium claims?</th><td></td></tr>
+            <tr><th scope="row">Are the will, trust, and power of attorney consistent with the deed?</th><td></td></tr>
+            <tr><th scope="row">Which attorney or title professional is assigned to review?</th><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="sources" aria-labelledby="h-src">
+      <h2 class="sec" id="h-src">Primary legal references</h2>
+      <ul class="sources">
+        <li><strong>Section 409.9101, Florida Statutes (Medicaid Estate Recovery Act):</strong> estate recovery through an AHCA statement of claim in the probate estate, the post-age-55 debt provision, and specified non-recovery and hardship circumstances.</li>
+        <li><strong>Section 689.01, Florida Statutes:</strong> core deed-execution requirements for conveying real property interests, including signing in the presence of two subscribing witnesses.</li>
+        <li><strong>Section 695.26, Florida Statutes:</strong> recordability requirements for instruments affecting Florida real property.</li>
+        <li><strong>Florida Constitution, Article X, Section 4:</strong> homestead protection and devise rules, which may decide the outcome for a homestead owner with a spouse or minor child.</li>
+      </ul>
+      <p class="related screen-only">Related guide: <a href="central-florida-lady-bird-deed-guide.html">Central Florida Lady Bird deed guide</a>, with the intake checklist, six core deed components, and county recording workflow.</p>
+      <p class="closing">A Florida Lady Bird deed can be a useful, narrow title-planning tool. It works best as one part of a plan, not as a stand-alone Medicaid promise or a generic inheritance form. When a beneficiary dies first, the deed's precise contingency language controls, and the recorded plan can be updated while the owner is alive and competent.</p>
+    </section>
+  </main>
+</div>
+
+<section class="contact" id="contact" aria-labelledby="h-contact" style="margin:0">
+  <div class="inner">
+    <h2 id="h-contact">Questions about your own situation?</h2>
+    <p>Octus Estate works alongside licensed Florida attorneys on deeds, trusts, and the rest of the estate plan.</p>
+    <p>Mia Smith, MBA, NSSA, FPWM &nbsp;|&nbsp; <a href="tel:+13215671958">(321) 567-1958</a> &nbsp;|&nbsp; <a href="mailto:Estate@OctusFinancial.com">Estate@OctusFinancial.com</a> &nbsp;|&nbsp; <a href="https://octusestate.com">octusestate.com</a></p>
+  </div>
+</section>
+<footer class="legal">
+  <div class="inner">Educational reference only, not legal, Medicaid, tax, title, or benefits advice. Last reviewed September 2026.</div>
+</footer>
+
+<script>
+(function(){
+  var KEY = 'octus-ladybird-medicaid-v1';
+  var boxes = document.querySelectorAll('.check input[type=checkbox]');
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch(e) { saved = {}; }
+  boxes.forEach(function(b){
+    if (saved[b.id]) b.checked = true;
+    b.addEventListener('change', function(){
+      saved[b.id] = b.checked;
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch(e) {}
+    });
+  });
+  var reset = document.getElementById('reset');
+  if (reset) reset.addEventListener('click', function(){
+    boxes.forEach(function(b){ b.checked = false; });
+    saved = {};
+    try { localStorage.removeItem(KEY); } catch(e) {}
+  });
+})();
+</script>
+</body>
+</html>
