@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Home Planning — Which option fits your state? | Octus Estate</title>
+<meta name="description" content="A free home planning decision tree for all 50 states. See whether a Lady Bird deed, a transfer-on-death deed, or a living trust usually fits where you live."/>
+<link rel="canonical" href="https://octusestate.com/home-planning.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Instrument+Sans:wght@400;500;600&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Sorts+Mill+Goudy&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"/>
+<link rel="icon" type="image/png" href="assets/octus-mark.png">
+<style>
+  .page-hero { padding: 80px 0 40px; }
+  .page-hero h1 { max-width: 18ch; }
+  .page-hero .lead { max-width: 62ch; }
+  #hp-tree { max-width: 860px; margin: 0 auto; font-family: Montserrat, system-ui, sans-serif; line-height: 1.55; }
+  #hp-tree h2, #hp-tree h3 { font-family: "Sorts Mill Goudy", Georgia, serif; color: var(--hp-navy, #0f314e); font-weight: 400; margin: 0; }
+  .hp-florida { max-width: 860px; margin: 28px auto 0; padding: 18px 22px; border-left: 4px solid #c59f4a; background: #f6efe0; border-radius: 8px; font-size: 15px; }
+  .hp-disclaimer { max-width: 860px; margin: 22px auto 0; font-size: 13px; color: #5b6672; }
+#hp-tree{
+    --navy:#0f314e; --gold:#c59f4a; --sage:#a9c8be; --grey:#e8e8e8;
+    --gold-soft:#f6efe0; --sage-soft:#e9f1ee; --ink:#1e2a35; --muted:#5b6672; --line:#d9d4c7;
+  }
+.hp-paths{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0 30px}
+.hp-path{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center;transition:.2s}
+.hp-path h3{font-size:19px}
+.hp-path p{font-size:13px;color:var(--muted);margin:6px 0 0}
+.hp-path .hp-count{font-size:12px;font-weight:600;color:var(--gold);margin-top:8px}
+.hp-path.hp-on{border-color:var(--gold);box-shadow:0 0 0 3px rgba(197,159,74,.25)}
+.hp-path.hp-off{opacity:.45}
+.hp-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 26px 22px;box-shadow:0 6px 24px rgba(15,49,78,.06)}
+.hp-progress{display:flex;gap:6px;margin-bottom:18px}
+.hp-progress span{flex:1;height:5px;border-radius:3px;background:var(--grey)}
+.hp-progress span.hp-done{background:var(--gold)}
+.hp-q{font-family:"Sorts Mill Goudy",Georgia,serif;font-size:24px;color:var(--navy);margin:0 0 6px}
+.hp-hint{color:var(--muted);font-size:14px;margin:0 0 16px}
+#hp-tree select{width:100%;padding:12px 14px;font:inherit;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+.hp-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.hp-opt{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:#fff;cursor:pointer;font:inherit;text-align:left;color:var(--ink);transition:.15s}
+.hp-opt:hover{border-color:var(--gold)}
+.hp-opt.hp-sel{border-color:var(--navy);background:var(--sage-soft)}
+.hp-opt small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.hp-nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px}
+button.hp-btn{font:inherit;font-weight:600;border-radius:999px;padding:11px 22px;cursor:pointer;border:1px solid var(--navy)}
+.hp-btn.hp-primary{background:var(--navy);color:#fff}
+.hp-btn.hp-primary:disabled{opacity:.35;cursor:default}
+.hp-btn.hp-ghost{background:transparent;color:var(--navy)}
+.hp-badge{display:inline-block;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.04em}
+.hp-b-L{background:#f3e5c3;color:#6b5113}
+.hp-b-T{background:#d6e8e2;color:#1f5446}
+.hp-b-N{background:#e4e4e4;color:#3c434a}
+.hp-stateline{margin:14px 0 0;font-size:14px;color:var(--muted)}
+.hp-result h2{font-size:28px;margin:10px 0 4px}
+.hp-result .hp-lede{font-size:15px;margin:0 0 18px}
+.hp-deed{background:var(--gold-soft);border-left:4px solid var(--gold);border-radius:8px;padding:14px 16px;font-family:"Sorts Mill Goudy",Georgia,serif;font-size:16px;color:var(--navy);margin:8px 0 6px}
+.hp-small{font-size:12px;color:var(--muted)}
+.hp-facts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:18px 0}
+.hp-fact{background:var(--sage-soft);border-radius:10px;padding:12px 14px;font-size:13px}
+.hp-fact b{display:block;color:var(--navy);font-size:12px;letter-spacing:.05em;text-transform:uppercase;margin-bottom:2px}
+ul.hp-notes{padding-left:18px;margin:8px 0 0}
+ul.hp-notes li{margin:6px 0;font-size:14px}
+.hp-also{margin-top:16px;font-size:14px}
+.hp-cta{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.hp-cta a{background:var(--gold);color:#fff;text-decoration:none;font-weight:600;padding:11px 22px;border-radius:999px}
+@media (max-width:640px){.hp-paths{grid-template-columns:1fr}.hp-facts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Home planning · Every state</span>
+    <h1>How will your home pass to the people you love?</h1>
+    <p class="lead">Every state handles this a little differently. Answer six short questions and see the option that usually fits best where you live.</p>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+    <div id="hp-tree">
+<div class="hp-paths" id="paths">
+    <div class="hp-path" data-g="L"><h3>Lady Bird Deed States</h3><p>Keep full control for life; the home passes without probate.</p><div class="hp-count">5 states</div></div>
+    <div class="hp-path" data-g="T"><h3>Transfer-on-Death Deed States</h3><p>Name who receives the home; it passes at death without probate.</p><div class="hp-count">32 states</div></div>
+    <div class="hp-path" data-g="N"><h3>Will &amp; Trust States</h3><p>No deed shortcut; a will or living trust carries the home.</p><div class="hp-count">13 states</div></div>
+  </div>
+
+
+      <div class="hp-card" id="hp-card"></div>
+    </div>
+    <div class="hp-florida"><strong>In Florida?</strong> Our <a href="/tools.html">Florida home planning tools and guides</a> go deeper on Lady Bird deeds, homestead and Save Our Homes portability.</div>
+    <p class="hp-disclaimer">General education, not legal advice. Your plan is confirmed with a licensed attorney in your state before anything is signed. State details reviewed November 2026.</p>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <div class="cta-inner">
+      <div>
+        <span class="eyebrow" style="color:var(--gold);">Ready when you are</span>
+        <h2 style="margin-top:18px;">Talk it through with us.</h2>
+        <p>Twenty minutes to find a time that works. No payment, no commitment.</p>
+      </div>
+      <div>
+        <a class="btn btn-primary btn-large" href="https://calendly.com/octusfinancial/introduction" target="_blank" rel="noopener" style="justify-content:center;width:100%;">Schedule a conversation
+          <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="partials.js"></script>
+<script>
+
+// name|group(L/T/N)|medicaid(P/E)|tax|deed signing|community property|note
+const RAW = `Alabama|N|E|None|Notary acknowledgment|No|
+Alaska|T|P|None|Notary acknowledgment|Opt-in|Opt-in community property agreement or trust available.
+Arizona|T|E|None|Notary acknowledgment|Yes|Arizona calls it a beneficiary deed; the last one recorded controls.
+Arkansas|T|E|None|Notary acknowledgment|No|Arkansas calls it a beneficiary deed; the property stays subject to state Medicaid claims.
+California|T|P|None|Notary + 2 witnesses; record within 60 days|Yes|California's TOD deed law runs through 2031 unless extended.
+Colorado|T|P|None|Notary acknowledgment|No|Colorado calls it a beneficiary deed, and its statute lets Medicaid recover the property.
+Connecticut|N|E|Estate tax above $15M|2 witnesses + notary|No|Connecticut also has the only state gift tax.
+Delaware|T|P|None|Notary + 2 witnesses (one not a beneficiary)|No|Delaware's TOD deed applies to owners dying on or after Dec. 4, 2025.
+Florida|L|P|None|2 witnesses (names and addresses) + notary|Opt-in|Florida homestead rules apply when a spouse or minor child survives; a spouse joins the deed on homestead.
+Georgia|T|E|None|1 witness + notary|No|In Georgia the beneficiary records an affidavit within 9 months of the death.
+Hawaii|T|P|Estate tax above $5.49M|Notary acknowledgment|No|
+Idaho|N|E|None|Notary acknowledgment|Yes|
+Illinois|T|P|Estate tax above $4M|2 credible witnesses + notary; record before death|No|Illinois calls it a TOD instrument.
+Indiana|T|E|None|Notary + county auditor endorsement|No|
+Iowa|N|E|None|Notary acknowledgment|No|
+Kansas|T|E|None|Notary acknowledgment|No|
+Kentucky|N|E|Inheritance tax for more distant heirs|Notary acknowledgment|Opt-in|A 2026 TOD deed bill passed Kentucky's Senate; this may change.
+Louisiana|N|P|None|Authentic act: notary + 2 witnesses|Yes|Louisiana follows civil law, including forced heirship for some children.
+Maine|T|E|Estate tax above $7.16M|Notary acknowledgment|No|
+Maryland|T|P|Estate tax above $5M; inheritance tax for more distant heirs|Witnesses + notary who are not relatives or beneficiaries|No|Maryland's TOD deed applies to owners dying on or after Oct. 1, 2026.
+Massachusetts|N|P|Estate tax above $2M|Notary acknowledgment|No|
+Michigan|L|P|None|Notary; witnesses customary|No|Ask about property tax "uncapping" when the home transfers.
+Minnesota|T|E|Estate tax above $3M|Notary acknowledgment|No|
+Mississippi|T|E|None|Notary acknowledgment|No|
+Missouri|T|P|None|Notary acknowledgment|No|Missouri calls it a beneficiary deed.
+Montana|T|E|None|Notary acknowledgment|No|
+Nebraska|T|E|Inheritance tax (1% for close relatives above $100,000)|2 disinterested witnesses + notary; record within 30 days|No|
+Nevada|T|E|None|Notary acknowledgment|Yes|
+New Hampshire|T|E|None|Notary; record within 60 days of signing|No|
+New Jersey|N|E|Inheritance tax for siblings and more distant heirs|Notary acknowledgment|No|
+New Mexico|T|P|None|Notary acknowledgment|Yes|
+New York|T|P|Estate tax above $7.35M (with a "cliff")|2 witnesses together + notary|No|
+North Carolina|N|P|None|Notary acknowledgment|No|
+North Dakota|T|E|None|Notary acknowledgment|No|
+Ohio|T|E|None|Notary acknowledgment|No|Ohio uses a TOD designation affidavit.
+Oklahoma|T|P|None|2 witnesses + notary|No|In Oklahoma the beneficiary records an affidavit within 9 months of the death.
+Oregon|T|E|Estate tax above $1M|Notary acknowledgment|No|
+Pennsylvania|N|P|Inheritance tax (4.5% to children and grandchildren)|Notary acknowledgment|No|
+Rhode Island|N|P|Estate tax above $1.84M|Notary acknowledgment|No|A 2026 TOD deed bill passed Rhode Island's Senate; this may change.
+South Carolina|N|P|None|2 witnesses + notary|No|
+South Dakota|T|E|None|Notary acknowledgment|Opt-in|
+Tennessee|N|P|None|Notary acknowledgment|Opt-in|
+Texas|L|P|None|Notary acknowledgment|Yes|Texas offers both a Lady Bird deed and a TOD deed.
+Utah|T|E|None|Notary acknowledgment|No|
+Vermont|L|P|Estate tax above $5M|Notary acknowledgment|No|
+Virginia|T|E|None|Notary acknowledgment|No|
+Washington|T|E|Estate tax above $3M|Notary acknowledgment|Yes|
+West Virginia|L|P|None|Notary acknowledgment|No|West Virginia offers both a Lady Bird deed and a TOD deed.
+Wisconsin|T|E|None|Notary acknowledgment|Yes|Wisconsin uses a TOD designation and "marital property" rules.
+Wyoming|T|E|None|Notary acknowledgment|No|`;
+const STATES = RAW.split("\n").map(l=>{const [n,g,m,t,s,c,note]=l.split("|");return {n,g,m,t,s,c,note}});
+const GROUP = {L:"Lady Bird Deed State",T:"Transfer-on-Death Deed State",N:"Will & Trust State"};
+
+const QUESTIONS = [
+  {id:"state", q:"Which state is your home in?", hint:"Use the state where the home itself sits. A second home in another state is covered in a later question.", type:"select"},
+  {id:"home", q:"Do you own your home?", hint:"Include a home you own with a spouse or partner.", opts:[
+    ["own","Yes, I own it"],["mortgage","Yes, with a mortgage"],["none","No / not at this time"]]},
+  {id:"house", q:"Who is in your household?", opts:[
+    ["married","Married"],["single","Single, widowed or divorced"],["partner","Unmarried partner"]]},
+  {id:"kids", q:"Do you have children?", opts:[
+    ["minor","Yes, at least one under 18"],["adult","Yes, all adults"],["none","No children"]]},
+  {id:"extra", q:"Do any of these describe your situation?", hint:"Choose all that apply, or none.", multi:true, opts:[
+    ["blended","Blended family","Children from an earlier relationship"],
+    ["help","A loved one who needs help","Special needs, or help managing money"],
+    ["multi","Property in more than one state",""],
+    ["incap","Someone to step in smoothly","If I can no longer manage things myself"]]},
+  {id:"ltc", q:"Is long-term care or Medicaid on your mind?", opts:[
+    ["yes","Yes, it's a real possibility"],["maybe","Not sure yet"],["no","Not a concern right now"]]}
+];
+
+let step = 0; const A = {extra:[]};
+const card = document.getElementById("hp-card");
+
+function stateObj(){return STATES.find(s=>s.n===A.state)}
+function lightPaths(){
+  const s = stateObj();
+  document.querySelectorAll(".hp-path").forEach(p=>{
+    p.classList.toggle("hp-on", !!s && p.dataset.g===s.g);
+    p.classList.toggle("hp-off", !!s && p.dataset.g!==s.g);
+  });
+}
+function answered(q){
+  if(q.multi) return true;
+  return !!A[q.id];
+}
+function render(){
+  if(step >= QUESTIONS.length){ renderResult(); return; }
+  const q = QUESTIONS[step];
+  let html = `<div class="hp-progress">${QUESTIONS.map((_,i)=>`<span class="${i<step?'hp-done':''}"></span>`).join("")}<span></span></div>`;
+  html += `<p class="hp-q">${q.q}</p>${q.hint?`<p class="hp-hint">${q.hint}</p>`:'<p class="hp-hint"></p>'}`;
+  if(q.type==="select"){
+    html += `<select id="sel"><option value="">Choose a state…</option>${STATES.map(s=>`<option ${A.state===s.n?'selected':''}>${s.n}</option>`).join("")}</select>`;
+    const s = stateObj();
+    if(s) html += `<p class="hp-stateline"><span class="hp-badge hp-b-${s.g}">${GROUP[s.g]}</span></p>`;
+  } else {
+    html += `<div class="hp-opts">${q.opts.map(([v,l,sm])=>{
+      const sel = q.multi ? A.extra.includes(v) : A[q.id]===v;
+      return `<button class="hp-opt ${sel?'hp-sel':''}" data-v="${v}">${l}${sm?`<small>${sm}</small>`:''}</button>`}).join("")}</div>`;
+  }
+  html += `<div class="hp-nav"><button class="hp-btn hp-ghost" id="back" ${step===0?'style="visibility:hidden"':''}>Back</button>
+    <button class="hp-btn hp-primary" id="next" ${answered(q)?'':'disabled'}>${step===QUESTIONS.length-1?'See my best fit':'Next'}</button></div>`;
+  card.innerHTML = html;
+  const sel = document.getElementById("sel");
+  if(sel) sel.onchange = e=>{A.state=e.target.value; lightPaths(); render();};
+  card.querySelectorAll(".hp-opt").forEach(b=>b.onclick=()=>{
+    const v=b.dataset.v;
+    if(q.multi){ A.extra = A.extra.includes(v)?A.extra.filter(x=>x!==v):[...A.extra,v]; }
+    else A[q.id]=v;
+    render();
+  });
+  document.getElementById("back").onclick=()=>{step--;render();};
+  document.getElementById("next").onclick=()=>{if(answered(q)){step++;render();}};
+}
+
+function decide(){
+  const s = stateObj(), g = s.g, owns = A.home!=="none";
+  const complex = A.kids==="minor" || A.extra.length>0;
+  const why = [];
+  if(A.kids==="minor") why.push("a child under 18 can't hold a home directly, so a trust lets someone manage it for them");
+  if(A.extra.includes("blended")) why.push("a trust spells out how a blended family is cared for, in the order you choose");
+  if(A.extra.includes("help")) why.push("a trust can hold a share for someone who needs help, without handing it over outright");
+  if(A.extra.includes("multi")) why.push("one trust can hold property in several states and avoid a separate probate in each");
+  if(A.extra.includes("incap")) why.push("a successor trustee can step in without a court, if you can no longer manage things");
+
+  let r = {};
+  if(!owns){
+    r = complex
+      ? {title:"Revocable living trust", lede:"With no home to title right now, the trust does the heavy lifting for the people and accounts you care about.", deed:null}
+      : {title:"Will with powers of attorney", lede:"Without a home to pass, a will plus financial and health care powers of attorney usually covers what matters most.", deed:null};
+  } else if(g==="L"){
+    r = complex
+      ? {title:"Revocable living trust (with your home deeded to it)", lede:`In a Lady Bird state the deed alone is often enough — but your answers point to a trust, because ${why[0]}.`, deed:"trust"}
+      : {title:"Lady Bird deed plus a will", lede:"You keep full control of your home for life — you can still sell, refinance or change your mind — and it passes to the people you name without probate.", deed:"lb"};
+  } else if(g==="T"){
+    r = complex
+      ? {title:"Revocable living trust (with your home deeded to it)", lede:`A TOD deed could pass the home, but your answers point to a trust, because ${why[0]}.`, deed:"trust"}
+      : {title:"Transfer-on-death deed plus a will", lede:"You keep owning your home as you do today, and at your death it passes to the beneficiaries you named, without probate.", deed:"tod"};
+  } else {
+    r = {title:"Revocable living trust (with your home deeded to it)", lede: complex
+          ? `Your state has no deed shortcut, and your answers add another reason for a trust: ${why[0]}.`
+          : "Your state has no Lady Bird or TOD deed, so a living trust is the usual way a home skips probate. A will alone also works — the home then goes through probate.", deed:"trust"};
+  }
+  r.why = why;
+  return r;
+}
+
+function deedWords(kind){
+  if(kind==="lb") return `“…reserving to the Grantor an enhanced life estate, with full power during the Grantor's lifetime to sell, convey, mortgage, lease or otherwise deal with the property without the joinder or consent of any remainder beneficiary, and upon the Grantor's death, the remainder to [beneficiaries], or to the survivor of them.”`;
+  if(kind==="tod") return `“[Owner] transfers on death to [primary beneficiary], or if not surviving, to [contingent beneficiary], the following described real property… This transfer takes effect only at the owner's death and may be revoked at any time before then.”`;
+  if(kind==="trust") return `“[Owner] conveys to [Owner], as Trustee of the [Name] Revocable Trust dated [date], and any successor trustee, the following described real property…”`;
+  return "";
+}
+
+function renderResult(){
+  const s = stateObj(), r = decide(), owns = A.home!=="none";
+  const notes = [];
+  if(owns && r.deed!=="trust" && r.deed) notes.push("Name a backup beneficiary too, so the plan still works if someone passes before you.");
+  if(A.house==="partner") notes.push("Unmarried partners don't inherit automatically in most states — naming your partner on the deed or in the trust is what makes it happen.");
+  if(A.house==="married" && s.c==="Yes") notes.push(`${s.n} is a community property state, which shapes how a married couple's home is titled and what each spouse controls.`);
+  if(A.house==="married" && s.c==="Opt-in") notes.push(`${s.n} lets married couples opt in to community property through a special trust — worth a conversation for the tax step-up it can bring.`);
+  if(A.home==="mortgage") notes.push("A mortgage doesn't stand in the way; transfers to family at death are generally protected from the loan being called due.");
+  if(A.ltc!=="no"){
+    if(s.m==="P" && r.deed==="lb") notes.push(`${s.n} limits Medicaid estate recovery to the probate estate, which is a big part of why the Lady Bird deed is popular here.`);
+    else if(s.m==="P") notes.push(`${s.n} limits Medicaid estate recovery to the probate estate. Ask how the option above interacts with that.`);
+    else notes.push(`${s.n} uses expanded Medicaid estate recovery, which can reach assets that skip probate — including a home passed by TOD deed or revocable trust. If care is likely, a conversation with an elder law attorney comes first.`);
+  }
+  if(s.note) notes.push(s.note);
+  if(r.why.length>1) notes.push("Other reasons in your answers: " + r.why.slice(1).join("; ") + ".");
+
+  const also = [];
+  if(r.deed==="trust") also.push("a pour-over will");
+  else if(owns) also.push("a will for everything the deed doesn't cover");
+  also.push("a durable financial power of attorney","a health care power of attorney and living will");
+
+  if(s.g==="L" && r.deed==="trust" && A.ltc!=="no") notes.push("Because care is on your mind, ask whether a Lady Bird deed — possibly naming your trust as the remainder beneficiary — fits better than deeding the home straight into the trust.");
+
+  card.innerHTML = `<div class="hp-result">
+    <span class="hp-badge hp-b-${s.g}">${s.n} · ${GROUP[s.g]}</span>
+    <h2>${r.title}</h2>
+    <p class="hp-lede">${r.lede}</p>
+    ${r.deed?`<div class="hp-small" style="text-transform:uppercase;letter-spacing:.08em;font-weight:600;color:var(--gold)">${r.deed==="trust"?"The deed that moves your home into the trust":"What to ask your attorney or title company for"}</div>
+      <div class="hp-deed">${deedWords(r.deed)}</div>
+      <div class="hp-small">${r.deed==="trust"
+        ?"Example wording only. The deed into your trust is included with the Octus Estate trust plan."
+        :`Example wording only. Your deed is prepared and recorded by a local attorney or title company, using any form ${s.n} requires. We help you understand which kind fits your plan and what to ask for.`}</div>`:''}
+    <div class="hp-facts">
+      <div class="hp-fact"><b>Signing day</b>${s.s}</div>
+      <div class="hp-fact"><b>Medicaid estate recovery</b>${s.m==="P"?"Probate estate only":"Expanded (can reach non-probate assets)"}</div>
+      <div class="hp-fact"><b>State death taxes</b>${s.t}</div>
+      <div class="hp-fact"><b>Community property</b>${s.c==="Opt-in"?"Opt-in by agreement or trust":s.c}</div>
+    </div>
+    ${notes.length?`<h3 style="font-size:19px">Worth knowing</h3><ul class="hp-notes">${notes.map(n=>`<li>${n}</li>`).join("")}</ul>`:''}
+    <p class="hp-also"><b>Goes alongside it:</b> ${also.join(", ")}.</p>
+    <div class="hp-cta"><button class="hp-btn hp-ghost" id="restart">Start over</button>
+      <a href="https://calendly.com/octusfinancial/introduction" target="_blank" rel="noopener">Book a free first conversation</a></div>
+  </div>`;
+  document.getElementById("restart").onclick=()=>{step=0;A.extra=[];["state","home","house","kids","ltc"].forEach(k=>delete A[k]);lightPaths();render();};
+}
+
+lightPaths(); render();
+
+</script>
+</body>
+</html>

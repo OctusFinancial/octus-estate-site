@@ -11,6 +11,14 @@
 <link rel="stylesheet" href="styles.css"/>
 <link rel="icon" type="image/png" href="assets/octus-mark.png">
 <style>
+/* ── three-path cards ── */
+.path-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.path-card { display:flex; flex-direction:column; gap:12px; padding:32px 28px; background:#fff; border:1px solid rgba(15,49,78,.12); border-top:4px solid var(--gold); border-radius:14px; text-decoration:none; color:inherit; transition:box-shadow .2s, transform .2s; }
+.path-card:hover { box-shadow:0 10px 30px rgba(15,49,78,.10); transform:translateY(-2px); }
+.path-card h3 { margin:0; color:var(--navy); }
+.path-card p { margin:0; flex:1; }
+.path-card .go { font-weight:600; color:var(--navy); }
+@media (max-width:860px){ .path-cards { grid-template-columns:1fr; } }
 /* ── video lightbox ── */
 .video-lightbox {
   display: none;
@@ -167,6 +175,33 @@
         <div class="num">100%</div>
         <div class="label">Attorney-reviewed in your state of residence.</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THREE WAYS IN ============ -->
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Where would you like to start?</span>
+      <h2>Three ways in.</h2>
+    </div>
+    <div class="path-cards">
+      <a class="path-card" href="/how-it-works.html">
+        <h3>Plan Your Estate</h3>
+        <p>A trust, a will and powers of attorney, built with you over three guided meetings.</p>
+        <span class="go">See how it works &rarr;</span>
+      </a>
+      <a class="path-card" href="/home-planning.html">
+        <h3>Home Planning</h3>
+        <p>See whether a Lady Bird deed, a transfer-on-death deed or a living trust usually fits your state.</p>
+        <span class="go">Start the questions &rarr;</span>
+      </a>
+      <a class="path-card" href="/resources.html">
+        <h3>Free Resources</h3>
+        <p>Essays, guides and short videos in plain English, for whenever you're ready.</p>
+        <span class="go">Browse resources &rarr;</span>
+      </a>
     </div>
   </div>
 </section>
