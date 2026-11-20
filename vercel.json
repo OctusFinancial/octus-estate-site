@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/testimonials.html", "destination": "/about.html", "permanent": false },
+    { "source": "/testimonials", "destination": "/about.html", "permanent": false }
+  ]
+}

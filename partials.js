@@ -55,7 +55,7 @@ function renderHeader(currentPath) {
       </a>
       <nav class="site-nav">${links}</nav>
       <div class="header-cta">
-        <a class="phone-link" href="tel:+18335331123">(833) 533-1123</a>
+        <a class="phone-link" href="tel:+13215671958">(321) 567-1958</a>
         <a class="btn btn-primary" href="https://calendly.com/octusfinancial/introduction" target="_blank" rel="noopener">Schedule now
           <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
@@ -112,7 +112,6 @@ function renderFooter() {
           <h5>Firm</h5>
           <ul>
             <li><a href="/about.html">About Octus</a></li>
-            <li><a href="/testimonials.html">Client stories</a></li>
             <li><a href="/contact.html">Contact</a></li>
             <li><a href="https://calendly.com/octusfinancial/introduction" target="_blank" rel="noopener">Schedule now</a></li>
           </ul>
@@ -173,7 +172,7 @@ function mountMobileNav() {
         Schedule a fit call
         <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
-      <div class="phone"><a href="tel:+18335331123">(833) 533-1123</a></div>
+      <div class="phone"><a href="tel:+13215671958">(321) 567-1958</a></div>
     </div>
   `;
   document.body.appendChild(overlay);
@@ -224,7 +223,7 @@ function injectGlobalSchema() {
     "logo": "https://octusestate.com/assets/octus-mark.png",
     "image": "https://octusestate.com/assets/octus-mark.png",
     "description": "Flat-fee estate planning delivered over three guided meetings. Revocable trusts, wills, and powers of attorney. Available in all 50 states.",
-    "telephone": "+1-833-533-1123",
+    "telephone": "+1-321-567-1958",
     "priceRange": "$$",
     "areaServed": [
       { "@type": "Country", "name": "United States" }
