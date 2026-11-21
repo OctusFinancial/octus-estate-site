@@ -73,6 +73,13 @@
   }
   .field textarea { min-height: 110px; resize: vertical; }
   .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .consent-field { margin-top: -4px; }
+  .field .consent-label {
+    display: flex; gap: 10px; align-items: flex-start;
+    font-size: 13px; letter-spacing: 0; text-transform: none;
+    color: var(--fg-soft); font-weight: 400; line-height: 1.5; cursor: pointer;
+  }
+  .field .consent-label input { width: 18px; height: 18px; min-width: 18px; margin-top: 2px; padding: 0; accent-color: var(--gold-deep); }
 
   .office-card {
     background: var(--bg-elev);
@@ -157,6 +164,13 @@
         <div class="field">
           <label for="cf-phone">Phone (optional)</label>
           <input id="cf-phone" name="q5_phone3" type="tel" placeholder="(000) 000-0000" autocomplete="tel">
+        </div>
+
+        <div class="field consent-field">
+          <label class="consent-label" for="cf-consent">
+            <input id="cf-consent" type="checkbox" value="Yes">
+            <span>If I gave a phone number, Octus Estate may call or text me about my inquiry, including by automated means. Agreeing isn't a condition of any purchase. Message and data rates may apply. Reply STOP to opt out.</span>
+          </label>
         </div>
 
         <div class="field">
@@ -324,6 +338,16 @@
       label.textContent = 'Sending…';
 
       const fd = new FormData(form);
+
+      // Record the call/text consent answer inside the message, so Jotform keeps it with the submission
+      const consentBox = document.getElementById('cf-consent');
+      const phoneVal = (document.getElementById('cf-phone').value || '').trim();
+      if (phoneVal) {
+        const consentLine = consentBox && consentBox.checked
+          ? '[Call/text consent: YES, ' + new Date().toISOString() + ' — "' + consentBox.nextElementSibling.textContent.trim() + '"]'
+          : '[Call/text consent: NO — email only]';
+        fd.set('q8_textarea6', (fd.get('q8_textarea6') || '') + '\n\n' + consentLine);
+      }
 
       const iframeName = 'cf-target-' + Date.now();
       const iframe = document.createElement('iframe');
