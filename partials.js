@@ -118,7 +118,7 @@ function renderFooter() {
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 Octus Estate. All rights reserved.</span>
+        <span>© 2026 Everlasting Retirement LLC DBA Octus Estate. All rights reserved.</span>
         <span>Available in all 50 states</span>
         <span class="footer-legal-links">
           <a href="/legal.html#disclosures">Disclosures</a>
@@ -128,11 +128,14 @@ function renderFooter() {
           <a href="/legal.html#terms">Terms</a>
           <span aria-hidden="true">·</span>
           <a href="/legal.html#cookies">Cookies</a>
+          <span aria-hidden="true">·</span>
+          <a href="/legal.html#accessibility">Accessibility</a>
         </span>
       </div>
       <p class="footer-disclaimer">
-        Octus Estate, LLC is a financial advisory firm — not a law firm. Estate-planning documents are prepared using the Estately platform; where attorney involvement is required, legal services are provided by attorneys licensed in your state through Estately + Counsel (operated by Advanced Services Law Group). Information on this website is provided for general informational purposes only and does not constitute legal, tax, or financial advice, and does not create an attorney-client relationship. Past results do not guarantee future outcomes. By using this site you agree to our <a href="/legal.html#terms" style="color:#d9bf85;text-decoration:underline;">Terms of Service</a> and <a href="/legal.html#privacy" style="color:#d9bf85;text-decoration:underline;">Privacy Policy</a>. See our full <a href="/legal.html" style="color:#d9bf85;text-decoration:underline;">Legal &amp; Disclosures</a> page.
+        Octus Estate is a DBA of Everlasting Retirement LLC — not a law firm. Estate plans are provided through our partner Retirement Fundamentals (ARK Partners Inc dba Retirement Fundamentals), and documents are prepared using the Estately platform; where attorney involvement is required, legal services are provided by attorneys licensed in your state through Estately + Counsel (operated by Advanced Services Law Group). Information on this website is provided for general informational purposes only and does not constitute legal, tax, or financial advice, and does not create an attorney-client relationship. Past results do not guarantee future outcomes. By using this site you agree to our <a href="/legal.html#terms" style="color:#d9bf85;text-decoration:underline;">Terms of Service</a> and <a href="/legal.html#privacy" style="color:#d9bf85;text-decoration:underline;">Privacy Policy</a>. See our full <a href="/legal.html" style="color:#d9bf85;text-decoration:underline;">Legal &amp; Disclosures</a> page.
       </p>
+      <p class="footer-disclaimer" style="margin-top:8px;">Everlasting Retirement LLC DBA Octus Estate · 7901 4th St. N., Ste 300, St. Petersburg, FL 33702 · <a href="tel:+13215671958" style="color:#d9bf85;">(321) 567-1958</a> · Mia Smith, NPN 19487742, FL License W831275</p>
     </div>
   </footer>`;
 }
@@ -157,7 +160,7 @@ function mountMobileNav() {
         <img src="assets/octus-mark.png" alt="" width="36" height="36"/>
         <span class="brand-text">
           <span class="name">Octus</span>
-          <span class="sub">Financial</span>
+          <span class="sub">Estate</span>
         </span>
       </a>
       <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
@@ -218,7 +221,7 @@ function injectGlobalSchema() {
     "@type": ["FinancialService", "ProfessionalService"],
     "@id": "https://octusestate.com/#organization",
     "name": "Octus Estate",
-    "legalName": "Octus Estate, LLC",
+    "legalName": "Everlasting Retirement LLC",
     "url": "https://octusestate.com/",
     "logo": "https://octusestate.com/assets/octus-mark.png",
     "image": "https://octusestate.com/assets/octus-mark.png",
@@ -265,9 +268,9 @@ function injectGlobalSchema() {
         },
         {
           "@type": "Offer",
-          "name": "Trust & Will Plan",
-          "description": "Revocable trust and pour-over will, two guided meetings, attorney review in your state.",
-          "price": "1800.00",
+          "name": "Will-Based Plan",
+          "description": "Last will, financial and medical powers of attorney, and living will / advance directive. Two guided meetings, attorney review in your state, complimentary annual review.",
+          "price": "1250.00",
           "priceCurrency": "USD"
         },
         {
