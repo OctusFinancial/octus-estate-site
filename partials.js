@@ -103,7 +103,7 @@ function renderFooter() {
             <li><a href="/essay-unfunded-trust.html">The unfunded trust epidemic</a></li>
             <li><a href="/essay-revocable-vs-irrevocable.html">Revocable vs irrevocable</a></li>
             <li><a href="/essay-probate.html">What probate actually costs</a></li>
-            <li><a href="/essay-lady-bird-deed.html">Lady Bird deeds in Florida</a></li>
+            <li><a href="/essay-when-to-update.html">When to update your plan</a></li>
             <li><a href="/essay-blended-families.html">Blended family planning</a></li>
             <li><a href="/resources.html" style="color:var(--gold);margin-top:4px;display:inline-block;">All essays →</a></li>
           </ul>
